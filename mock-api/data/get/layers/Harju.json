@@ -1,0 +1,62 @@
+[
+  {
+    "rawName": "Harju_RAAS_v1",
+    "shortName": "RAAS v1"
+  },
+  {
+    "rawName": "Harju_RAAS_v2",
+    "shortName": "RAAS v2"
+  },
+  {
+    "rawName": "Harju_Invasion_v1",
+    "shortName": "Invasion v1"
+  },
+  {
+    "rawName": "Harju_Invasion_v2",
+    "shortName": "Invasion v2"
+  },
+  {
+    "rawName": "Harju_Invasion_v3",
+    "shortName": "Invasion v3"
+  },
+  {
+    "rawName": "SD_Harju_Invasion_v1",
+    "shortName": "SD Invasion v1"
+  },
+  {
+    "rawName": "SD_Harju_Invasion_v2",
+    "shortName": "SD Invasion v2"
+  },
+  {
+    "rawName": "SD_Harju_Invasion_v3",
+    "shortName": "SD Invasion v3"
+  },
+  {
+    "rawName": "Harju_AAS_v1",
+    "shortName": "AAS v1"
+  },
+  {
+    "rawName": "Harju_AAS_v2",
+    "shortName": "AAS v2"
+  },
+  {
+    "rawName": "Harju_AAS_v3",
+    "shortName": "AAS v3"
+  },
+  {
+    "rawName": "Harju_Seed_v1",
+    "shortName": "Seed v1"
+  },
+  {
+    "rawName": "Harju_Skirmish_v1",
+    "shortName": "Skirmish v1"
+  },
+  {
+    "rawName": "Harju_Skirmish_v2",
+    "shortName": "Skirmish v2"
+  },
+  {
+    "rawName": "Harju_TC_v1",
+    "shortName": "TC v1"
+  }
+]

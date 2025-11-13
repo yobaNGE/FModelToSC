@@ -1,0 +1,50 @@
+[
+  {
+    "rawName": "AlBasrah_RAAS_v1",
+    "shortName": "RAAS v1"
+  },
+  {
+    "rawName": "AlBasrah_RAAS_v2",
+    "shortName": "RAAS v2"
+  },
+  {
+    "rawName": "AlBasrah_Invasion_v1",
+    "shortName": "Invasion v1"
+  },
+  {
+    "rawName": "AlBasrah_Invasion_v2",
+    "shortName": "Invasion v2"
+  },
+  {
+    "rawName": "AlBasrah_Invasion_v3",
+    "shortName": "Invasion v3"
+  },
+  {
+    "rawName": "AlBasrah_AAS_v1",
+    "shortName": "AAS v1"
+  },
+  {
+    "rawName": "AlBasrah_AAS_v2",
+    "shortName": "AAS v2"
+  },
+  {
+    "rawName": "AlBasrah_Seed_v1",
+    "shortName": "Seed v1"
+  },
+  {
+    "rawName": "AlBasrah_Seed_v2",
+    "shortName": "Seed v2"
+  },
+  {
+    "rawName": "AlBasrah_Skirmish_v1",
+    "shortName": "Skirmish v1"
+  },
+  {
+    "rawName": "AlBasrah_Skirmish_v2",
+    "shortName": "Skirmish v2"
+  },
+  {
+    "rawName": "AlBasrah_Skirmish_v3",
+    "shortName": "Skirmish v3"
+  }
+]
