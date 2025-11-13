@@ -134,6 +134,16 @@ If you see 404s like `No mock data for map '...'` or `No mock data for layer '..
 
 ---
 
+## Examples of output
+
+<img width="1908" height="950" alt="image" src="https://github.com/user-attachments/assets/0aa142f7-cc41-418f-bf28-3e3bc0d534ec" />
+
+<img width="1902" height="831" alt="image" src="https://github.com/user-attachments/assets/9a71837f-d399-4509-88d9-dbe46ae14c11" />
+
+<img width="1917" height="950" alt="image" src="https://github.com/user-attachments/assets/3f282c83-52db-447c-9c26-2cb6e5e471a8" />
+
+
+---
 
 ## Attribution
 
