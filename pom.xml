@@ -8,6 +8,14 @@
     <artifactId>FModelToSC</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/pipemasters/FModelToSC</url>
+        </repository>
+    </distributionManagement>
+
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
@@ -20,4 +28,17 @@
             <version>2.20.1</version>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <!-- Run app with: mvn -q -DskipTests exec:java -Dexec.args="<file>.json" -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <mainClass>com.pipemasters.Main</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
