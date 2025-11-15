@@ -280,7 +280,7 @@
       "location_x" : -29943.863,
       "location_y" : 74298.87,
       "location_z" : 189.98901,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -294,7 +294,7 @@
       "location_x" : -28569.715,
       "location_y" : 74862.99,
       "location_z" : 189.98901,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -308,7 +308,7 @@
       "location_x" : -28093.64,
       "location_y" : 74904.62,
       "location_z" : 189.98901,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -322,7 +322,7 @@
       "location_x" : -27602.092,
       "location_y" : 74947.68,
       "location_z" : 189.98901,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -336,7 +336,7 @@
       "location_x" : -27126.021,
       "location_y" : 74989.31,
       "location_z" : 189.98901,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -350,7 +350,7 @@
       "location_x" : -33644.8,
       "location_y" : 76175.54,
       "location_z" : 190.00073,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 4.9998646,
       "typePriorities" : [ ],
@@ -364,7 +364,7 @@
       "location_x" : -35713.133,
       "location_y" : 75892.414,
       "location_z" : 190.01343,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 4.9998646,
       "typePriorities" : [ ],
@@ -420,7 +420,7 @@
       "location_x" : -35461.71,
       "location_y" : 73860.19,
       "location_z" : 189.9978,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -462,7 +462,7 @@
       "location_x" : -31655.467,
       "location_y" : 78739.82,
       "location_z" : 190.0304,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -476,7 +476,7 @@
       "location_x" : -31209.998,
       "location_y" : 78780.67,
       "location_z" : 190.02893,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -490,7 +490,7 @@
       "location_x" : -30727.877,
       "location_y" : 78571.24,
       "location_z" : 190.03308,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -504,7 +504,7 @@
       "location_x" : -30290.22,
       "location_y" : 78701.3,
       "location_z" : 190.03601,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -518,7 +518,7 @@
       "location_x" : -29846.16,
       "location_y" : 78809.58,
       "location_z" : 190.03748,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -532,7 +532,7 @@
       "location_x" : -29388.902,
       "location_y" : 78715.57,
       "location_z" : 190.03992,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -574,7 +574,7 @@
       "location_x" : -34985.652,
       "location_y" : 73901.83,
       "location_z" : 189.9978,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -602,7 +602,7 @@
       "location_x" : -34518.047,
       "location_y" : 73942.74,
       "location_z" : 189.9978,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -616,7 +616,7 @@
       "location_x" : -34041.992,
       "location_y" : 73984.375,
       "location_z" : 189.9978,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -630,7 +630,7 @@
       "location_x" : -33589.383,
       "location_y" : 74109.23,
       "location_z" : 189.9978,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -644,7 +644,7 @@
       "location_x" : -32183.307,
       "location_y" : 74160.86,
       "location_z" : 189.9978,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -658,7 +658,7 @@
       "location_x" : -31392.428,
       "location_y" : 74172.14,
       "location_z" : 189.9978,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -672,7 +672,7 @@
       "location_x" : -30916.371,
       "location_y" : 74213.77,
       "location_z" : 189.9978,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -686,7 +686,7 @@
       "location_x" : -30419.93,
       "location_y" : 74257.23,
       "location_z" : 189.98901,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.99995,
       "typePriorities" : [ ],
@@ -700,7 +700,7 @@
       "location_x" : -28545.316,
       "location_y" : 78898.52,
       "location_z" : 189.99658,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 151.26715,
       "typePriorities" : [ {
@@ -720,7 +720,7 @@
       "location_x" : -28584.195,
       "location_y" : 79510.6,
       "location_z" : 189.99902,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 151.26715,
       "typePriorities" : [ {
@@ -740,7 +740,7 @@
       "location_x" : -28656.18,
       "location_y" : 80114.31,
       "location_z" : 189.99487,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 151.26715,
       "typePriorities" : [ {
@@ -762,7 +762,7 @@
       "location_z" : 230.00055,
       "rotation_x" : 0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : -84.532776,
+      "rotation_z" : -84.53277600000001,
       "typePriorities" : [ {
         "name" : "LOGI",
         "icon" : "10\""
@@ -777,7 +777,7 @@
       "location_x" : -32644.656,
       "location_y" : 81333.59,
       "location_z" : 229.35178,
-      "rotation_x" : 0.11936438,
+      "rotation_x" : 0.11936438000000002,
       "rotation_y" : -0.43139648,
       "rotation_z" : -84.53369,
       "typePriorities" : [ {
@@ -796,7 +796,7 @@
       "location_z" : 229.99796,
       "rotation_x" : 0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : -84.532776,
+      "rotation_z" : -84.53277600000001,
       "typePriorities" : [ {
         "name" : "LOGI",
         "icon" : "10\""
@@ -811,7 +811,7 @@
       "location_x" : -28683.734,
       "location_y" : 80727.0,
       "location_z" : 189.99854,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 154.63893,
       "typePriorities" : [ {
@@ -828,7 +828,7 @@
       "location_x" : -28727.803,
       "location_y" : 81341.5,
       "location_z" : 189.99707,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 154.63893,
       "typePriorities" : [ {
@@ -845,7 +845,7 @@
       "location_x" : -28724.973,
       "location_y" : 81985.586,
       "location_z" : 189.99854,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 154.63893,
       "typePriorities" : [ {
@@ -862,7 +862,7 @@
       "location_x" : 47490.297,
       "location_y" : -103193.07,
       "location_z" : 547.18604,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ {
@@ -888,7 +888,7 @@
       "location_x" : 47704.316,
       "location_y" : -102894.4,
       "location_z" : 516.19824,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ {
@@ -914,7 +914,7 @@
       "location_x" : 42506.957,
       "location_y" : -110421.49,
       "location_z" : 528.3314,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : -126.24243,
       "typePriorities" : [ ],
@@ -928,7 +928,7 @@
       "location_x" : 41783.98,
       "location_y" : -109891.695,
       "location_z" : 528.3314,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : -126.24243,
       "typePriorities" : [ ],
@@ -942,7 +942,7 @@
       "location_x" : 41747.066,
       "location_y" : -111564.81,
       "location_z" : 528.3314,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 78.75735,
       "typePriorities" : [ ],
@@ -956,7 +956,7 @@
       "location_x" : 41354.52,
       "location_y" : -111326.17,
       "location_z" : 528.3314,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 78.75735,
       "typePriorities" : [ ],
@@ -970,7 +970,7 @@
       "location_x" : 40962.918,
       "location_y" : -111039.71,
       "location_z" : 528.3314,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 78.75735,
       "typePriorities" : [ ],
@@ -984,7 +984,7 @@
       "location_x" : 40257.902,
       "location_y" : -110452.945,
       "location_z" : 504.219,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 78.75735,
       "typePriorities" : [ ],
@@ -1000,7 +1000,7 @@
       "location_z" : 527.1821,
       "rotation_x" : 0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : -36.242493,
+      "rotation_z" : -36.24249300000001,
       "typePriorities" : [ ],
       "tagPriorities" : [ ]
     }, {
@@ -1014,7 +1014,7 @@
       "location_z" : 497.18213,
       "rotation_x" : 0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : -36.242493,
+      "rotation_z" : -36.24249300000001,
       "typePriorities" : [ ],
       "tagPriorities" : [ ]
     }, {
@@ -1026,7 +1026,7 @@
       "location_x" : 44890.594,
       "location_y" : -106782.7,
       "location_z" : 528.3312,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ ],
@@ -1042,7 +1042,7 @@
       "location_z" : 497.18164,
       "rotation_x" : 0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : -36.242493,
+      "rotation_z" : -36.24249300000001,
       "typePriorities" : [ ],
       "tagPriorities" : [ ]
     }, {
@@ -1056,7 +1056,7 @@
       "location_z" : 497.18164,
       "rotation_x" : 0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : -36.242493,
+      "rotation_z" : -36.24249300000001,
       "typePriorities" : [ ],
       "tagPriorities" : [ ]
     }, {
@@ -1068,7 +1068,7 @@
       "location_x" : 40488.992,
       "location_y" : -104019.125,
       "location_z" : 497.1953,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : -126.24243,
       "typePriorities" : [ ],
@@ -1082,7 +1082,7 @@
       "location_x" : 41088.613,
       "location_y" : -103188.16,
       "location_z" : 497.188,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : -126.24243,
       "typePriorities" : [ ],
@@ -1098,7 +1098,7 @@
       "location_z" : 497.18042,
       "rotation_x" : 0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : -36.242493,
+      "rotation_z" : -36.24249300000001,
       "typePriorities" : [ ],
       "tagPriorities" : [ ]
     }, {
@@ -1112,7 +1112,7 @@
       "location_z" : 497.1848,
       "rotation_x" : 0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : -36.242493,
+      "rotation_z" : -36.24249300000001,
       "typePriorities" : [ ],
       "tagPriorities" : [ ]
     }, {
@@ -1124,7 +1124,7 @@
       "location_x" : 44509.06,
       "location_y" : -107303.18,
       "location_z" : 528.3312,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ ],
@@ -1138,7 +1138,7 @@
       "location_x" : 39252.1,
       "location_y" : -105706.484,
       "location_z" : 497.19482,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : -126.24243,
       "typePriorities" : [ ],
@@ -1152,7 +1152,7 @@
       "location_x" : 44257.402,
       "location_y" : -107646.27,
       "location_z" : 528.3312,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ ],
@@ -1166,7 +1166,7 @@
       "location_x" : 43770.22,
       "location_y" : -108242.18,
       "location_z" : 528.3312,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ ],
@@ -1180,7 +1180,7 @@
       "location_x" : 43252.19,
       "location_y" : -108949.0,
       "location_z" : 528.3312,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ ],
@@ -1194,7 +1194,7 @@
       "location_x" : 42153.28,
       "location_y" : -110162.4,
       "location_z" : 528.3314,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : -126.24243,
       "typePriorities" : [ ],
@@ -1208,7 +1208,7 @@
       "location_x" : 45963.566,
       "location_y" : -105360.81,
       "location_z" : 528.3345,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ {
@@ -1228,7 +1228,7 @@
       "location_x" : 45687.98,
       "location_y" : -105727.016,
       "location_z" : 535.3242,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ {
@@ -1248,7 +1248,7 @@
       "location_x" : 46461.47,
       "location_y" : -104872.91,
       "location_z" : 475.32422,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ {
@@ -1268,7 +1268,7 @@
       "location_x" : 45443.695,
       "location_y" : -106066.16,
       "location_z" : 528.3312,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 143.75739,
       "typePriorities" : [ {
@@ -1290,7 +1290,7 @@
       "location_z" : 560.751,
       "rotation_x" : 0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : -34.765198,
+      "rotation_z" : -34.76519799999999,
       "typePriorities" : [ {
         "name" : "LOGI",
         "icon" : "10\""
@@ -1339,7 +1339,7 @@
       "location_x" : 46488.598,
       "location_y" : -100981.87,
       "location_z" : 525.1836,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : -124.732864,
       "typePriorities" : [ {
@@ -1356,7 +1356,7 @@
       "location_x" : 46858.535,
       "location_y" : -101238.34,
       "location_z" : 525.1836,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : -124.732864,
       "typePriorities" : [ {
@@ -1373,7 +1373,7 @@
       "location_x" : 47251.57,
       "location_y" : -101510.82,
       "location_z" : 525.1846,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : -124.732864,
       "typePriorities" : [ {
@@ -1390,9 +1390,9 @@
       "location_x" : -34776.707,
       "location_y" : 76770.42,
       "location_z" : 179.99829,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : 7.797142
+      "rotation_z" : 7.797142000000002
     }, {
       "type" : "Ammo Crate",
       "icon" : "deployable_ammocrate",
@@ -1400,7 +1400,7 @@
       "location_x" : -33105.22,
       "location_y" : 76681.266,
       "location_z" : 190.00049,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 94.062996
     }, {
@@ -1410,7 +1410,7 @@
       "location_x" : -35993.465,
       "location_y" : 78080.055,
       "location_z" : 189.99805,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 96.29188
     }, {
@@ -1420,7 +1420,7 @@
       "location_x" : -35028.1,
       "location_y" : 77443.51,
       "location_z" : 259.9961,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 4.3677244
     }, {
@@ -1430,9 +1430,9 @@
       "location_x" : -35058.684,
       "location_y" : 78002.766,
       "location_z" : 189.99805,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : 5.2604246
+      "rotation_z" : 5.260424600000001
     }, {
       "type" : "Ammo Crate",
       "icon" : "deployable_ammocrate",
@@ -1440,7 +1440,7 @@
       "location_x" : 43115.934,
       "location_y" : -106878.95,
       "location_z" : 427.1836,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 55.12224
     }, {
@@ -1450,7 +1450,7 @@
       "location_x" : 43580.566,
       "location_y" : -106182.71,
       "location_z" : 437.1836,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 141.22533
     }, {
@@ -1470,9 +1470,9 @@
       "location_x" : 42131.117,
       "location_y" : -107813.9,
       "location_z" : 497.18555,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : 52.780743
+      "rotation_z" : 52.78074300000001
     }, {
       "type" : "Repair Station",
       "icon" : "inventory_category_repair",
@@ -1480,9 +1480,9 @@
       "location_x" : 42416.977,
       "location_y" : -107416.98,
       "location_z" : 497.1853,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
-      "rotation_z" : 52.818127
+      "rotation_z" : 52.818127000000004
     }, {
       "type" : "Ammo Crate",
       "icon" : "deployable_ammocrate",
@@ -1490,7 +1490,7 @@
       "location_x" : 27000.12,
       "location_y" : 12548.532,
       "location_z" : 99.833374,
-      "rotation_x" : 0.0,
+      "rotation_x" : -0.0,
       "rotation_y" : 0.0,
       "rotation_z" : 104.18676
     } ]
@@ -1557,22 +1557,22 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 6076.258782176992,
-            "extent_y" : 14032.512391754444,
-            "extent_z" : 6000.000000000001,
+            "extent_x" : 6000.0,
+            "extent_y" : 6000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 270.31246,
+            "rotation_y" : 0.0,
+            "rotation_z" : 180.31246,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "6000",
-          "capsuleLength" : "16000",
+          "capsuleLength" : "8000",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 270.31246
+          "rotation_y" : 0.0,
+          "rotation_z" : 180.31246
         } ]
       }, {
         "name" : "Pleasant Park",
@@ -1592,7 +1592,7 @@
             "extent_x" : 9000.0,
             "extent_y" : 9000.0,
             "extent_z" : 9000.0,
-            "rotation_x" : 0.0,
+            "rotation_x" : -0.0,
             "rotation_y" : 0.0,
             "rotation_z" : 0.0,
             "scaling_x" : 1.0,
@@ -1619,7 +1619,7 @@
             "extent_x" : 9000.0,
             "extent_y" : 9000.0,
             "extent_z" : 9000.0,
-            "rotation_x" : 0.0,
+            "rotation_x" : -0.0,
             "rotation_y" : 0.0,
             "rotation_z" : 0.0,
             "scaling_x" : 1.0,
@@ -1653,22 +1653,22 @@
           "sphereRadius" : "6000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 8500.311288393657,
-            "extent_y" : 10651.716157096302,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 6000.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 300.312584,
+            "rotation_y" : 0.0,
+            "rotation_z" : 210.31258400000002,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "4000",
-          "capsuleLength" : "12000",
+          "capsuleLength" : "6000",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 300.312584
+          "rotation_y" : 0.0,
+          "rotation_z" : 210.31258400000002
         } ]
       }, {
         "name" : "Tilted Towers",
@@ -1685,22 +1685,22 @@
           "sphereRadius" : "12000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 6552.511218993394,
-            "extent_y" : 17389.91508206783,
-            "extent_z" : 5000.000000000001,
+            "extent_x" : 5000.0,
+            "extent_y" : 5000.0,
+            "extent_z" : 12000.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 275.312485,
+            "rotation_y" : 0.0,
+            "rotation_z" : 185.31248499999998,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "5000",
-          "capsuleLength" : "24000",
+          "capsuleLength" : "12000",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 275.312485
+          "rotation_y" : 0.0,
+          "rotation_z" : 185.31248499999998
         } ]
       }, {
         "name" : "Dusty Depot",
@@ -1717,22 +1717,22 @@
           "sphereRadius" : "6000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 10554.544726930306,
-            "extent_y" : 5725.625875552027,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 6000.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 10.312960000000004,
+            "rotation_y" : 0.0,
+            "rotation_z" : -79.68704000000002,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "4000",
-          "capsuleLength" : "12000",
+          "capsuleLength" : "6000",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 10.312960000000004
+          "rotation_y" : 0.0,
+          "rotation_z" : -79.68704000000002
         } ]
       } ]
     },
@@ -1759,22 +1759,22 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 12646.088340539494,
-            "extent_y" : 7808.849291122273,
-            "extent_z" : 4000.000000000001,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 340.31253000000004,
+            "rotation_y" : 0.0,
+            "rotation_z" : 250.31252999999998,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "4000",
-          "capsuleLength" : "16000",
+          "capsuleLength" : "8000",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 340.31253000000004
+          "rotation_y" : 0.0,
+          "rotation_z" : 250.31252999999998
         } ]
       }, {
         "name" : "Flush Factory",
@@ -1791,22 +1791,22 @@
           "sphereRadius" : "12000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 10316.719483566307,
-            "extent_y" : 16208.354464153497,
-            "extent_z" : 4000.000000000001,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 12000.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 65.31419,
+            "rotation_y" : 0.0,
+            "rotation_z" : -24.685810000000032,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "4000",
-          "capsuleLength" : "24000",
+          "capsuleLength" : "12000",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 65.31419
+          "rotation_y" : 0.0,
+          "rotation_z" : -24.685810000000032
         } ]
       } ]
     },
@@ -1833,22 +1833,22 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 12318.814564786959,
-            "extent_y" : 5093.908287190012,
-            "extent_z" : 4000.000000000001,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 5.31268,
+            "rotation_y" : 0.0,
+            "rotation_z" : -84.68732000000003,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "4000",
-          "capsuleLength" : "16000",
+          "capsuleLength" : "8000",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 5.31268
+          "rotation_y" : 0.0,
+          "rotation_z" : -84.68732000000003
         } ]
       }, {
         "name" : "Junk Junction",
@@ -1865,22 +1865,22 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 17884.24321736111,
-            "extent_y" : 14072.05644434262,
-            "extent_z" : 8000.000000000001,
+            "extent_x" : 8000.0,
+            "extent_y" : 8000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 205.308664,
+            "rotation_y" : 0.0,
+            "rotation_z" : 115.308664,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "8000",
-          "capsuleLength" : "16000",
+          "capsuleLength" : "8000",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 205.308664
+          "rotation_y" : 0.0,
+          "rotation_z" : 115.308664
         } ]
       } ]
     },
@@ -1907,22 +1907,22 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 5093.9830551072555,
-            "extent_y" : 12318.833109324634,
-            "extent_z" : 4000.000000000001,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 95.31305,
+            "rotation_y" : 0.0,
+            "rotation_z" : 5.31304999999999,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "4000",
-          "capsuleLength" : "16000",
+          "capsuleLength" : "8000",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 95.31305
+          "rotation_y" : 0.0,
+          "rotation_z" : 5.31304999999999
         } ]
       }, {
         "name" : "Glue Factory",
@@ -1939,22 +1939,22 @@
           "sphereRadius" : "8500",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 11699.857215857124,
-            "extent_y" : 11634.319759787752,
-            "extent_z" : 4000.000000000001,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8500.0,
             "rotation_x" : -90.0,
-            "rotation_y" : 180.0,
-            "rotation_z" : 135.312378,
+            "rotation_y" : 0.0,
+            "rotation_z" : 45.31237799999999,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
           },
           "isCapsule" : true,
           "capsuleRadius" : "4000",
-          "capsuleLength" : "17000",
+          "capsuleLength" : "8500",
           "rotation_x" : -90.0,
-          "rotation_y" : 180.0,
-          "rotation_z" : 135.312378
+          "rotation_y" : 0.0,
+          "rotation_z" : 45.31237799999999
         } ]
       } ]
     },
@@ -1977,7 +1977,7 @@
           "extent_x" : 8341.893,
           "extent_y" : 8341.893,
           "extent_z" : 8341.893,
-          "rotation_x" : 0.0,
+          "rotation_x" : -0.0,
           "rotation_y" : 0.0,
           "rotation_z" : 0.0,
           "scaling_x" : 1.0,
@@ -2007,7 +2007,7 @@
           "extent_x" : 500.0,
           "extent_y" : 500.0,
           "extent_z" : 500.0,
-          "rotation_x" : 0.0,
+          "rotation_x" : -0.0,
           "rotation_y" : 0.0,
           "rotation_z" : -116.9079,
           "scaling_x" : 1.0,
@@ -2027,7 +2027,7 @@
           "extent_x" : 9720.758,
           "extent_y" : 5371.964,
           "extent_z" : 2000.0,
-          "rotation_x" : 0.0,
+          "rotation_x" : -0.0,
           "rotation_y" : 0.0,
           "rotation_z" : -116.9079,
           "scaling_x" : 1.0,
@@ -2056,7 +2056,7 @@
           "extent_x" : 22000.0,
           "extent_y" : 22000.0,
           "extent_z" : 3000.0,
-          "rotation_x" : 0.0,
+          "rotation_x" : -0.0,
           "rotation_y" : 0.0,
           "rotation_z" : -83.987908
         },
@@ -2078,7 +2078,7 @@
           "extent_x" : 20000.0,
           "extent_y" : 20000.0,
           "extent_z" : 3000.0,
-          "rotation_x" : 0.0,
+          "rotation_x" : -0.0,
           "rotation_y" : 0.0,
           "rotation_z" : 150.77418400000002
         },
