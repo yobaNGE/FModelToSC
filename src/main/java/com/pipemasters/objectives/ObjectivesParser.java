@@ -216,7 +216,7 @@ public class ObjectivesParser {
         double pitch = rotationNode.path("Pitch").asDouble(0.0);
         double yaw = rotationNode.path("Yaw").asDouble(0.0);
         double roll = rotationNode.path("Roll").asDouble(0.0);
-        return new Rotation(pitch, yaw, roll);
+        return Rotation.fromEulerDegrees(pitch, yaw, roll);
     }
 
     private Vector3D readVector(JsonNode node, String xField, String yField, String zField, Vector3D defaultValue) {
@@ -340,13 +340,13 @@ public class ObjectivesParser {
                                             Vector3D scale) {
         Vector3D extent = definition.extent().multiply(scale);
         double radius = Math.sqrt(extent.x() * extent.x() + extent.y() * extent.y() + extent.z() * extent.z());
-        // Squadcalc expects yaw to "rotation_z". what about roll and pitch? sharkman only knows...
+
         ObjectiveBoxExtent boxExtent = new ObjectiveBoxExtent(
                 extent.x(),
                 extent.y(),
                 extent.z(),
-                rotation.pitch(),
                 rotation.roll(),
+                rotation.pitch(),
                 rotation.yaw(),
                 scale.x(),
                 scale.y(),
@@ -419,23 +419,35 @@ public class ObjectivesParser {
         double radius = definition.capsuleRadius();
         double halfHeight = definition.capsuleHalfHeight();
 
-        double scaledRadiusX = radius * scale.x();
-        double scaledRadiusY = radius * scale.y();
         double scaledHalfHeight = halfHeight * scale.z();
+        double scaledRadius = radius * Math.max(scale.x(), scale.y());
+        double cylinderHalfHeight = Math.max(0.0, scaledHalfHeight - scaledRadius);
+
+        Vector3D axis = rotation.rotate(new Vector3D(0.0, 0.0, 1.0));
+        double axisLength = Math.sqrt(axis.x() * axis.x() + axis.y() * axis.y() + axis.z() * axis.z());
+        if (axisLength > 1e-6) {
+            axis = new Vector3D(axis.x() / axisLength, axis.y() / axisLength, axis.z() / axisLength);
+        }
+
+        double extentX = scaledRadius + cylinderHalfHeight * Math.abs(axis.x());
+        double extentY = scaledRadius + cylinderHalfHeight * Math.abs(axis.y());
+        double extentZ = scaledRadius + cylinderHalfHeight * Math.abs(axis.z());
 
         ObjectiveBoxExtent boxExtent = new ObjectiveBoxExtent(
-                scaledRadiusX,
-                scaledRadiusY,
-                scaledHalfHeight,
-                rotation.pitch(),
+                extentX,
+                extentY,
+                extentZ,
                 rotation.roll(),
-                rotation.yaw() + 90,
+                rotation.pitch(),
+                rotation.yaw(),
+//                rotation.pitch(),
+//                rotation.roll(),
+//                rotation.yaw() + 90,
                 scale.x(),
                 scale.y(),
                 scale.z()
         );
 
-        double scaledRadius = Math.max(scaledRadiusX, scaledRadiusY);
         String capsuleRadiusValue = formatDecimal(scaledRadius);
         String capsuleLengthValue = formatDecimal(scaledHalfHeight);
 
@@ -454,9 +466,12 @@ public class ObjectivesParser {
                 true,
                 capsuleRadiusValue,
                 capsuleLengthValue,
-                rotation.pitch(),
                 rotation.roll(),
-                rotation.yaw() + 90
+                rotation.pitch(),
+                rotation.yaw()
+//                rotation.pitch(),
+//                rotation.roll(),
+//                rotation.yaw() + 90
         );
 
         return new ObjectiveVolume(object, effectiveRadius);
@@ -518,44 +533,41 @@ public class ObjectivesParser {
         }
     }
 
-    private record Rotation(double pitch, double yaw, double roll) {
-        static final Rotation ZERO = new Rotation(0.0, 0.0, 0.0);
+    private static final class Rotation {
+        static final Rotation ZERO = fromEulerDegrees(0.0, 0.0, 0.0);
 
-        Rotation add(Rotation other) {
-            double[][] combined = multiplyMatrices(toMatrix(), other.toMatrix());
-            return fromMatrix(combined);
+        private final double m00;
+        private final double m01;
+        private final double m02;
+        private final double m10;
+        private final double m11;
+        private final double m12;
+        private final double m20;
+        private final double m21;
+        private final double m22;
+        private EulerAngles cachedEulerAngles;
+
+        private Rotation(double m00,
+                         double m01,
+                         double m02,
+                         double m10,
+                         double m11,
+                         double m12,
+                         double m20,
+                         double m21,
+                         double m22) {
+            this.m00 = m00;
+            this.m01 = m01;
+            this.m02 = m02;
+            this.m10 = m10;
+            this.m11 = m11;
+            this.m12 = m12;
+            this.m20 = m20;
+            this.m21 = m21;
+            this.m22 = m22;
         }
 
-        Vector3D rotate(Vector3D vector) {
-            double[][] matrix = toMatrix();
-            double rx = matrix[0][0] * vector.x()
-                    + matrix[0][1] * vector.y()
-                    + matrix[0][2] * vector.z();
-            double ry = matrix[1][0] * vector.x()
-                    + matrix[1][1] * vector.y()
-                    + matrix[1][2] * vector.z();
-            double rz = matrix[2][0] * vector.x()
-                    + matrix[2][1] * vector.y()
-                    + matrix[2][2] * vector.z();
-
-            return new Vector3D(rx, ry, rz);
-        }
-
-        Vector3D rotateExtents(Vector3D extents) {
-            double[][] matrix = toMatrix();
-            double ex = Math.abs(matrix[0][0]) * extents.x()
-                    + Math.abs(matrix[0][1]) * extents.y()
-                    + Math.abs(matrix[0][2]) * extents.z();
-            double ey = Math.abs(matrix[1][0]) * extents.x()
-                    + Math.abs(matrix[1][1]) * extents.y()
-                    + Math.abs(matrix[1][2]) * extents.z();
-            double ez = Math.abs(matrix[2][0]) * extents.x()
-                    + Math.abs(matrix[2][1]) * extents.y()
-                    + Math.abs(matrix[2][2]) * extents.z();
-            return new Vector3D(ex, ey, ez);
-        }
-
-        private double[][] toMatrix() {
+        static Rotation fromEulerDegrees(double pitch, double yaw, double roll) {
             double pitchRad = Math.toRadians(pitch);
             double yawRad = Math.toRadians(yaw);
             double rollRad = Math.toRadians(roll);
@@ -579,44 +591,82 @@ public class ObjectivesParser {
             double m21 = cp * sr;
             double m22 = cp * cr;
 
-            return new double[][]{
-                    {m00, m01, m02},
-                    {m10, m11, m12},
-                    {m20, m21, m22}
-            };
-        }
-        private static double[][] multiplyMatrices(double[][] a, double[][] b) {
-            double[][] result = new double[3][3];
-            for (int row = 0; row < 3; row++) {
-                for (int col = 0; col < 3; col++) {
-                    result[row][col] = a[row][0] * b[0][col]
-                            + a[row][1] * b[1][col]
-                            + a[row][2] * b[2][col];
-                }
-            }
-            return result;
+            return new Rotation(m00, m01, m02, m10, m11, m12, m20, m21, m22);
         }
 
-        private static Rotation fromMatrix(double[][] matrix) {
-            double pitchRad = Math.asin(-matrix[2][0]);
+        Rotation add(Rotation other) {
+            return new Rotation(
+                    m00 * other.m00 + m01 * other.m10 + m02 * other.m20,
+                    m00 * other.m01 + m01 * other.m11 + m02 * other.m21,
+                    m00 * other.m02 + m01 * other.m12 + m02 * other.m22,
+                    m10 * other.m00 + m11 * other.m10 + m12 * other.m20,
+                    m10 * other.m01 + m11 * other.m11 + m12 * other.m21,
+                    m10 * other.m02 + m11 * other.m12 + m12 * other.m22,
+                    m20 * other.m00 + m21 * other.m10 + m22 * other.m20,
+                    m20 * other.m01 + m21 * other.m11 + m22 * other.m21,
+                    m20 * other.m02 + m21 * other.m12 + m22 * other.m22
+            );
+        }
+
+        Vector3D rotate(Vector3D vector) {
+            double rx = m00 * vector.x() + m01 * vector.y() + m02 * vector.z();
+            double ry = m10 * vector.x() + m11 * vector.y() + m12 * vector.z();
+            double rz = m20 * vector.x() + m21 * vector.y() + m22 * vector.z();
+            return new Vector3D(rx, ry, rz);
+        }
+
+        Vector3D rotateExtents(Vector3D extents) {
+            double ex = Math.abs(m00) * extents.x()
+                    + Math.abs(m01) * extents.y()
+                    + Math.abs(m02) * extents.z();
+            double ey = Math.abs(m10) * extents.x()
+                    + Math.abs(m11) * extents.y()
+                    + Math.abs(m12) * extents.z();
+            double ez = Math.abs(m20) * extents.x()
+                    + Math.abs(m21) * extents.y()
+                    + Math.abs(m22) * extents.z();
+            return new Vector3D(ex, ey, ez);
+        }
+
+        double pitch() {
+            return toEuler().pitch();
+        }
+
+        double yaw() {
+            return toEuler().yaw();
+        }
+
+        double roll() {
+            return toEuler().roll();
+        }
+
+        private EulerAngles toEuler() {
+            if (cachedEulerAngles != null) {
+                return cachedEulerAngles;
+            }
+            double pitchRad = Math.asin(-m20);
             double cp = Math.cos(pitchRad);
 
             double yawRad;
             double rollRad;
             if (Math.abs(cp) > 1e-6) {
-                yawRad = Math.atan2(matrix[1][0], matrix[0][0]);
-                rollRad = Math.atan2(matrix[2][1], matrix[2][2]);
+                yawRad = Math.atan2(m10, m00);
+                rollRad = Math.atan2(m21, m22);
             } else {
-                yawRad = Math.atan2(-matrix[0][1], matrix[1][1]);
+                yawRad = Math.atan2(-m01, m11);
                 rollRad = 0.0;
             }
 
-            return new Rotation(
+            cachedEulerAngles = new EulerAngles(
                     Math.toDegrees(pitchRad),
                     Math.toDegrees(yawRad),
                     Math.toDegrees(rollRad)
             );
+            return cachedEulerAngles;
         }
+    }
+
+    private record EulerAngles(double pitch, double yaw, double roll) {
     }
 
     private record ResolvedTransform(Vector3D location, Rotation rotation, Vector3D scale) {
