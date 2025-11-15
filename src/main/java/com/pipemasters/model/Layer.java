@@ -1,5 +1,6 @@
 package com.pipemasters.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.pipemasters.assets.Assets;
 import com.pipemasters.capture.CapturePoints;
@@ -9,6 +10,7 @@ import com.pipemasters.layer.MapCameraActor;
 import com.pipemasters.layer.MapTextureCorner;
 import com.pipemasters.mapassets.MapAssets;
 import com.pipemasters.objectives.Objective;
+import com.pipemasters.units.Units;
 
 import java.util.List;
 import java.util.Map;
@@ -26,7 +28,9 @@ import java.util.Map;
         "assets",
         "capturePoints",
         "objectives",
-        "mapAssets"
+        "mapAssets",
+        "teamConfigs",
+        "units"
 })
 public record Layer(String rawName,
                     String mapId,
@@ -40,12 +44,26 @@ public record Layer(String rawName,
                     Assets assets,
                     CapturePoints capturePoints,
                     Map<String, Objective> objectives,
-                    MapAssets mapAssets) {
+                    MapAssets mapAssets,
+                    @JsonInclude(JsonInclude.Include.NON_NULL)
+                    LayerTeamConfiguration teamConfigs,
+                    @JsonInclude(JsonInclude.Include.NON_NULL)
+                    Units units) {
     public Layer(LayerMetadata metadata,
                  CapturePoints capturePoints,
                  Map<String, Objective> objectives,
                  MapAssets mapAssets,
                  Assets assets) {
+        this(metadata, capturePoints, objectives, mapAssets, assets, null, null);
+    }
+
+    public Layer(LayerMetadata metadata,
+                 CapturePoints capturePoints,
+                 Map<String, Objective> objectives,
+                 MapAssets mapAssets,
+                 Assets assets,
+                 LayerTeamConfiguration teamConfigs,
+                 Units units) {
         this(metadata.rawName(),
                 metadata.mapId(),
                 metadata.mapName(),
@@ -58,6 +76,8 @@ public record Layer(String rawName,
                 assets,
                 capturePoints,
                 objectives,
-                mapAssets);
+                mapAssets,
+                teamConfigs,
+                units);
     }
 }

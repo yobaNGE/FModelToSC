@@ -11,4 +11,16 @@ public record LayerMetadata(String rawName,
                             MapCameraActor mapCameraActor,
                             List<BorderPoint> border,
                             List<MapTextureCorner> mapTextureCorners) {
+
+    public LayerMetadata withLayerVersion(String newLayerVersion) {
+        return new LayerMetadata(rawName,
+                mapId,
+                mapName,
+                gamemode,
+                newLayerVersion,
+                seaLevel,
+                mapCameraActor,
+                border,
+                mapTextureCorners);
+    }
 }
