@@ -1,151 +1,157 @@
 # FModelToSC
 
-Convert FModel‑exported Squad gameplay layers (.json) into SquadCalc‑compatible JSON and serve them locally via a tiny mock backend.
+Convert FModel‑exported Squad mod data into JSON payloads that SquadCalc can read. The project now ships with two tooling entry points:
 
-- Converter: Java 21 CLI (`com.pipemasters.Main`) that writes to `output/`.
-- Mock API: Node.js Express server in `mock-api/` that mimics the SquadCalc backend (https://github.com/sh4rkman/SquadCalc) and serves static images under `/api/img`.
+- **Layer exporter (`com.pipemasters.Main`)** – takes a gameplay layer export (the `layerdata.json` that references the layer, objectives, map assets, capture points, etc.), resolves every linked asset that FModel exported, and writes a SquadCalc‑compatible payload.
+- **Units exporter (`com.pipemasters.units.UnitsMain`)** – scans exported faction setup data and builds `units.json` with teams, vehicles, and commander abilities for every faction used by your mod.
+
+The repository also contains a mock SquadCalc backend (`mock-api/`) so you can preview your converted layers locally.
 
 ---
 
 ## Prerequisites
 
-- FModel (to export a layer’s properties to JSON)
-- Java 21 (JDK) and Maven (to build/run the converter)
-- Node.js 18+ and npm (to run the mock API)
-- Optional: IntelliJ IDEA (or any Java IDE) if you prefer running `Main` directly
-
-Notes for FModel:
-- In FModel, select the game "Squad".
-- Settings → General → enable "Local Mapping File" and point it to the provided `SQUADGAME904b.usmap` file in this repository.
-- Drop the mod folder to `\Squad\SquadGame\Plugins\Mods\`.
+| Tool | Purpose |
+| --- | --- |
+| [FModel](https://fmodel.app/) + the mapping file `SQUADGAME10.usmap` from this repository | Export gameplay layers, map data, faction setups, and any missing assets. |
+| [FModel fork](https://github.com/yobaNGE/FModel/releases/tag/1.0.0) | Provides the **Missing Asset Extractor** used to dump extra assets listed in `missing-assets.txt`. |
+| Java 21 (JDK) + Maven | Build and run both exporters. |
+| Node.js 18+ and npm | Run the mock API server. |
+| Optional: IntelliJ IDEA or any Java IDE | For running the exporters without Maven commands. |
 
 ---
 
-## Quick start
+## 0. Configure FModel
 
-1) Export a layer from FModel
-- Load your mod in FModel.
-- Go to `maps/gameplay_layers`.
-- Right‑click the layer → "Save properties (.json)".
-- Example exported file: `SD_Fallujah_Invasion_v3.json`.
+1. Launch FModel and choose the **Squad** game profile.
+2. Go to **Settings → General** and enable **Local Mapping File**.
+3. Point it at [`SQUADGAME10.usmap`](./SQUADGAME10.usmap) (bundled with this repo).
+4. Drop your mod folder into `\Squad\SquadGame\Plugins\Mods\` so FModel can load it.
+5. If you plan to use the Missing Asset Extractor, install the yobaNGE fork alongside your normal FModel install.
 
-Images for reference:
-<p align="center"><strong>Load mod</strong></p>
-<p align="center">
-  <img width="770" height="909" alt="image" src="https://github.com/user-attachments/assets/e6a30c26-45b2-44a4-8fde-b2f73a57d59c" />
-</p>
+All exports referenced below assume you right‑click assets or folders in FModel and choose **Save properties (.json)**.
 
-<p align="center"><strong>Navigate to layers</strong></p>
-<p align="center">
-  <img width="639" height="368" alt="image" src="https://github.com/user-attachments/assets/d53695a8-70f5-4d74-a5eb-79476f7e24e0" />
-</p>
+---
 
-<p align="center"><strong>Save properties (.json)</strong></p>
-<p align="center">
-  <img width="413" height="395" alt="image" src="https://github.com/user-attachments/assets/0c15d465-b236-446c-8ba0-69496aac468d" />
-</p>
+## 1. Export faction setup data (for UnitsMain)
 
+Run this step once per mod, then rerun only when you add factions or vehicles.
 
-2) Convert the exported JSON (Java CLI)
-- From the repo root, build and run the converter. The output goes to `output/` with the same filename.
+1. In FModel open your mod → `Content/Settings/FactionSetup`.
+2. Export the entire `FactionSetup` folder to JSON (every subfolder per faction should now contain the exported `.json` files). Keep the directory structure exactly as FModel produced it.
+3. Put path to Factionsetup as an argument, e.g. `C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Settings\Factionsetup`.
 
-Windows (cmd.exe):
+> **Tip:** Skip `Template` factions when exporting if they exist; the parser ignores them.
 
-```cmd
-:: Build and copy runtime dependencies
-mvn package
+---
 
-:: Run the converter
-mvn exec:java "-Dexec.args=SD_Fallujah_Invasion_v3.json"
+## 2. Build `output/units.json` with UnitsMain
+
+1. From the repo root run a Maven build (first run downloads dependencies):
+   ```bash
+   mvn package
+   ```
+2. Execute the units exporter, pointing it at the exported `FactionSetup` directory:
+   ```bash
+   mvn exec:java \
+     -Dexec.mainClass=com.pipemasters.units.UnitsMain \
+     -Dexec.args="C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Settings\Factionsetup"
+   ```
+   
+3. The tool writes `output/units.json` and logs how many factions were parsed for Team 1 and Team 2.
+4. If anything is missing, the run also creates/updates **`missing-assets.txt`** in the project root. Every line is an asset that needs to be exported (commander ability settings, vehicle data tables, delay presets, etc.).
+5. Open the yobaNGE FModel fork → **Tools → Missing Asset Extractor**, paste the contents of `missing-assets.txt`, press **Extract**, and copy the newly exported files into the same export root as your other JSONs.
+6. Rerun step 2 until `missing-assets.txt` is no longer populated. When it stays empty the unit data is complete.
+
+> `UnitsMain` only needs to run again when you add new factions, modify vehicles, or see new missing assets. The layer exporter reads `output/units.json` automatically; you can also pass a custom path as the third argument to `Main` (see below).
+
+---
+
+## 3. Export gameplay data for a layer
+
+For every layer you want to convert:
+
+1. In FModel navigate to `Maps/<MapName>/Gameplay_Layer_Data/Layer/` and export **`layerdata`** (the asset is usually named same way as layer or closely resembles it). This JSON references the actual gameplay layer asset.
+2. Ensure the referenced assets exist in your export directory. The layer exporter follows those references automatically. If a file is missing it will be written to console during conversion.
+
+Example path that becomes the first CLI argument:
+```
+"C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Yehorivka\Gameplay_Data\Layer\SD_Yehorivka_Invasion_v5.json"
 ```
 
-- In IDEs, run `com.pipemasters.Main` with a single Program Argument: the full path to your exported `.json`.
-- Note: this project does not build a fat JAR by default.
+---
 
-3) Serve layers via the mock SquadCalc backend (mock-api)
-- The mock API serves data from `mock-api/data/` and static assets from `mock-api/public/img` under `/api/img`.
+## 4. Convert the layer with `com.pipemasters.Main`
 
-```cmd
+With `output/units.json` in place you can now create SquadCalc‑compatible layer payloads:
+
+```bash
+mvn exec:java \
+  -Dexec.mainClass=com.pipemasters.Main \
+  -Dexec.args="C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Yehorivka\Gameplay_Data\Layer\SD_Yehorivka_Invasion_v5.json"
+```
+
+What the arguments mean:
+
+1. **Required:** path to the exported gameplay data JSON (the `layerdata.json` discussed above).
+2. **Optional:** explicit path to the actual gameplay layer JSON if the resolver cannot find it automatically.
+3. **Optional:** path to a `units.json` file. If omitted, the tool uses `output/units.json`.
+
+Successful runs print the detected layer version, write the converted payload to `output/<LayerName>_vX.json`, and log the absolute path. `missing-layers.txt` is updated with any assets that could not be resolved—export them via FModel, copy into your exports folder, and rerun the command.
+
+> The exporter preserves whatever folder structure you have under your export root. You can point it directly at an export from FModel or at a copy living elsewhere on disk.
+
+---
+
+## 5. Preview layers with the mock SquadCalc API
+
+The mock server lives in `mock-api/` and now proxies missing data to the live SquadCalc service when possible.
+
+```bash
 cd mock-api
 npm install
 npm start
 ```
 
-- Default base URL: http://localhost:4000/api
-- Change port and disable factions in SquadCalc project .env file:
+- Base URL: <http://localhost:4000/api>
+- Static images are proxied from `https://squadcalc.app/api/img/...`, so you no longer need to download image assets manually.
+- `/api/get/layer?name=SD_*` is served from local JSON files in `mock-api/data/get/layer/`.
+- `/api/get/layer` for other names is proxied to `https://squadcalc.app/api/get/layer`.
 
-```cmd
-API_URL=http://localhost:4000/api
-DISABLE_FACTIONS=true
-```
+To view a converted layer in SquadCalc:
 
-- Dev mode with auto‑reload of the server code:
+1. Copy `output/YourLayer_vX.json` to `mock-api/data/get/layer/YourLayer_vX.json`.
+2. Add the layer name to `mock-api/data/get/layers/<MapName>.json` so it appears in `/api/get/layers?map=<MapName>`.
+3. Point your SquadCalc `.env` at the mock server:
+   ```bash
+   API_URL=http://localhost:4000/api
+   ```
 
-```cmd
-npm run dev
-```
-
-Tip: Data files in `mock-api/data/` are read per request; you can edit them without restarting the server.
-
----
-
-## Using the mock API with your converted file
-
-1. Convert your layer (step 2). You’ll get `output/YourLayer.json`.
-2. Copy it to `mock-api/data/get/layer/`:
-   - `mock-api/data/get/layer/YourLayer.json`
-3. Add the layer name to `mock-api/data/get/layers/<MapName>.json` so it appears in `/api/get/layers?map=<MapName>`.
-   - Example: for Fallujah, edit `mock-api/data/get/layers/Fallujah.json` and follow the existing format.
-
-If you see 404s like `No mock data for map '...'` or `No mock data for layer '...'`, ensure filenames are exact and entries exist in the map list file.
+Use `npm run dev` for auto‑reload while tweaking the mock server code.
 
 ---
 
-## API surface (mock server)
+## Repository layout
 
-- GET `/api` → Lists available top‑level resources in `mock-api/data/`.
-- GET `/api/get/layers?map=<MapName>` → Returns layer list for that map.
-- GET `/api/get/layer?name=<LayerName>` → Returns the converted layer JSON.
-- GET `/api/img/...` → Serves static images from `mock-api/public/img`.
-- GET `/api/:resource` → Returns `mock-api/data/:resource.json` if present.
-- GET `/api/:resource/:id` → Returns `mock-api/data/:resource/:id.json` if present.
-
----
-
-## Repository structure (short)
-
-- `src/main/java` — Java sources, entry point: `com.pipemasters.Main`
-- `output/` — converted layer JSON files
-- `mock-api/` — mock backend for SquadCalc
-  - `server.mjs` — Express server
-  - `data/get/layers/*.json` — lists of layers per map
-  - `data/get/layer/*.json` — individual layer payloads
-  - `public/img/...` — static assets served under `/api/img`
-- `SQUADGAME904b.usmap` — mapping file for FModel "Local Mapping File"
+- `src/main/java/com/pipemasters/Main.java` – layer exporter entry point.
+- `src/main/java/com/pipemasters/units/UnitsMain.java` – units exporter entry point.
+- `output/` – generated `units.json` and converted layer files.
+- `mock-api/` – local backend with Express, JSON fixtures, and proxy behaviour.
+- `SQUADGAME10.usmap` – mapping file for FModel’s Local Mapping setting.
 
 ---
 
-## Notes
+## Troubleshooting
 
-- Java version: this project targets Java 21. If `mvn -v` shows an older JDK, update `JAVA_HOME`.
-- The converter preserves the input filename, writing to `output/<same-name>.json`.
-- CORS is enabled; requests are logged with morgan.
-- I was goind to implement units and teamConfigs but that's involves parsing more Unreal data structures, so maybe later. Way, way later.
-
----
-
-## Examples of output
-
-<img width="1908" height="950" alt="image" src="https://github.com/user-attachments/assets/0aa142f7-cc41-418f-bf28-3e3bc0d534ec" />
-
-<img width="1902" height="831" alt="image" src="https://github.com/user-attachments/assets/9a71837f-d399-4509-88d9-dbe46ae14c11" />
-
-<img width="1917" height="950" alt="image" src="https://github.com/user-attachments/assets/3f282c83-52db-447c-9c26-2cb6e5e471a8" />
-
+- **`Gameplay data file does not exist`** – double‑check the first CLI argument or drag‑and‑drop the JSON onto your terminal to get the absolute path.
+- **`Unable to resolve gameplay layer file` / `missing-layers.txt` keeps filling up** – export every asset listed in the file via FModel, copy it into your export directory, and rerun the layer exporter.
+- **`missing-assets.txt` lists more files after running UnitsMain** – repeat the Missing Asset Extractor workflow until the file stays empty.
+- **Layer references factions that are not in `units.json`** – rerun UnitsMain after updating your mod, then reconvert the layer.
+- **Mock API 404s for your map** – ensure you copied the converted layer JSON to `mock-api/data/get/layer/` and added the layer name to the corresponding map list file under `mock-api/data/get/layers/`.
 
 ---
-
-## Attribution
-
-- Mock API is intentionally designed to mock the SquadCalc backend: https://github.com/sh4rkman/SquadCalc
-- I understand why sharkman doesn't really want add modded layers. First of all too much work to add new factions. And this layer parsing thing probably have some bugs.
+## Current limitations
+- Does not support ATGM detection for vehicles. (It sort of does, but due to Attack helis and other stuff that was meant to have ATGMs, but doesn't actually have them, the detection is unreliable.)
+- TicketValue is not calculated for vehicles. Due to how game handles tickets, this is non-trivial and may require manual adjustment.
+- isAmphibious flag is not detected for vehicles. May add it later.
+- Layers that are not Invasion will likely have issues. Or straight-up won't parse.
