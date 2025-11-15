@@ -442,13 +442,16 @@ public class ObjectivesParser {
         String capsuleRadiusValue = formatDecimal(scaledRadius);
         String capsuleLengthValue = formatDecimal(capsuleLength);
 
+        double effectiveRadius = Math.max(scaledRadius, capsuleLength / 2.0);
+        String effectiveRadiusValue = formatDecimal(effectiveRadius);
+
         ObjectiveObject object = new ObjectiveObject(
                 definition.key().name(),
                 locationX,
                 locationY,
                 locationZ,
                 false,
-                capsuleLengthValue,
+                effectiveRadiusValue,
                 false,
                 boxExtent,
                 true,
@@ -458,7 +461,7 @@ public class ObjectivesParser {
                 rotation.roll(),
                 rotation.yaw()
         );
-        double effectiveRadius = Math.max(scaledRadius, capsuleLength / 2.0);
+//        double effectiveRadius = Math.max(scaledRadius, capsuleLength / 2.0);
         return new ObjectiveVolume(object, effectiveRadius);
     }
 
