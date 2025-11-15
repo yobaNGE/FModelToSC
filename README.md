@@ -38,7 +38,7 @@ The repository also contains a mock SquadCalc backend (`mock-api/`) so you can p
 
 <img width="452" height="789" alt="image" src="https://github.com/user-attachments/assets/f20e61c5-4cbf-4e8d-994b-e3f2a8927f5e" />
 
-4. If you plan to use the Missing Asset Extractor, install the fork alongside your normal FModel install. I recomend you to, cause thats about ~100 assets to extract.
+4. If you plan to use the Missing Asset Extractor, install the fork alongside your normal FModel install. I recommend you to, cause thats about ~100 assets to extract.
 
 <img width="1157" height="773" alt="image" src="https://github.com/user-attachments/assets/385367ff-2565-4445-afdf-bf9d49d62f7a" />
 
