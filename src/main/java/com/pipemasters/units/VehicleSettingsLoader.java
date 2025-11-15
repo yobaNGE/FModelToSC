@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
 
 final class VehicleSettingsLoader {
     private static final Logger LOGGER = LogManager.getLogger(VehicleSettingsLoader.class);
@@ -127,6 +128,7 @@ final class VehicleSettingsLoader {
 
         boolean amphibious = JsonUtils.readBoolean(JsonUtils.findFirstProperty(properties, "Amphib"));
         int ticketValue = JsonUtils.readInt(JsonUtils.findFirstProperty(properties, "Ticket"));
+        ticketValue = resolveTicketValue(vehicleType, tags, ticketValue);
         boolean atgm = JsonUtils.readBoolean(JsonUtils.findFirstProperty(properties, "ATGM"));
 
         int passengerSeats = JsonUtils.readInt(JsonUtils.findFirstProperty(properties, "PassengerSeat"));
@@ -181,33 +183,41 @@ final class VehicleSettingsLoader {
 
     private String resolveVehicleType(String rawType, String displayName) {
         String lowerName = displayName != null ? displayName.toLowerCase(Locale.ROOT) : "";
-        if (!lowerName.isBlank()) {
-            if (lowerName.contains("anti air") || lowerName.contains("vads")) {
-                return "AA";
-            }
-            if (lowerName.contains("log")) {
-                return "LOGI";
-            }
-            if (lowerName.contains("transport") || lowerName.contains("truck")) {
-                return "TRAN";
-            }
-            if (lowerName.contains("mortar") || lowerName.contains("m121") || lowerName.contains("m109")) {
-                return "SPA";
-            }
-            if (lowerName.contains("uh-") || lowerName.contains("ch-") || lowerName.contains("little bird")) {
-                return "UH";
-            }
-            if (lowerName.contains("apache") || lowerName.contains("ah-")) {
-                return "AH";
-            }
-            if (lowerName.contains("altay") || lowerName.contains("tank")) {
-                return "MBT";
-            }
-        }
+//        if (!lowerName.isBlank()) {
+//            if (lowerName.contains("UH-1Y Huey ATGM".toLowerCase(Locale.ROOT)) || lowerName.contains("UH-1Y Huey Mk19".toLowerCase(Locale.ROOT))) {
+//                return "AH";
+//            }
+//            if (lowerName.contains("log")) {
+//                return "LOGI";
+//            }
+//            if (lowerName.contains("transport") || lowerName.contains("truck")) {
+//                return "TRAN";
+//            }
+//            if (lowerName.contains("mortar") || lowerName.contains("m121") || lowerName.contains("m109")) {
+//                return "SPA";
+//            }
+//            if (lowerName.contains("uh-") || lowerName.contains("ch-") || lowerName.contains("little bird")) {
+//                return "UH";
+//            }
+//            if (lowerName.contains("apache") || lowerName.contains("ah-")) {
+//                return "AH";
+//            }
+//            if (lowerName.contains("altay") || lowerName.contains("tank")) {
+//                return "MBT";
+//            }
+//        }
+
+
+
         String mapped = VEHICLE_TYPE_OVERRIDES.get(rawType);
         if (mapped != null) {
             return mapped;
         }
+        mapped = HELI_TYPE_OVERRIDES.get(displayName);
+        if (mapped != null) {
+            return mapped;
+        }
+        LOGGER.info("No override found for vehicle type '{}' with lowerName '{}' ", rawType, lowerName);
         if (!lowerName.isBlank()) {
             if (lowerName.contains("dragoon") || lowerName.contains("25mm") || lowerName.contains("ifv")) {
                 return "IFV";
@@ -233,6 +243,19 @@ final class VehicleSettingsLoader {
         return "Unknown";
     }
 
+    private String firstNonBlank(String... values) {
+        if (values == null) {
+            return "";
+        }
+        for (String value : values) {
+            if (value != null && !value.isBlank()) {
+                return value;
+            }
+        }
+        return "";
+    }
+
+
     private List<String> normalizeTags(List<String> rawTags) {
         if (rawTags == null || rawTags.isEmpty()) {
             return List.of();
@@ -255,42 +278,162 @@ final class VehicleSettingsLoader {
         return List.copyOf(normalized);
     }
 
-    private String firstNonBlank(String... values) {
-        if (values == null) {
-            return "";
+    private int resolveTicketValue(String vehicleType, List<String> tags, int ticketValue) {
+        if (ticketValue > 0) {
+            return ticketValue;
         }
-        for (String value : values) {
-            if (value != null && !value.isBlank()) {
-                return value;
-            }
+        String normalizedType = vehicleType != null ? vehicleType.toUpperCase(Locale.ROOT) : "";
+        normalizedType = normalizeTicketType(normalizedType);
+        if (normalizedType.isBlank() || "UNKNOWN".equals(normalizedType)) {
+            return ticketValue;
         }
-        return "";
+        String weightClass = determineWeightClass(tags);
+        Integer resolved = DEFAULT_TICKET_VALUES.get(key(normalizedType, weightClass));
+        if (resolved == null) {
+            resolved = DEFAULT_TICKET_VALUES.get(key(normalizedType, null));
+        }
+        if (resolved == null) {
+            return ticketValue;
+        }
+        return resolved;
     }
 
+    private String determineWeightClass(List<String> tags) {
+        if (tags == null) {
+            return null;
+        }
+        for (String tag : tags) {
+            if (tag == null) {
+                continue;
+            }
+            String normalized = tag.trim();
+            if (normalized.isEmpty()) {
+                continue;
+            }
+            for (String weight : WEIGHT_TAGS) {
+                if (weight.equalsIgnoreCase(normalized)) {
+                    return weight;
+                }
+            }
+        }
+        return null;
+    }
+
+    private String normalizeTicketType(String type) {
+        if (type == null) {
+            return "";
+        }
+        return switch (type) {
+            case "AA" -> "SPAA";
+            case "RSV" -> "FSV";
+            default -> type;
+        };
+    }
+
+    private static TicketKey key(String type, String weight) {
+        return new TicketKey(type, weight);
+    }
+
+    private record TicketKey(String type, String weight) {
+        private TicketKey {
+            type = type == null ? "" : type.toUpperCase(Locale.ROOT);
+            weight = weight == null ? "" : weight.toUpperCase(Locale.ROOT);
+        }
+    }
+
+    private static final Set<String> WEIGHT_TAGS = Set.of(
+            "Class_Light",
+            "Class_Medium",
+            "Class_Heavy"
+    );
+
+    private static final Map<TicketKey, Integer> DEFAULT_TICKET_VALUES = Map.ofEntries(
+            Map.entry(key("AH", "Class_Heavy"), 15),
+            Map.entry(key("AH", "Class_Medium"), 10),
+            Map.entry(key("AH", "Class_Light"), 5),
+            Map.entry(key("APC", "Class_Heavy"), 10),
+            Map.entry(key("APC", "Class_Medium"), 5),
+            Map.entry(key("APC", "Class_Light"), 5),
+            Map.entry(key("FSV", null), 10),
+            Map.entry(key("IFV", null), 10),
+            Map.entry(key("LOGI", "Class_Heavy"), 5),
+            Map.entry(key("LOGI", "Class_Medium"), 5),
+            Map.entry(key("LOGI", "Class_Light"), 1),
+            Map.entry(key("LTV", null), 5),
+            Map.entry(key("MBT", null), 15),
+            Map.entry(key("MGS", null), 10),
+            Map.entry(key("MRAP", null), 5),
+            Map.entry(key("MSV", null), 20),
+            Map.entry(key("SPA", "Class_Heavy"), 10),
+            Map.entry(key("SPA", "Class_Medium"), 5),
+            Map.entry(key("SPA", "Class_Light"), 5),
+            Map.entry(key("SPAA", null), 5),
+            Map.entry(key("TD", "Class_Heavy"), 10),
+            Map.entry(key("TD", "Class_Medium"), 10),
+            Map.entry(key("TD", "Class_Light"), 5),
+            Map.entry(key("TRAN", null), 5),
+            Map.entry(key("UH", null), 5),
+            Map.entry(key("ULTV", "Class_Heavy"), 5),
+            Map.entry(key("ULTV", "Class_Medium"), 5),
+            Map.entry(key("ULTV", "Class_Light"), 1)
+    );
+
     private static final Map<String, String> VEHICLE_TYPE_OVERRIDES = Map.ofEntries(
+            Map.entry("ESQVehicle::NewEnumerator0", "FSV"),
             Map.entry("ESQVehicle::NewEnumerator1", "IFV"),
             Map.entry("ESQVehicle::NewEnumerator2", "APC"),
             Map.entry("ESQVehicle::NewEnumerator3", "MBT"),
             Map.entry("ESQVehicle::NewEnumerator4", "LOGI"),
+            Map.entry("ESQVehicle::NewEnumerator5", "LTV"),
             Map.entry("ESQVehicle::NewEnumerator6", "UH"),
-            Map.entry("ESQVehicle::NewEnumerator9", "AA"),
+            Map.entry("ESQVehicle::NewEnumerator7", "AH"),
+            Map.entry("ESQVehicle::NewEnumerator8", "ULTV"),
+            Map.entry("ESQVehicle::NewEnumerator9", "SPAA"),
             Map.entry("ESQVehicle::NewEnumerator10", "MRAP"),
             Map.entry("ESQVehicle::NewEnumerator11", "TRAN"),
             Map.entry("ESQVehicle::NewEnumerator13", "SPA"),
-            Map.entry("ESQVehicle::NewEnumerator16", "APC")
+            Map.entry("ESQVehicle::NewEnumerator14", "TD"),
+            Map.entry("ESQVehicle::NewEnumerator15", "MGS"),
+            Map.entry("ESQVehicle::NewEnumerator16", "MSV")
     );
 
     private static final Map<String, String> SPAWNER_SIZE_OVERRIDES = Map.ofEntries(
-            Map.entry("ESQVehicleSpawnerSize::NewEnumerator3", "MRAP"),
-            Map.entry("ESQVehicleSpawnerSize::NewEnumerator4", "APC"),
-            Map.entry("ESQVehicleSpawnerSize::NewEnumerator5", "Tank"),
-            Map.entry("ESQVehicleSpawnerSize::NewEnumerator6", "Helicopter")
+//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator3", "MRAP"),
+//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator4", "APC"),
+//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator5", "Tank"),
+//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator6", "Helicopter")
+            Map.entry("NewEnumerator0", "Human"),
+            Map.entry("NewEnumerator1", "Bike"),
+            Map.entry("NewEnumerator2", "QuadBike"),
+            Map.entry("NewEnumerator3", "Car"),
+            Map.entry("NewEnumerator4", "APC"),
+            Map.entry("NewEnumerator5", "MBT"),
+            Map.entry("NewEnumerator6", "Helicopter"),
+            Map.entry("NewEnumerator7", "Plane"),
+            Map.entry("NewEnumerator8", "Boat")
     );
 
     private static final Map<String, String> VEHICLE_TAG_OVERRIDES = Map.ofEntries(
             Map.entry("ESQVehicleTag::NewEnumerator0", "Class_Light"),
             Map.entry("ESQVehicleTag::NewEnumerator1", "Class_Medium"),
             Map.entry("ESQVehicleTag::NewEnumerator2", "Class_Heavy"),
-            Map.entry("ESQVehicleTag::NewEnumerator7", "AGL")
+            Map.entry("ESQVehicleTag::NewEnumerator3", "AGL"),
+            Map.entry("ESQVehicleTag::NewEnumerator4", "ATGM"),
+            Map.entry("ESQVehicleTag::NewEnumerator5", "Low Caliber"),
+            Map.entry("ESQVehicleTag::NewEnumerator6", "RWS"),
+            Map.entry("ESQVehicleTag::NewEnumerator7", "Watercraft")
+    );
+
+    private static final Map<String, String> HELI_TYPE_OVERRIDES = Map.ofEntries(
+            Map.entry("UH-1Y Huey ATGM", "AH"),
+            Map.entry("UH-1Y Huey Mk19", "AH"),
+            Map.entry("MI-28 Havoc", "AH"),
+            Map.entry("Mi-8 CAS", "AH"),
+            Map.entry("Mi-24 Hind", "AH"),
+            Map.entry("Mi-8 ZiS", "AH"),
+            Map.entry("AH-64 Apache", "AH"),
+            Map.entry("UH60M CAS", "AH"),
+            Map.entry("AH-6 Little Bird", "AH"),
+            Map.entry("Mi-8 Terminator", "AH")
     );
 }
