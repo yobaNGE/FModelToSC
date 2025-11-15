@@ -367,10 +367,20 @@ public class AssetsParser {
         static final Rotation ZERO = new Rotation(0.0, 0.0, 0.0);
 
         Rotation add(Rotation other) {
-            return new Rotation(pitch + other.pitch, yaw + other.yaw, roll + other.roll);
+            double[][] combined = multiplyMatrices(toMatrix(), other.toMatrix());
+            return fromMatrix(combined);
         }
 
         Vector3D rotate(Vector3D vector) {
+            double[][] matrix = toMatrix();
+            double rx = matrix[0][0] * vector.x() + matrix[0][1] * vector.y() + matrix[0][2] * vector.z();
+            double ry = matrix[1][0] * vector.x() + matrix[1][1] * vector.y() + matrix[1][2] * vector.z();
+            double rz = matrix[2][0] * vector.x() + matrix[2][1] * vector.y() + matrix[2][2] * vector.z();
+
+            return new Vector3D(rx, ry, rz);
+        }
+
+        private double[][] toMatrix() {
             double pitchRad = Math.toRadians(pitch);
             double yawRad = Math.toRadians(yaw);
             double rollRad = Math.toRadians(roll);
@@ -394,11 +404,44 @@ public class AssetsParser {
             double m21 = cp * sr;
             double m22 = cp * cr;
 
-            double rx = m00 * vector.x + m01 * vector.y + m02 * vector.z;
-            double ry = m10 * vector.x + m11 * vector.y + m12 * vector.z;
-            double rz = m20 * vector.x + m21 * vector.y + m22 * vector.z;
+            return new double[][]{
+                    {m00, m01, m02},
+                    {m10, m11, m12},
+                    {m20, m21, m22}
+            };
+        }
 
-            return new Vector3D(rx, ry, rz);
+        private static double[][] multiplyMatrices(double[][] a, double[][] b) {
+            double[][] result = new double[3][3];
+            for (int row = 0; row < 3; row++) {
+                for (int col = 0; col < 3; col++) {
+                    result[row][col] = a[row][0] * b[0][col]
+                            + a[row][1] * b[1][col]
+                            + a[row][2] * b[2][col];
+                }
+            }
+            return result;
+        }
+
+        private static Rotation fromMatrix(double[][] matrix) {
+            double pitchRad = Math.asin(-matrix[2][0]);
+            double cp = Math.cos(pitchRad);
+
+            double yawRad;
+            double rollRad;
+            if (Math.abs(cp) > 1e-6) {
+                yawRad = Math.atan2(matrix[1][0], matrix[0][0]);
+                rollRad = Math.atan2(matrix[2][1], matrix[2][2]);
+            } else {
+                yawRad = Math.atan2(-matrix[0][1], matrix[1][1]);
+                rollRad = 0.0;
+            }
+
+            return new Rotation(
+                    Math.toDegrees(pitchRad),
+                    Math.toDegrees(yawRad),
+                    Math.toDegrees(rollRad)
+            );
         }
     }
 
