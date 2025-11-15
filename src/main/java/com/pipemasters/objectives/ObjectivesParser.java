@@ -340,13 +340,13 @@ public class ObjectivesParser {
                                             Vector3D scale) {
         Vector3D extent = definition.extent().multiply(scale);
         double radius = Math.sqrt(extent.x() * extent.x() + extent.y() * extent.y() + extent.z() * extent.z());
-        // Squadcalc expects yaw to "rotation_z". what about roll and pitch? sharkman only knows...
+
         ObjectiveBoxExtent boxExtent = new ObjectiveBoxExtent(
                 extent.x(),
                 extent.y(),
                 extent.z(),
-                rotation.pitch(),
                 rotation.roll(),
+                rotation.pitch(),
                 rotation.yaw(),
                 scale.x(),
                 scale.y(),
@@ -437,9 +437,12 @@ public class ObjectivesParser {
                 extentX,
                 extentY,
                 extentZ,
-                rotation.pitch(),
                 rotation.roll(),
+                rotation.pitch(),
                 rotation.yaw(),
+//                rotation.pitch(),
+//                rotation.roll(),
+//                rotation.yaw() + 90,
                 scale.x(),
                 scale.y(),
                 scale.z()
@@ -463,9 +466,12 @@ public class ObjectivesParser {
                 true,
                 capsuleRadiusValue,
                 capsuleLengthValue,
-                rotation.pitch(),
                 rotation.roll(),
+                rotation.pitch(),
                 rotation.yaw()
+//                rotation.pitch(),
+//                rotation.roll(),
+//                rotation.yaw() + 90
         );
 
         return new ObjectiveVolume(object, effectiveRadius);
