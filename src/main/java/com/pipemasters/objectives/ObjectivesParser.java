@@ -419,23 +419,32 @@ public class ObjectivesParser {
         double radius = definition.capsuleRadius();
         double halfHeight = definition.capsuleHalfHeight();
 
-        double scaledRadiusX = radius * scale.x();
-        double scaledRadiusY = radius * scale.y();
         double scaledHalfHeight = halfHeight * scale.z();
+        double scaledRadius = radius * Math.max(scale.x(), scale.y());
+        double cylinderHalfHeight = Math.max(0.0, scaledHalfHeight - scaledRadius);
+
+        Vector3D axis = rotation.rotate(new Vector3D(0.0, 0.0, 1.0));
+        double axisLength = Math.sqrt(axis.x() * axis.x() + axis.y() * axis.y() + axis.z() * axis.z());
+        if (axisLength > 1e-6) {
+            axis = new Vector3D(axis.x() / axisLength, axis.y() / axisLength, axis.z() / axisLength);
+        }
+
+        double extentX = scaledRadius + cylinderHalfHeight * Math.abs(axis.x());
+        double extentY = scaledRadius + cylinderHalfHeight * Math.abs(axis.y());
+        double extentZ = scaledRadius + cylinderHalfHeight * Math.abs(axis.z());
 
         ObjectiveBoxExtent boxExtent = new ObjectiveBoxExtent(
-                scaledRadiusX,
-                scaledRadiusY,
-                scaledHalfHeight,
+                extentX,
+                extentY,
+                extentZ,
                 rotation.pitch(),
                 rotation.roll(),
-                rotation.yaw() + 90,
+                rotation.yaw(),
                 scale.x(),
                 scale.y(),
                 scale.z()
         );
 
-        double scaledRadius = Math.max(scaledRadiusX, scaledRadiusY);
         String capsuleRadiusValue = formatDecimal(scaledRadius);
         String capsuleLengthValue = formatDecimal(scaledHalfHeight);
 
@@ -456,7 +465,7 @@ public class ObjectivesParser {
                 capsuleLengthValue,
                 rotation.pitch(),
                 rotation.roll(),
-                rotation.yaw() + 90
+                rotation.yaw()
         );
 
         return new ObjectiveVolume(object, effectiveRadius);
