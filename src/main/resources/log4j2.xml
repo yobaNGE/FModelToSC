@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="units.log.level">info</Property>
+        <Property name="units.missingAssets.level">warn</Property>
+        <Property name="units.faction.level">info</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{HH:mm:ss} %highlight{%-5p}{FATAL=red bright, ERROR=red, WARN=yellow, INFO=green, DEBUG=cyan, TRACE=blue}] %c - %m%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.pipemasters.units.MissingAssetLogger"
+                level="${sys:units.missingAssets.level:-${units.missingAssets.level}}"
+                additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="com.pipemasters.units.FactionSetupTableParser"
+                level="${sys:units.faction.level:-${units.faction.level}}"
+                additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Root level="${sys:units.log.level:-${units.log.level}}">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>
