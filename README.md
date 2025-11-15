@@ -3,9 +3,11 @@
 Convert FModel‑exported Squad mod data into JSON payloads that SquadCalc can read. The project now ships with two tooling entry points:
 
 - **Layer exporter (`com.pipemasters.Main`)** – takes a gameplay layer export (the `layerdata.json` that references the layer, objectives, map assets, capture points, etc.), resolves every linked asset that FModel exported, and writes a SquadCalc‑compatible payload.
-- **Units exporter (`com.pipemasters.units.UnitsMain`)** – scans exported faction setup data and builds `units.json` with teams, vehicles, and commander abilities for every faction used by your mod.
+- **Units exporter (`com.pipemasters.units.UnitsMain`)** – scans exported faction setup data and builds `units.json` with teams, vehicles, and commander abilities for every faction used by your mod. Uses recursive scan for assets, in case essential info is not overriden in base asset file, it scans superclass for those fields, and so on, untill all fields are populated or there is no superclasses to parse.
 
 The repository also contains a mock SquadCalc backend (`mock-api/`) so you can preview your converted layers locally.
+
+Currently have some hardcoded values for path resolving just for Steel_Division mod, so in case you want to parse other mods you probably need to modify AssetResolver.
 
 ---
 
