@@ -96,8 +96,8 @@ app.get(`${API_PREFIX}/get/layer`, async (req, res) => {
         return res.status(400).json({ error: "Missing 'name' query parameter" });
     }
 
-    // If name starts with SD_, use local mock JSON
-    if (String(name).startsWith('SD_')) {
+    // If name starts with SD_ or SDL_, use local mock JSON
+    if (String(name).startsWith('SD_') || String(name).startsWith('SDL_')) {
         try {
             const data = await readJson(`get/layer/${name}.json`);
             return res.json(data);
