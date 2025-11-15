@@ -217,7 +217,7 @@ final class VehicleSettingsLoader {
         if (mapped != null) {
             return mapped;
         }
-        LOGGER.info("No override found for vehicle type '{}' with lowerName '{}' ", rawType, lowerName);
+        LOGGER.error("No override found for vehicle type '{}' with lowerName '{}' ", rawType, lowerName);
         if (!lowerName.isBlank()) {
             if (lowerName.contains("dragoon") || lowerName.contains("25mm") || lowerName.contains("ifv")) {
                 return "IFV";
@@ -398,19 +398,19 @@ final class VehicleSettingsLoader {
     );
 
     private static final Map<String, String> SPAWNER_SIZE_OVERRIDES = Map.ofEntries(
-//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator3", "MRAP"),
-//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator4", "APC"),
-//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator5", "Tank"),
-//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator6", "Helicopter")
-            Map.entry("NewEnumerator0", "Human"),
-            Map.entry("NewEnumerator1", "Bike"),
-            Map.entry("NewEnumerator2", "QuadBike"),
-            Map.entry("NewEnumerator3", "Car"),
-            Map.entry("NewEnumerator4", "APC"),
-            Map.entry("NewEnumerator5", "MBT"),
-            Map.entry("NewEnumerator6", "Helicopter"),
-            Map.entry("NewEnumerator7", "Plane"),
-            Map.entry("NewEnumerator8", "Boat")
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator3", "MRAP"),
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator4", "APC"),
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator5", "Tank"),
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator6", "Helicopter")
+//            Map.entry("NewEnumerator0", "Human"),
+//            Map.entry("NewEnumerator1", "Bike"),
+//            Map.entry("NewEnumerator2", "QuadBike"),
+//            Map.entry("NewEnumerator3", "Car"),
+//            Map.entry("NewEnumerator4", "APC"),
+//            Map.entry("NewEnumerator5", "MBT"),
+//            Map.entry("NewEnumerator6", "Helicopter"),
+//            Map.entry("NewEnumerator7", "Plane"),
+//            Map.entry("NewEnumerator8", "Boat")
     );
 
     private static final Map<String, String> VEHICLE_TAG_OVERRIDES = Map.ofEntries(
