@@ -90,7 +90,9 @@ For every layer you want to convert:
 
 1. In FModel navigate to `Maps/<MapName>/Gameplay_Layer_Data/Layer/` and export **`layerdata`** (the asset is usually named same way as layer or closely resembles it). This JSON references the actual gameplay layer asset.
 <img width="340" height="289" alt="image" src="https://github.com/user-attachments/assets/e719b52f-e00b-4241-8001-4eddcb6a38a2" />
+
 <img width="465" height="372" alt="image" src="https://github.com/user-attachments/assets/e7a75a70-1b47-4358-bbd7-74dd6ce5904d" />
+
 2. Ensure the referenced assets exist in your export directory. The layer exporter follows those references automatically. If a file is missing it will be written to console during conversion.
 
 Example path that becomes the first CLI argument:
