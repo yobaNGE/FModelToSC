@@ -415,61 +415,14 @@ public class ObjectivesParser {
                                                 double locationZ,
                                                 Rotation rotation,
                                                 Vector3D scale) {
-//        double radius = definition.capsuleRadius();
-//        double halfHeight = definition.capsuleHalfHeight();
-//        double scaledRadiusX = radius * scale.x();
-//        double scaledRadiusY = radius * scale.y();
-//        double scaledRadius = Math.max(scaledRadiusX, scaledRadiusY);
-//        double scaledHalfHeight = halfHeight * scale.z();
-//        Vector3D localExtents = new Vector3D(scaledRadiusX, scaledRadiusY, scaledHalfHeight);
-//
-//        Vector3D orientedExtents = rotation.rotateExtents(localExtents);
-//        // Squadcalc expects yaw to "rotation_z". what about roll and pitch? sharkman only knows...
-//        ObjectiveBoxExtent boxExtent = new ObjectiveBoxExtent(
-//                orientedExtents.x(),
-//                orientedExtents.y(),
-//                orientedExtents.z(),
-//                rotation.pitch(),
-//                rotation.roll(),
-//                rotation.yaw(),
-//                scale.x(),
-//                scale.y(),
-//                scale.z()
-//        );
-//
-//        String capsuleRadiusValue = formatDecimal(scaledRadius);
-//        String capsuleLengthValue = formatDecimal(scaledHalfHeight);
-//
-//        double effectiveRadius = Math.max(scaledRadius, scaledHalfHeight);
-//        String effectiveRadiusValue = formatDecimal(effectiveRadius);
-//
-//        ObjectiveObject object = new ObjectiveObject(
-//                definition.key().name(),
-//                locationX,
-//                locationY,
-//                locationZ,
-//                false,
-//                effectiveRadiusValue,
-//                false,
-//                boxExtent,
-//                true,
-//                capsuleRadiusValue,
-//                capsuleLengthValue,
-//                rotation.pitch(),
-//                rotation.roll(),
-//                rotation.yaw()
-//        );
-//        return new ObjectiveVolume(object, effectiveRadius);
 
         double radius = definition.capsuleRadius();
         double halfHeight = definition.capsuleHalfHeight();
 
-        // Respect per-axis scaling, same as box logic
         double scaledRadiusX = radius * scale.x();
         double scaledRadiusY = radius * scale.y();
         double scaledHalfHeight = halfHeight * scale.z();
 
-        // Use **local** extents, do NOT pre-rotate them
         ObjectiveBoxExtent boxExtent = new ObjectiveBoxExtent(
                 scaledRadiusX,
                 scaledRadiusY,
@@ -482,7 +435,6 @@ public class ObjectivesParser {
                 scale.z()
         );
 
-        // Radius for “how big is this objective” — take the max of radius vs length
         double scaledRadius = Math.max(scaledRadiusX, scaledRadiusY);
         String capsuleRadiusValue = formatDecimal(scaledRadius);
         String capsuleLengthValue = formatDecimal(scaledHalfHeight);
