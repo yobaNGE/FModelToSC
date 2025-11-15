@@ -24,10 +24,23 @@ The repository also contains a mock SquadCalc backend (`mock-api/`) so you can p
 ## 0. Configure FModel
 
 1. Launch FModel and choose the **Squad** game profile.
-2. Go to **Settings → General** and enable **Local Mapping File**.
-3. Point it at [`SQUADGAME10.usmap`](./SQUADGAME10.usmap) (bundled with this repo).
-4. Drop your mod folder into `\Squad\SquadGame\Plugins\Mods\` so FModel can load it.
-5. If you plan to use the Missing Asset Extractor, install the yobaNGE fork alongside your normal FModel install.
+   <img width="647" height="392" alt="image" src="https://github.com/user-attachments/assets/067e5136-8fb4-4661-9f87-2571bf6e68f5" />
+
+2. Go to **Settings → General** and enable **Local Mapping File**. Point it at [`SQUADGAME10.usmap`](./SQUADGAME10.usmap) (bundled with this repo).
+
+<img width="1158" height="649" alt="image" src="https://github.com/user-attachments/assets/ae10f426-5e7e-481f-813e-6417c64964ab" />
+
+3. Drop your mod folder into `\Squad\SquadGame\Plugins\Mods\` so FModel can load it.
+
+<img width="652" height="132" alt="image" src="https://github.com/user-attachments/assets/36d940f5-fdce-436c-8cad-a26855fc19ca" />
+
+4. Check that Fmodel sees your mod, then press load.
+
+<img width="452" height="789" alt="image" src="https://github.com/user-attachments/assets/f20e61c5-4cbf-4e8d-994b-e3f2a8927f5e" />
+
+4. If you plan to use the Missing Asset Extractor, install the fork alongside your normal FModel install. I recomend you to, cause thats about ~100 assets to extract.
+
+<img width="1157" height="773" alt="image" src="https://github.com/user-attachments/assets/385367ff-2565-4445-afdf-bf9d49d62f7a" />
 
 All exports referenced below assume you right‑click assets or folders in FModel and choose **Save properties (.json)**.
 
@@ -38,10 +51,14 @@ All exports referenced below assume you right‑click assets or folders in FMode
 Run this step once per mod, then rerun only when you add factions or vehicles.
 
 1. In FModel open your mod → `Content/Settings/FactionSetup`.
+
+<img width="576" height="1157" alt="image" src="https://github.com/user-attachments/assets/542b1fa3-8ece-483d-a461-1ceadddc1d9c" />
+
 2. Export the entire `FactionSetup` folder to JSON (every subfolder per faction should now contain the exported `.json` files). Keep the directory structure exactly as FModel produced it.
+
 3. Put path to Factionsetup as an argument, e.g. `C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Settings\Factionsetup`.
 
-> **Tip:** Skip `Template` factions when exporting if they exist; the parser ignores them.
+> **Tip:** Skip `Template` factions when exporting if they exist; the parser ignores them. Remove factions that are deprecated/WIP.
 
 ---
 
@@ -60,7 +77,7 @@ Run this step once per mod, then rerun only when you add factions or vehicles.
    
 3. The tool writes `output/units.json` and logs how many factions were parsed for Team 1 and Team 2.
 4. If anything is missing, the run also creates/updates **`missing-assets.txt`** in the project root. Every line is an asset that needs to be exported (commander ability settings, vehicle data tables, delay presets, etc.).
-5. Open the yobaNGE FModel fork → **Tools → Missing Asset Extractor**, paste the contents of `missing-assets.txt`, press **Extract**, and copy the newly exported files into the same export root as your other JSONs.
+5. Open the yobaNGE FModel fork → **Tools → Missing Asset Extractor**, paste the contents of `missing-assets.txt`, press **Extract**. I just extract stuff in default Fmodel directory. Parser expect extracted assets to have same hierarchy as in Fmodel.
 6. Rerun step 2 until `missing-assets.txt` is no longer populated. When it stays empty the unit data is complete.
 
 > `UnitsMain` only needs to run again when you add new factions, modify vehicles, or see new missing assets. The layer exporter reads `output/units.json` automatically; you can also pass a custom path as the third argument to `Main` (see below).
@@ -72,6 +89,8 @@ Run this step once per mod, then rerun only when you add factions or vehicles.
 For every layer you want to convert:
 
 1. In FModel navigate to `Maps/<MapName>/Gameplay_Layer_Data/Layer/` and export **`layerdata`** (the asset is usually named same way as layer or closely resembles it). This JSON references the actual gameplay layer asset.
+<img width="340" height="289" alt="image" src="https://github.com/user-attachments/assets/e719b52f-e00b-4241-8001-4eddcb6a38a2" />
+<img width="465" height="372" alt="image" src="https://github.com/user-attachments/assets/e7a75a70-1b47-4358-bbd7-74dd6ce5904d" />
 2. Ensure the referenced assets exist in your export directory. The layer exporter follows those references automatically. If a file is missing it will be written to console during conversion.
 
 Example path that becomes the first CLI argument:
