@@ -1554,7 +1554,7 @@
           "location_y" : -102933.462,
           "location_z" : 193.97753999999986,
           "isSphere" : false,
-          "sphereRadius" : "16000",
+          "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 6076.258782176992,
@@ -1650,7 +1650,7 @@
           "location_y" : -33744.596999999994,
           "location_z" : 118.88683999999921,
           "isSphere" : false,
-          "sphereRadius" : "12000",
+          "sphereRadius" : "6000",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 8500.311288393657,
@@ -1682,7 +1682,7 @@
           "location_y" : -37682.986999999994,
           "location_z" : 193.97753999999986,
           "isSphere" : false,
-          "sphereRadius" : "24000",
+          "sphereRadius" : "12000",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 6552.511218993394,
@@ -1714,7 +1714,7 @@
           "location_y" : -20695.703999999998,
           "location_z" : 707.1025399999999,
           "isSphere" : false,
-          "sphereRadius" : "12000",
+          "sphereRadius" : "6000",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 10554.544726930306,
@@ -1756,7 +1756,7 @@
           "location_y" : -11954.739999999998,
           "location_z" : 702.9628399999992,
           "isSphere" : false,
-          "sphereRadius" : "16000",
+          "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 12646.088340539494,
@@ -1788,7 +1788,7 @@
           "location_y" : -4941.620000000003,
           "location_z" : 142.96283999999923,
           "isSphere" : false,
-          "sphereRadius" : "24000",
+          "sphereRadius" : "12000",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 10316.719483566307,
@@ -1830,7 +1830,7 @@
           "location_y" : 8659.030000000006,
           "location_z" : 315.09583999999995,
           "isSphere" : false,
-          "sphereRadius" : "16000",
+          "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 12318.814564786959,
@@ -1862,7 +1862,7 @@
           "location_y" : 30291.30797663895,
           "location_z" : 153.77143999999953,
           "isSphere" : false,
-          "sphereRadius" : "16000",
+          "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 17884.24321736111,
@@ -1904,7 +1904,7 @@
           "location_y" : 31714.78,
           "location_z" : 446.1855399999995,
           "isSphere" : false,
-          "sphereRadius" : "16000",
+          "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 5093.9830551072555,
@@ -1936,7 +1936,7 @@
           "location_y" : 57078.287000000004,
           "location_z" : 701.6368399999992,
           "isSphere" : false,
-          "sphereRadius" : "17000",
+          "sphereRadius" : "8500",
           "isBox" : false,
           "boxExtent" : {
             "extent_x" : 11699.857215857124,
