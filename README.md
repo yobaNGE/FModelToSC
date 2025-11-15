@@ -172,7 +172,4 @@ Use `npm run dev` for auto‑reload while tweaking the mock server code.
 
 ---
 ## Current limitations
-- Does not support ATGM detection for vehicles. (It sort of does, but due to Attack helis and other stuff that was meant to have ATGMs, but doesn't actually have them, the detection is unreliable.)
-- TicketValue is not calculated for vehicles. Due to how game handles tickets, this is non-trivial and may require manual adjustment.
-- isAmphibious flag is not detected for vehicles. May add it later.
 - Layers that are not Invasion will likely have issues. Or straight-up won't parse.
