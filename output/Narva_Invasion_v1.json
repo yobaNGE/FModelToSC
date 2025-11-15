@@ -1969,12 +1969,12 @@
           "sphereRadius" : "7000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 4038.1145210353757,
-            "extent_y" : 7021.709624626919,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 7000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : 90.31246,
+            "rotation_z" : 180.31246,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -1984,7 +1984,7 @@
           "capsuleLength" : "7000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : 90.31246
+          "rotation_z" : 180.31246
         } ]
       }, {
         "name" : "Narova Abandoned",
@@ -2001,12 +2001,12 @@
           "sphereRadius" : "5000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 5302.60423934502,
-            "extent_y" : 3947.942289932088,
-            "extent_z" : 3500.0000000000005,
+            "extent_x" : 3500.0,
+            "extent_y" : 3500.0,
+            "extent_z" : 5000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -174.68704,
+            "rotation_z" : -84.68704,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2016,7 +2016,7 @@
           "capsuleLength" : "5000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -174.68704
+          "rotation_z" : -84.68704
         } ]
       }, {
         "name" : "Ring Road",
@@ -2097,12 +2097,12 @@
           "sphereRadius" : "6000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 7198.577769448315,
-            "extent_y" : 6481.445964864841,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 6000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -149.68735,
+            "rotation_z" : -59.68735000000001,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2112,7 +2112,7 @@
           "capsuleLength" : "6000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -149.68735
+          "rotation_z" : -59.68735000000001
         } ]
       }, {
         "name" : "Fuel Storage",
@@ -2129,12 +2129,12 @@
           "sphereRadius" : "9000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 8466.373132501787,
-            "extent_y" : 9656.243804002892,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 9000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : 125.31257000000001,
+            "rotation_z" : 215.31257,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2144,7 +2144,7 @@
           "capsuleLength" : "9000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : 125.31257000000001
+          "rotation_z" : 215.31257
         } ]
       }, {
         "name" : "Oru Village",
@@ -2161,12 +2161,12 @@
           "sphereRadius" : "6000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 6619.1664523067375,
-            "extent_y" : 5009.526835180644,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 6000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -169.68704,
+            "rotation_z" : -79.68704,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2176,7 +2176,7 @@
           "capsuleLength" : "6000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -169.68704
+          "rotation_z" : -79.68704
         } ]
       }, {
         "name" : "Oru Village",
@@ -2193,12 +2193,12 @@
           "sphereRadius" : "6000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 5009.496055002506,
-            "extent_y" : 6619.149473311278,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 6000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : 100.31262,
+            "rotation_z" : 190.31261999999998,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2208,7 +2208,7 @@
           "capsuleLength" : "6000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : 100.31262
+          "rotation_z" : 190.31261999999998
         } ]
       } ]
     },
@@ -2235,12 +2235,12 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 8186.950110768477,
-            "extent_y" : 8710.713770832612,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -129.68742,
+            "rotation_z" : -39.68742,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2250,7 +2250,7 @@
           "capsuleLength" : "8000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -129.68742
+          "rotation_z" : -39.68742
         } ]
       }, {
         "name" : "Orchard",
@@ -2267,12 +2267,12 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 4640.405564789834,
-            "extent_y" : 8300.13319129958,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -94.68762,
+            "rotation_z" : -4.6876199999999955,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2282,7 +2282,7 @@
           "capsuleLength" : "8000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -94.68762
+          "rotation_z" : -4.6876199999999955
         } ]
       }, {
         "name" : "Quarry",
@@ -2299,12 +2299,12 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 4043.611811439932,
-            "extent_y" : 8021.7165054198085,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -89.687225,
+            "rotation_z" : 0.312775000000002,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2314,7 +2314,7 @@
           "capsuleLength" : "8000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -89.687225
+          "rotation_z" : 0.312775000000002
         } ]
       } ]
     },
@@ -2341,12 +2341,12 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 8500.575841769542,
-            "extent_y" : 8469.734685972187,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -44.687622,
+            "rotation_z" : 45.312378,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2356,7 +2356,7 @@
           "capsuleLength" : "8000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -44.687622
+          "rotation_z" : 45.312378
         } ]
       }, {
         "name" : "Power Plant",
@@ -2373,12 +2373,12 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 8500.575841769542,
-            "extent_y" : 8469.734685972187,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -44.687622,
+            "rotation_z" : 45.312378,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2388,7 +2388,7 @@
           "capsuleLength" : "8000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -44.687622
+          "rotation_z" : 45.312378
         } ]
       } ]
     },
@@ -2415,12 +2415,12 @@
           "sphereRadius" : "8000",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 8500.575841769542,
-            "extent_y" : 8469.734685972187,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8000.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -44.687622,
+            "rotation_z" : 45.312378,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2430,7 +2430,7 @@
           "capsuleLength" : "8000",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -44.687622
+          "rotation_z" : 45.312378
         } ]
       }, {
         "name" : "Parusinka",
@@ -2447,12 +2447,12 @@
           "sphereRadius" : "8500",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 8856.051550001495,
-            "extent_y" : 8821.355249729471,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 8500.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -44.687622,
+            "rotation_z" : 45.312378,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2462,7 +2462,7 @@
           "capsuleLength" : "8500",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -44.687622
+          "rotation_z" : 45.312378
         } ]
       } ]
     },
@@ -2634,12 +2634,12 @@
           "sphereRadius" : "5500",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 5660.785482196481,
-            "extent_y" : 6546.661374859087,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 5500.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -69.68353,
+            "rotation_z" : 20.316469999999995,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2649,7 +2649,7 @@
           "capsuleLength" : "5500",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -69.68353
+          "rotation_z" : 20.316469999999995
         } ]
       } ]
     },
@@ -2703,12 +2703,12 @@
           "sphereRadius" : "6500",
           "isBox" : false,
           "boxExtent" : {
-            "extent_x" : 6693.9774856341355,
-            "extent_y" : 7627.867830369536,
-            "extent_z" : 4000.0000000000005,
+            "extent_x" : 4000.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 6500.0,
             "rotation_x" : -90.0,
             "rotation_y" : 0.0,
-            "rotation_z" : -119.68389999999998,
+            "rotation_z" : -29.68389999999998,
             "scaling_x" : 1.0,
             "scaling_y" : 1.0,
             "scaling_z" : 1.0
@@ -2718,7 +2718,7 @@
           "capsuleLength" : "6500",
           "rotation_x" : -90.0,
           "rotation_y" : 0.0,
-          "rotation_z" : -119.68389999999998
+          "rotation_z" : -29.68389999999998
         } ]
       }, {
         "name" : "Uuskula Apartments",
