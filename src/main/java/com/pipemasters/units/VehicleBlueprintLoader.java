@@ -131,7 +131,7 @@ final class VehicleBlueprintLoader {
                 if (superBlueprintPath != null) {
                     VehicleBlueprintInfo superInfo = readSuperBlueprint(superBlueprintPath, visited);
                     driverSeats = Math.max(driverSeats, superInfo.driverSeats());
-                    passengerSeats = Math.max(passengerSeats, superInfo.passengerSeats());
+                    passengerSeats = passengerSeats > 0 ? passengerSeats : Math.max(passengerSeats, superInfo.passengerSeats());
                     amphibious = amphibious || superInfo.amphibious();
                     atgm = atgm || superInfo.atgm();
                 }
