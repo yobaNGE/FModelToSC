@@ -401,7 +401,7 @@ final class UnitsParser {
             return fromShortName;
         }
 
-        return TeamAssignment.TEAM1;
+        return TeamAssignment.BOTH;
     }
 
     private TeamAssignment determineTeamAssignmentFromPath(Path file) {
