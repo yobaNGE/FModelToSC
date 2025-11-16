@@ -379,7 +379,7 @@ final class VehicleSettingsLoader {
     );
 
     private static final Map<String, String> VEHICLE_TYPE_OVERRIDES = Map.ofEntries(
-            Map.entry("ESQVehicle::NewEnumerator0", "FSV"),
+            Map.entry("ESQVehicle::NewEnumerator0", "RSV"),
             Map.entry("ESQVehicle::NewEnumerator1", "IFV"),
             Map.entry("ESQVehicle::NewEnumerator2", "APC"),
             Map.entry("ESQVehicle::NewEnumerator3", "MBT"),

@@ -35,8 +35,6 @@ public final class Main {
             return;
         }
 
-        MissingAssetLogger.prepareOutputFile(Path.of("missing-layers.txt"));
-
         ObjectMapper mapper = new ObjectMapper();
         mapper.enable(SerializationFeature.INDENT_OUTPUT);
 
