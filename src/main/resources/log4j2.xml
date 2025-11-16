@@ -5,7 +5,7 @@
         <Property name="units.level">info</Property>
         <Property name="units.missingAssets.level">warn</Property>
         <Property name="units.faction.level">info</Property>
-        <!-- Root logger level (was missing before!) -->
+        <!-- Root logger level -->
         <Property name="units.log.level">info</Property>
     </Properties>
 
