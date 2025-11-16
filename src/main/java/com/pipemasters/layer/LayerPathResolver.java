@@ -52,7 +52,9 @@ public final class LayerPathResolver {
             } else {
                 missingLayerLogger.missing(layerJsonPath, "gameplay layer for " + gameplayDataInfo.layerName());
             }
-            throw new LayerExportException(String.format("Gameplay layer file '%s' does not exist.", layerJsonPath));
+            throw new LayerExportException(String.format(
+                    "Unable to resolve gameplay layer file for '%s'.",
+                    gameplayDataPath));
         }
 
         return layerJsonPath;

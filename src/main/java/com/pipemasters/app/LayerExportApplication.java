@@ -61,6 +61,7 @@ public final class LayerExportApplication {
 
         Path exportsRoot = layerPathResolver.resolveExportsRoot(request.gameplayDataPath());
         MissingAssetLogger missingLayerLogger = new MissingAssetLogger(exportsRoot, Path.of("missing-layers.txt"));
+        
         Path layerJsonPath = layerPathResolver.resolveLayerJson(
                 request.explicitLayerPath(),
                 gameplayDataInfo,
