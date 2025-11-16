@@ -21,6 +21,7 @@ import com.pipemasters.objectives.Objective;
 import com.pipemasters.objectives.ObjectivesParser;
 import com.pipemasters.units.UnitFactionFactory;
 import com.pipemasters.units.Units;
+import com.pipemasters.units.UnitsFilter;
 import com.pipemasters.util.MissingAssetLogger;
 
 import java.io.IOException;
@@ -37,6 +38,7 @@ public final class LayerExportApplication {
     private final GameplayDataParser gameplayDataParser;
     private final LayerPathResolver layerPathResolver;
     private final TeamConfigurationComposer teamConfigurationComposer;
+    private final UnitsFilter unitsFilter;
 
     public LayerExportApplication(ObjectMapper mapper) {
         this.mapper = Objects.requireNonNull(mapper, "mapper");
@@ -44,6 +46,7 @@ public final class LayerExportApplication {
         this.gameplayDataParser = new GameplayDataParser();
         this.layerPathResolver = new LayerPathResolver();
         this.teamConfigurationComposer = new TeamConfigurationComposer(layerDataParser, new UnitFactionFactory());
+        this.unitsFilter = new UnitsFilter();
     }
 
     public LayerExportResult run(LayerExportRequest request) throws IOException {
@@ -88,7 +91,9 @@ public final class LayerExportApplication {
         Units units = loadUnits(request.unitsPath());
         LayerTeamConfiguration teamConfiguration = teamConfigurationComposer.compose(request.gameplayDataPath(), units);
 
-        Layer layer = new Layer(metadata, capturePoints, objectives, mapAssets, assets, teamConfiguration, units);
+        Units filteredUnits = unitsFilter.filter(units, teamConfiguration);
+
+        Layer layer = new Layer(metadata, capturePoints, objectives, mapAssets, assets, teamConfiguration, filteredUnits);
 
         Path outputDir = request.projectRoot().resolve("output");
         Files.createDirectories(outputDir);
