@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Properties>
-        <Property name="units.log.level">info</Property>
+        <!-- Base levels -->
+        <Property name="units.level">info</Property>
         <Property name="units.missingAssets.level">warn</Property>
         <Property name="units.faction.level">info</Property>
+        <!-- Root logger level (was missing before!) -->
+        <Property name="units.log.level">info</Property>
     </Properties>
 
     <Appenders>
@@ -14,16 +17,18 @@
 
     <Loggers>
         <Logger name="com.pipemasters.units.MissingAssetLogger"
-                level="${sys:units.missingAssets.level:-${units.missingAssets.level}}"
+                level="${sys:units.missingAssets.level:-${properties:units.missingAssets.level}}"
                 additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
+
         <Logger name="com.pipemasters.units.FactionSetupTableParser"
-                level="${sys:units.faction.level:-${units.faction.level}}"
+                level="${sys:units.faction.level:-${properties:units.faction.level}}"
                 additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Root level="${sys:units.log.level:-${units.log.level}}">
+
+        <Root level="${sys:units.log.level:-${properties:units.log.level}}">
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>
