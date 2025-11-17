@@ -1,5 +1,8 @@
 package com.pipemasters.app;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +13,17 @@ public final class LayerExportArgumentsParser {
     private static final int MIN_ARGS = 1;
     private static final int MAX_ARGS = 2;
     private static final Pattern TOKEN_PATTERN = Pattern.compile("\"([^\"]*)\"|(\\S+)");
+    private static final Logger LOGGER = LogManager.getLogger(LayerExportArgumentsParser.class);
 
     public LayerBatchExportRequest parse(String[] args) {
-        if (args == null || args.length < MIN_ARGS || args.length > MAX_ARGS) {
+        int argumentCount = args == null ? 0 : args.length;
+        LOGGER.info("Received {} command line argument(s).", argumentCount);
+        if (args == null || argumentCount < MIN_ARGS || argumentCount > MAX_ARGS) {
+            LOGGER.error(
+                    "Invalid number of arguments: {}. Expected between {} and {}.",
+                    argumentCount,
+                    MIN_ARGS,
+                    MAX_ARGS);
             throw new LayerExportException("Usage: java -jar app.jar <path-to-layer-list-txt> [path-to-units-json]");
         }
 
@@ -24,6 +35,7 @@ public final class LayerExportArgumentsParser {
             unitsPath = Path.of(args[1]).toAbsolutePath().normalize();
         }
 
+        LOGGER.info("Using layer list '{}' and units path '{}'.", layerListPath, unitsPath);
         return new LayerBatchExportRequest(projectRoot, layerListPath, unitsPath);
     }
 
@@ -32,12 +44,19 @@ public final class LayerExportArgumentsParser {
             return null;
         }
         String trimmed = line.trim();
-        if (trimmed.isEmpty() || trimmed.startsWith("#") || trimmed.startsWith("//")) {
+        if (trimmed.isEmpty()) {
+            LOGGER.debug("Line {} is blank. Skipping.", lineNumber);
+            return null;
+        }
+        if (trimmed.startsWith("#") || trimmed.startsWith("//")) {
+            LOGGER.debug("Line {} is a comment. Skipping.", lineNumber);
             return null;
         }
 
+        LOGGER.debug("Parsing line {}: {}", lineNumber, trimmed);
         String[] tokens = normalizeTokens(tokenize(trimmed));
         if (tokens.length == 0) {
+            LOGGER.debug("No tokens were parsed from line {}.", lineNumber);
             return null;
         }
         if (tokens.length > 2) {
@@ -48,6 +67,12 @@ public final class LayerExportArgumentsParser {
         Path explicitLayerPath = null;
         if (tokens.length == 2) {
             explicitLayerPath = Path.of(tokens[1]).toAbsolutePath().normalize();
+        }
+
+        if (explicitLayerPath != null) {
+            LOGGER.info("Line {} parsed gameplay data '{}' with explicit layer '{}'.", lineNumber, gameplayDataPath, explicitLayerPath);
+        } else {
+            LOGGER.info("Line {} parsed gameplay data '{}' and will resolve layer path automatically.", lineNumber, gameplayDataPath);
         }
 
         return new LayerExportRequest(batchRequest.projectRoot(), gameplayDataPath, explicitLayerPath, batchRequest.unitsPath());
