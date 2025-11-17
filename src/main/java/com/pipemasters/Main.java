@@ -15,7 +15,9 @@ import org.apache.logging.log4j.Logger;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public final class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
@@ -58,6 +60,7 @@ public final class Main {
         int processed = 0;
         int succeeded = 0;
         int failed = 0;
+        Set<String> processedRequests = new HashSet<>();
 
         for (int i = 0; i < layerDefinitions.size(); i++) {
             int lineNumber = i + 1;
@@ -73,6 +76,16 @@ public final class Main {
 
             if (request == null) {
                 LOGGER.debug("Line {} did not produce a request (blank/comment). Skipping.", lineNumber);
+                continue;
+            }
+
+            String deduplicationKey = buildDeduplicationKey(request);
+            if (!processedRequests.add(deduplicationKey)) {
+                LOGGER.info("[{}] Gameplay data '{}' (layer '{}') already queued earlier. Skipping duplicate entry.",
+                        lineNumber,
+                        request.gameplayDataPath(),
+                        request.explicitLayerPath());
+                processed--;
                 continue;
             }
 
@@ -96,5 +109,10 @@ public final class Main {
             LOGGER.warn("Exiting with non-zero status because {} layer definition(s) failed.", failed);
             System.exit(1);
         }
+    }
+    private static String buildDeduplicationKey(LayerExportRequest request) {
+//        String explicitLayerPath = request.explicitLayerPath() == null ? "" : request.explicitLayerPath().toString();
+//        return request.gameplayDataPath().toString() + "|" + explicitLayerPath;
+        return request.gameplayDataPath().toString();
     }
 }
