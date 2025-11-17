@@ -32,7 +32,7 @@ public class CapturePointsParser {
             throw new IllegalStateException("DesignOutgoingLinks array is missing in the initializer component");
         }
 
-        List<CaptureLink> links = new ArrayList<>();
+        List<RawLink> rawLinks = new ArrayList<>();
         Map<String, List<String>> adjacency = new LinkedHashMap<>();
         Set<String> allNodes = new LinkedHashSet<>();
         Set<String> incomingNodes = new HashSet<>();
@@ -51,7 +51,7 @@ public class CapturePointsParser {
             adjacency.computeIfAbsent(nodeA, key -> new ArrayList<>()).add(nodeB);
             adjacency.putIfAbsent(nodeB, new ArrayList<>());
 
-            links.add(new CaptureLink("Link" + i, toDisplayName(nodeA), toDisplayName(nodeB)));
+            rawLinks.add(new RawLink("Link" + i, nodeA, nodeB));
         }
 
         String startNode = allNodes.stream()
@@ -73,19 +73,38 @@ public class CapturePointsParser {
                 .map(this::toDisplayName)
                 .collect(Collectors.joining("->"))));
 
-        List<String> pointsOrder = buildPointsOrder(paths);
+        List<NodeLabel> pointsOrder = buildPointsOrder(paths);
         LinkedHashSet<String> mains = new LinkedHashSet<>();
-        for (String point : pointsOrder) {
-            if (point.endsWith(" Main")) {
-                mains.add(point);
+        for (NodeLabel label : pointsOrder) {
+            if (label.displayName() != null && label.displayName().endsWith(" Main")) {
+                mains.add(label.rawName());
             }
         }
 
+        List<String> mainsInOrder = new ArrayList<>(mains);
+        Map<String, String> mainNameOverrides = MainNameFormatter.canonicalize(mainsInOrder);
+
+        List<String> canonicalPointsOrder = pointsOrder.stream()
+                .map(label -> applyMainOverride(label.rawName(), label.displayName(), mainNameOverrides))
+                .toList();
+
+        List<CaptureLink> canonicalLinks = rawLinks.stream()
+                .map(link -> new CaptureLink(
+                        link.name(),
+                        applyMainOverride(link.nodeA(), toDisplayName(link.nodeA()), mainNameOverrides),
+                        applyMainOverride(link.nodeB(), toDisplayName(link.nodeB()), mainNameOverrides)))
+                .toList();
+
+        List<String> canonicalMains = mainsInOrder.stream()
+                .map(name -> applyMainOverride(name, toDisplayName(name), mainNameOverrides))
+                .toList();
+
         CaptureClusters clusters = new CaptureClusters(
-                links,
-                pointsOrder,
-                pointsOrder.size(),
-                new ArrayList<>(mains)
+                canonicalLinks,
+                canonicalPointsOrder,
+                canonicalPointsOrder.size(),
+                canonicalMains,
+                mainNameOverrides
         );
 
         return new CapturePoints(
@@ -161,8 +180,8 @@ public class CapturePointsParser {
         currentPath.removeLast();
     }
 
-    private List<String> buildPointsOrder(List<List<String>> paths) {
-        List<String> order = new ArrayList<>();
+    private List<NodeLabel> buildPointsOrder(List<List<String>> paths) {
+        List<NodeLabel> order = new ArrayList<>();
         for (int i = 0; i < paths.size(); i++) {
             List<String> path = paths.get(i);
             int limit = path.size();
@@ -170,9 +189,31 @@ public class CapturePointsParser {
                 limit -= 1;
             }
             for (int j = 0; j < limit; j++) {
-                order.add(toDisplayName(path.get(j)));
+                String rawName = path.get(j);
+                order.add(new NodeLabel(rawName, toDisplayName(rawName)));
             }
         }
         return order;
+    }
+
+    private String applyMainOverride(String rawName,
+                                     String defaultDisplayName,
+                                     Map<String, String> overrides) {
+        if (rawName == null) {
+            return defaultDisplayName;
+        }
+        if (overrides != null) {
+            String override = overrides.get(rawName);
+            if (override != null && !override.isBlank()) {
+                return override;
+            }
+        }
+        return defaultDisplayName;
+    }
+
+    private record NodeLabel(String rawName, String displayName) {
+    }
+
+    private record RawLink(String name, String nodeA, String nodeB) {
     }
 }

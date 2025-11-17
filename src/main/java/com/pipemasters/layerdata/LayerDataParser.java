@@ -94,6 +94,10 @@ public class LayerDataParser {
             parseFactionEntries(factionsListNode, defaultTeam, team1, team2);
         }
 
+        if ((team1.isEmpty() || team2.isEmpty()) && root.isArray()) {
+            addFallbackFactionsFromTeamConfigs(root, team1, team2);
+        }
+
         return new TeamFactions(separated, List.copyOf(team1), List.copyOf(team2));
     }
 
@@ -183,6 +187,64 @@ public class LayerDataParser {
                 team1.add(config);
             }
         }
+    }
+
+    private void addFallbackFactionsFromTeamConfigs(JsonNode root,
+                                                    List<FactionConfig> team1,
+                                                    List<FactionConfig> team2) {
+        TeamConfig team1Config = null;
+        TeamConfig team2Config = null;
+        List<TeamConfig> fallback = new ArrayList<>();
+
+        for (JsonNode node : root) {
+            if (!"BP_SQLayerTeamConfig_C".equals(node.path("Type").asText())) {
+                continue;
+            }
+
+            TeamConfig config = parseTeamConfig(node);
+            if (config == null || config.defaultFactionUnit() == null || config.defaultFactionUnit().isBlank()) {
+                continue;
+            }
+
+            if (config.index() == 1 && team1Config == null) {
+                team1Config = config;
+            } else if (config.index() == 2 && team2Config == null) {
+                team2Config = config;
+            } else {
+                fallback.add(config);
+            }
+        }
+
+        if (team1Config == null && !fallback.isEmpty()) {
+            team1Config = fallback.remove(0);
+        }
+        if (team2Config == null && !fallback.isEmpty()) {
+            team2Config = fallback.remove(0);
+        }
+
+        team1Config = ensureTeamIndex(team1Config, 1);
+        team2Config = ensureTeamIndex(team2Config, 2);
+
+        if (team1.isEmpty()) {
+            addFallbackFaction(team1, team1Config);
+        }
+        if (team2.isEmpty()) {
+            addFallbackFaction(team2, team2Config);
+        }
+    }
+
+    private void addFallbackFaction(List<FactionConfig> target, TeamConfig config) {
+        if (target == null || config == null) {
+            return;
+        }
+
+        String defaultUnit = config.defaultFactionUnit();
+        if (defaultUnit == null || defaultUnit.isBlank()) {
+            return;
+        }
+
+        String factionId = extractFactionId(defaultUnit, null);
+        target.add(new FactionConfig(factionId, defaultUnit, List.of()));
     }
 
     private List<FactionType> parseFactionTypes(JsonNode typesNode) {

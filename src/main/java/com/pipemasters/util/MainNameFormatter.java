@@ -1,6 +1,15 @@
 package com.pipemasters.util;
 
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
 public final class MainNameFormatter {
+    private static final String ATTACK_MAIN = "00-Team1 Main";
+    private static final String DEFENSE_MAIN = "100-Team2 Main";
+
+
     private MainNameFormatter() {
     }
 
@@ -27,5 +36,25 @@ public final class MainNameFormatter {
         }
 
         return withoutSuffix;
+    }
+    public static Map<String, String> canonicalize(List<String> mainsInOrder) {
+        if (mainsInOrder == null || mainsInOrder.isEmpty()) {
+            return Collections.emptyMap();
+        }
+
+        Map<String, String> overrides = new LinkedHashMap<>();
+        String first = mainsInOrder.getFirst();
+        if (first != null && !first.isBlank()) {
+            overrides.put(first, ATTACK_MAIN);
+        }
+
+        if (mainsInOrder.size() > 1) {
+            String last = mainsInOrder.getLast();
+            if (last != null && !last.isBlank()) {
+                overrides.put(last, DEFENSE_MAIN);
+            }
+        }
+
+        return overrides.isEmpty() ? Collections.emptyMap() : Map.copyOf(overrides);
     }
 }

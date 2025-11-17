@@ -238,6 +238,7 @@ final class VehicleSettingsLoader {
             return mapped;
         }
         if (rawSpawner != null && !rawSpawner.isBlank()) {
+            LOGGER.debug("No override found for spawner size '{}'", rawSpawner);
             return BlueprintUtils.normalizeEnum(rawSpawner);
         }
         return "Unknown";
@@ -379,7 +380,7 @@ final class VehicleSettingsLoader {
     );
 
     private static final Map<String, String> VEHICLE_TYPE_OVERRIDES = Map.ofEntries(
-            Map.entry("ESQVehicle::NewEnumerator0", "FSV"),
+            Map.entry("ESQVehicle::NewEnumerator0", "RSV"),
             Map.entry("ESQVehicle::NewEnumerator1", "IFV"),
             Map.entry("ESQVehicle::NewEnumerator2", "APC"),
             Map.entry("ESQVehicle::NewEnumerator3", "MBT"),
@@ -398,19 +399,19 @@ final class VehicleSettingsLoader {
     );
 
     private static final Map<String, String> SPAWNER_SIZE_OVERRIDES = Map.ofEntries(
-            Map.entry("ESQVehicleSpawnerSize::NewEnumerator3", "MRAP"),
+//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator3", "MRAP"),
+//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator4", "APC"),
+//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator5", "Tank"),
+//            Map.entry("ESQVehicleSpawnerSize::NewEnumerator6", "Helicopter")
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator0", "Human"),
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator1", "Bike"),
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator2", "QuadBike"),
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator3", "Car"),
             Map.entry("ESQVehicleSpawnerSize::NewEnumerator4", "APC"),
-            Map.entry("ESQVehicleSpawnerSize::NewEnumerator5", "Tank"),
-            Map.entry("ESQVehicleSpawnerSize::NewEnumerator6", "Helicopter")
-//            Map.entry("NewEnumerator0", "Human"),
-//            Map.entry("NewEnumerator1", "Bike"),
-//            Map.entry("NewEnumerator2", "QuadBike"),
-//            Map.entry("NewEnumerator3", "Car"),
-//            Map.entry("NewEnumerator4", "APC"),
-//            Map.entry("NewEnumerator5", "MBT"),
-//            Map.entry("NewEnumerator6", "Helicopter"),
-//            Map.entry("NewEnumerator7", "Plane"),
-//            Map.entry("NewEnumerator8", "Boat")
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator5", "MBT"),
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator6", "Helicopter"),
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator7", "Plane"),
+            Map.entry("ESQVehicleSpawnerSize::NewEnumerator8", "Boat")
     );
 
     private static final Map<String, String> VEHICLE_TAG_OVERRIDES = Map.ofEntries(

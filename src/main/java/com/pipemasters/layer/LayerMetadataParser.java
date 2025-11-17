@@ -29,12 +29,25 @@ public class LayerMetadataParser {
 
         JsonNode worldSettings = findFirstByType(root, "SQWorldSettings").orElse(null);
 
-        ParsedLayerInfo layerInfo = parseLayerInfo(rawName, worldSettings);
-        String mapId = extractMapId(worldSettings).orElse(layerInfo.mapName().replace(" ", ""));
+        JsonNode layerDefinition = findFirstByType(root, "BP_SQLayer_C").orElse(null);
+
+        ParsedLayerInfo layerInfo = parseLayerInfo(rawName, worldSettings, layerDefinition);
+        String mapId = extractLevelId(layerDefinition)
+                .or(() -> extractMapId(worldSettings))
+                .orElse(layerInfo.mapName().replace(" ", ""));
 
         MapCameraActor mapCameraActor = parseMapCameraActor(root, worldSettings);
         List<MapTextureCorner> mapTextureCorners = parseMapTextureCorners(root, worldSettings);
         List<BorderPoint> border = parseBorder(root);
+        if (border.isEmpty() && !mapTextureCorners.isEmpty()) {
+            border = mapTextureCorners.stream()
+                    .map(corner -> new BorderPoint(
+                            corner.point(),
+                            corner.locationX(),
+                            corner.locationY(),
+                            corner.locationZ()))
+                    .toList();
+        }
         double seaLevel = parseSeaLevel(root).orElse(0.0);
 
         return new LayerMetadata(
@@ -75,7 +88,7 @@ public class LayerMetadataParser {
         return Optional.of(fileName);
     }
 
-    private ParsedLayerInfo parseLayerInfo(String rawName, JsonNode worldSettings) {
+    private ParsedLayerInfo parseLayerInfo(String rawName, JsonNode worldSettings, JsonNode layerDefinition) {
         String mapName = null;
         String gamemode = null;
         String layerVersion = null;
@@ -90,15 +103,29 @@ public class LayerMetadataParser {
             }
         }
 
+        if (mapName == null) {
+            String levelMapName = extractMapNameFromLevelId(layerDefinition);
+            if (levelMapName != null && !levelMapName.isBlank()) {
+                mapName = prettifyName(levelMapName);
+            }
+        }
+        if (gamemode == null) {
+            String gameModeRow = extractGameMode(layerDefinition);
+            if (gameModeRow != null && !gameModeRow.isBlank()) {
+                gamemode = prettifyName(gameModeRow);
+            }
+        }
+
         String[] rawParts = rawName.split("_");
-        if (mapName == null && rawParts.length > 0) {
-            mapName = prettifyName(rawParts[0]);
+        int prefixOffset = rawParts.length > 0 && isKnownLayerPrefix(rawParts[0]) ? 1 : 0;
+        if (mapName == null && rawParts.length > prefixOffset) {
+            mapName = prettifyName(rawParts[prefixOffset]);
         }
-        if (gamemode == null && rawParts.length > 1) {
-            gamemode = prettifyName(rawParts[1]);
+        if (gamemode == null && rawParts.length > prefixOffset + 1) {
+            gamemode = prettifyName(rawParts[prefixOffset + 1]);
         }
-        if (layerVersion == null && rawParts.length > 2) {
-            layerVersion = rawParts[2];
+        if (layerVersion == null) {
+            layerVersion = inferLayerVersion(rawParts);
         }
 
         if (mapName == null) {
@@ -126,6 +153,96 @@ public class LayerMetadataParser {
             return trimmed.toUpperCase(Locale.ROOT);
         }
         return trimmed.substring(0, 1).toUpperCase(Locale.ROOT) + trimmed.substring(1);
+    }
+
+    private String extractMapNameFromLevelId(JsonNode layerDefinition) {
+        if (layerDefinition == null) {
+            return null;
+        }
+        String levelId = layerDefinition.path("Properties").path("LevelId").asText(null);
+        return extractMapNameFromLevelId(levelId);
+    }
+
+    private String extractMapNameFromLevelId(String levelId) {
+        if (levelId == null || levelId.isBlank()) {
+            return null;
+        }
+        int underscore = levelId.indexOf('_');
+        if (underscore >= 0 && underscore + 1 < levelId.length()) {
+            return levelId.substring(underscore + 1);
+        }
+        return levelId;
+    }
+
+    private String extractGameMode(JsonNode layerDefinition) {
+        if (layerDefinition == null) {
+            return null;
+        }
+        String value = layerDefinition.path("Properties").path("GameMode").path("RowName").asText(null);
+        if (value == null || value.isBlank()) {
+            return null;
+        }
+        return value;
+    }
+
+    private boolean isKnownLayerPrefix(String value) {
+        if (value == null) {
+            return false;
+        }
+        return switch (value.toUpperCase(Locale.ROOT)) {
+            case "SD", "SDL" -> true;
+            default -> false;
+        };
+    }
+
+    private String inferLayerVersion(String[] rawParts) {
+        if (rawParts == null || rawParts.length == 0) {
+            return null;
+        }
+        if (rawParts.length >= 2) {
+            String last = rawParts[rawParts.length - 1];
+            String previous = rawParts[rawParts.length - 2];
+            if (last.length() == 1 && previous.startsWith("v")) {
+                return previous + "_" + last;
+            }
+        }
+        return rawParts[rawParts.length - 1];
+    }
+
+    private String formatMapId(String value) {
+        if (value == null) {
+            return null;
+        }
+        String trimmed = value.replace('_', ' ').trim();
+        if (trimmed.isEmpty()) {
+            return null;
+        }
+        trimmed = trimmed.replaceAll("(?<=[a-z0-9])(?=[A-Z])", " ");
+        String[] parts = trimmed.trim().split("\\s+");
+        StringBuilder builder = new StringBuilder();
+        for (String part : parts) {
+            if (part.isBlank()) {
+                continue;
+            }
+            if (builder.length() > 0) {
+                builder.append(' ');
+            }
+            builder.append(capitalize(part));
+        }
+        if (builder.length() == 0) {
+            return null;
+        }
+        return builder.toString();
+    }
+
+    private String capitalize(String value) {
+        if (value == null || value.isBlank()) {
+            return "";
+        }
+        if (value.length() == 1) {
+            return value.toUpperCase(Locale.ROOT);
+        }
+        return value.substring(0, 1).toUpperCase(Locale.ROOT) + value.substring(1).toLowerCase(Locale.ROOT);
     }
 
     private String extractDisplayTitle(JsonNode worldSettings) {
@@ -161,14 +278,30 @@ public class LayerMetadataParser {
         }
         int firstUnderscore = innerName.indexOf('_');
         int lastUnderscore = innerName.lastIndexOf('_');
+        String candidate;
         if (firstUnderscore >= 0 && lastUnderscore > firstUnderscore) {
-            String candidate = innerName.substring(firstUnderscore + 1, lastUnderscore);
-            return Optional.of(candidate.replace("_", ""));
+            candidate = innerName.substring(firstUnderscore + 1, lastUnderscore);
+        } else if (firstUnderscore >= 0) {
+            candidate = innerName.substring(firstUnderscore + 1);
+        } else {
+            candidate = innerName;
         }
-        if (firstUnderscore >= 0) {
-            return Optional.of(innerName.substring(firstUnderscore + 1));
+        String formatted = formatMapId(candidate);
+        if (formatted == null) {
+            return Optional.empty();
         }
-        return Optional.of(innerName);
+        return Optional.of(formatted);
+    }
+
+    private Optional<String> extractLevelId(JsonNode layerDefinition) {
+        if (layerDefinition == null) {
+            return Optional.empty();
+        }
+        String levelId = layerDefinition.path("Properties").path("LevelId").asText(null);
+        if (levelId == null || levelId.isBlank()) {
+            return Optional.empty();
+        }
+        return Optional.of(levelId.trim());
     }
 
     private MapCameraActor parseMapCameraActor(JsonNode root, JsonNode worldSettings) {
