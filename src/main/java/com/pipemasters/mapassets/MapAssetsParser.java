@@ -556,9 +556,9 @@ public class MapAssetsParser {
         }
 
         static Rotation fromEulerDegrees(double pitch, double yaw, double roll) {
-            double pitchRad = Math.toRadians(pitch);
+            double pitchRad = Math.toRadians(-pitch);
             double yawRad = Math.toRadians(yaw);
-            double rollRad = Math.toRadians(roll);
+            double rollRad = Math.toRadians(-roll);
 
             double cp = Math.cos(pitchRad);
             double sp = Math.sin(pitchRad);
