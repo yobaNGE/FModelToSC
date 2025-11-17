@@ -44,6 +44,9 @@ public class ObjectivesParser {
         Map<String, List<ObjectivePoint>> clusterPoints = new HashMap<>();
 
         Map<String, Integer> stageIndex = computeStageIndex(captureClusters);
+        Map<String, String> mainNameOverrides = captureClusters != null && captureClusters.mainNameOverrides() != null
+                ? captureClusters.mainNameOverrides()
+                : Map.of();
 
         for (String zoneName : captureZoneActors) {
             ComponentKey zoneRootKey = new ComponentKey(zoneName, "DefaultSceneRoot");
@@ -85,7 +88,7 @@ public class ObjectivesParser {
         for (String mainName : mainActors) {
             ComponentKey mainRootKey = new ComponentKey(mainName, "DefaultSceneRoot");
             ResolvedTransform transform = resolver.resolve(mainRootKey);
-            String displayName = formatMainDisplayName(mainName);
+            String displayName = formatMainDisplayName(mainName, mainNameOverrides);
             List<ObjectiveObject> objects = buildObjectiveObjects(mainName, resolver, componentsByOwner);
             int pointPosition = stageIndex.getOrDefault(displayName, 0);
             ObjectiveMain main = new ObjectiveMain(
@@ -482,11 +485,24 @@ public class ObjectivesParser {
         return decimal.stripTrailingZeros().toPlainString();
     }
 
-    private String formatMainDisplayName(String name) {
+    private String formatMainDisplayName(String name, Map<String, String> overrides) {
         if (name == null || name.isBlank()) {
             return "Main";
         }
-        return MainNameFormatter.normalize(name);
+        String normalized = MainNameFormatter.normalize(name);
+        if (normalized == null || normalized.isBlank()) {
+            return "Main";
+        }
+        if (overrides != null) {
+            String override = overrides.get(name);
+            if (override == null) {
+                override = overrides.get(normalized);
+            }
+            if (override != null && !override.isBlank()) {
+                return override;
+            }
+        }
+        return normalized;
     }
 
     private record ObjectiveWithKey(String key, Objective objective) {
