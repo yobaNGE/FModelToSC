@@ -1,0 +1,22 @@
+[
+  {
+    "rawName": "Logar_RAAS_v1",
+    "shortName": "RAAS v1"
+  },
+  {
+    "rawName": "Logar_AAS_v1",
+    "shortName": "AAS v1"
+  },
+  {
+    "rawName": "Logar_Seed_v1",
+    "shortName": "Seed v1"
+  },
+  {
+    "rawName": "Logar_Skirmish_v1",
+    "shortName": "Skirmish v1"
+  },
+  {
+    "rawName": "Logar_TC_v1",
+    "shortName": "TC v1"
+  }
+]

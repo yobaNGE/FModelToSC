@@ -1,0 +1,55 @@
+[
+  {
+    "rawName": "Narva_RAAS_v1",
+    "shortName": "RAAS v1"
+  },
+  {
+    "rawName": "Narva_Invasion_v1",
+    "shortName": "Invasion v1"
+  },
+  {
+    "rawName": "Narva_Invasion_v2",
+    "shortName": "Invasion v2"
+  },
+  {
+    "rawName": "SDL_Narva_Invasion_v1",
+    "shortName": "SD Invasion v1"
+  },
+  {
+    "rawName": "SDL_Narva_Invasion_v2_D",
+    "shortName": "SD Invasion v2"
+  },
+  {
+    "rawName": "SDL_Narva_Invasion_v3_D",
+    "shortName": "SD Invasion v3"
+  },
+  {
+    "rawName": "SD_Narva_Invasion_v4",
+    "shortName": "SD Invasion v4"
+  },
+
+  {
+    "rawName": "Narva_AAS_v1",
+    "shortName": "AAS v1"
+  },
+  {
+    "rawName": "Narva_AAS_v2",
+    "shortName": "AAS v2"
+  },
+  {
+    "rawName": "Narva_AAS_v3",
+    "shortName": "AAS v3"
+  },
+  {
+    "rawName": "Narva_Skirmish_v1",
+    "shortName": "Skirmish v1"
+  },
+  {
+    "rawName": "Narva_Destruction_v1",
+    "shortName": "Destruction v1"
+  },
+  {
+    "rawName": "Narva_TC_v1",
+    "shortName": "TC v1"
+  }
+]

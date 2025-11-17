@@ -1,0 +1,30 @@
+[
+  {
+    "rawName": "Kamdesh_RAAS_v1",
+    "shortName": "RAAS v1"
+  },
+  {
+    "rawName": "Kamdesh_Invasion_v1",
+    "shortName": "Invasion v1"
+  },
+  {
+    "rawName": "SD_Kamdesh_Invasion_v1",
+    "shortName": "SD Invasion v1"
+  },
+  {
+    "rawName": "SD_Kamdesh_Invasion_v2",
+    "shortName": "SD Invasion v2"
+  },
+  {
+    "rawName": "Kamdesh_AAS_v1",
+    "shortName": "AAS v1"
+  },
+  {
+    "rawName": "Kamdesh_Skirmish_v1",
+    "shortName": "Skirmish v1"
+  },
+  {
+    "rawName": "Kamdesh_TC_v1",
+    "shortName": "TC v1"
+  }
+]

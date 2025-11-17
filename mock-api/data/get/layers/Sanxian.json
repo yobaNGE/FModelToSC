@@ -1,0 +1,38 @@
+[
+  {
+    "rawName": "Sanxian_RAAS_v1",
+    "shortName": "RAAS v1"
+  },
+  {
+    "rawName": "Sanxian_RAAS_v2",
+    "shortName": "RAAS v2"
+  },
+  {
+    "rawName": "Sanxian_Invasion_v1",
+    "shortName": "Invasion v1"
+  },
+  {
+    "rawName": "Sanxian_Invasion_v2",
+    "shortName": "Invasion v2"
+  },
+  {
+    "rawName": "Sanxian_AAS_v1",
+    "shortName": "AAS v1"
+  },
+  {
+    "rawName": "Sanxian_AAS_v2",
+    "shortName": "AAS v2"
+  },
+  {
+    "rawName": "Sanxian_AAS_v3",
+    "shortName": "AAS v3"
+  },
+  {
+    "rawName": "Sanxian_Seed_v1",
+    "shortName": "Seed v1"
+  },
+  {
+    "rawName": "Sanxian_Skirmish_v1",
+    "shortName": "Skirmish v1"
+  }
+]
