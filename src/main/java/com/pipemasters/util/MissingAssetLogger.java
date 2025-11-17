@@ -50,6 +50,10 @@ public final class MissingAssetLogger {
         this(null, DEFAULT_OUTPUT_FILE);
     }
 
+    public static void prepareOutputFile(Path outputFile) {
+        resetOutputFile(outputFile);
+    }
+
     public void missing(Path path, String context) {
         if (path == null) {
             return;

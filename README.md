@@ -1,9 +1,9 @@
 # FModelToSC
 
-Convert FModel‑exported Squad mod data into JSON payloads that SquadCalc can read. The project now ships with two tooling entry points:
+Convert FModel‑exported Squad mod data into JSON payloads that SquadCalc can read. The project now ships with two tooling entry points that work together:
 
-- **Layer exporter (`com.pipemasters.Main`)** – takes a gameplay layer export (the `layerdata.json` that references the layer, objectives, map assets, capture points, etc.), resolves every linked asset that FModel exported, and writes a SquadCalc‑compatible payload.
-- **Units exporter (`com.pipemasters.units.UnitsMain`)** – scans exported faction setup data and builds `units.json` with teams, vehicles, and commander abilities for every faction used by your mod. Uses recursive scan for assets, in case essential info is not defined in base asset file, it scans superclass for those fields, and so on, untill all fields are populated or there is no superclasses to parse.
+- **Layer exporter (`com.pipemasters.Main`)** – consumes a *list* of gameplay layer exports (the `layerdata.json` files that reference the layer, objectives, map assets, capture points, etc.), resolves every linked asset that FModel exported, and writes SquadCalc‑compatible payloads to `output/`. The exporter batches multiple entries, supports inline comments, ignores duplicates, and keeps track of any missing assets.
+- **Units exporter (`com.pipemasters.units.UnitsMain`)** – scans exported faction setup data and builds `units.json` with teams, vehicles, and commander abilities for every faction used by your mod. It recursively walks parent assets when fields are not defined on the current file so the end result is complete before you start converting layers.
 
 The repository also contains a mock SquadCalc backend (`mock-api/`) so you can preview your converted layers locally.
 
@@ -16,7 +16,7 @@ Currently have some hardcoded values for path resolving just for Steel_Division 
 | Tool | Purpose |
 | --- | --- |
 | [FModel](https://fmodel.app/) + the mapping file `SQUADGAME10.usmap` from this repository | Export gameplay layers, map data, faction setups, and any missing assets. |
-| [FModel fork](https://github.com/yobaNGE/FModel/releases/tag/1.0.0) | Provides the **Missing Asset Extractor** used to dump extra assets listed in `missing-assets.txt`. |
+| [FModel fork](https://github.com/yobaNGE/FModel/releases/) | Provides the **Missing Asset Extractor** used to dump extra assets listed in `missing-assets.txt`. |
 | Java 21 (JDK) + Maven | Build and run both exporters. |
 | Node.js 18+ and npm | Run the mock API server. |
 | Optional: IntelliJ IDEA or any Java IDE | For running the exporters without Maven commands. |
@@ -82,7 +82,7 @@ Run this step once per mod, then rerun only when you add factions or vehicles.
 5. Open the yobaNGE FModel fork → **Tools → Missing Asset Extractor**, paste the contents of `missing-assets.txt`, press **Extract**. I just extract stuff in default Fmodel directory. Parser expect extracted assets to have same hierarchy as in Fmodel.
 6. Rerun step 2 until `missing-assets.txt` is no longer populated. When it stays empty the unit data is complete.
 
-> `UnitsMain` only needs to run again when you add new factions, modify vehicles, or see new missing assets. The layer exporter reads `output/units.json` automatically; you can also pass a custom path as the third argument to `Main` (see below).
+> `UnitsMain` only needs to run again when you add new factions, modify vehicles, or see new missing assets. The layer exporter reads `output/units.json` automatically; you can also pass a custom path as the optional second argument to `Main` (see below).
 
 ---
 
@@ -97,36 +97,50 @@ For every layer you want to convert:
 
 2. Ensure the referenced assets exist in your export directory. The layer exporter follows those references automatically. If a file is missing it will be written to console during conversion.
 
-Example path that becomes the first CLI argument:
-```
-"C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Yehorivka\Gameplay_Data\Layer\SD_Yehorivka_Invasion_v5.json"
-```
+Keep exporting gameplay data for every layer you want to convert—the next step batches them in a list.
 
 ---
 
-## 4. Convert the layer with `com.pipemasters.Main`
+## 4. Build a layer list (`layers.txt`)
+
+`com.pipemasters.Main` now consumes a text file where each non-empty line tells the exporter what to convert. The repository ships with an example [`layers.txt`](./layers.txt).
+
+1. Put the absolute path to a `layerdata` export on its own line, e.g.
+   ```
+   C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Yehorivka\Gameplay_Data\Layer\SD_Yehorivka_Invasion_v5.json
+   ```
+2. Optional: add a second JSON path (separated by whitespace) that points to the actual gameplay layer file when the resolver cannot infer it from the gameplay data.
+3. Paths that contain spaces should be wrapped in quotes. The parser also accepts Windows style backslashes.
+4. Blank lines and lines starting with `#` or `//` are ignored, so you can group entries and leave comments.
+5. Duplicate gameplay data paths are automatically skipped.
+
+Keep this file alongside your exports so that `missing-layers.txt` (written next to the export root) stays easy to find.
+
+---
+
+## 5. Convert the list with `com.pipemasters.Main`
 
 With `output/units.json` in place you can now create SquadCalc‑compatible layer payloads:
 
 ```bash
+mvn package
 mvn exec:java \
   -Dexec.mainClass=com.pipemasters.Main \
-  -Dexec.args="C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Yehorivka\Gameplay_Data\Layer\SD_Yehorivka_Invasion_v5.json"
+  -Dexec.args="layers.txt"
 ```
 
 What the arguments mean:
 
-1. **Required:** path to the exported gameplay data JSON (the `layerdata.json` discussed above).
-2. **Optional:** explicit path to the actual gameplay layer JSON if the resolver cannot find it automatically.
-3. **Optional:** path to a `units.json` file. If omitted, the tool uses `output/units.json`.
+1. **Required:** path to the layer list text file described above.
+2. **Optional:** path to a `units.json` file. If omitted, the tool uses `output/units.json` from the project root.
 
-Successful runs print the detected layer version, write the converted payload to `output/<LayerName>_vX.json`, and log the absolute path. `missing-layers.txt` is updated with any assets that could not be resolved—export them via FModel, copy into your exports folder, and rerun the command.
+Successful runs print the detected layer version, write the converted payload to `output/<LayerName>_vX.json`, and log the absolute path. For each gameplay data entry the exporter updates `missing-layers.txt` (stored alongside your exported assets) with any unresolved references—export those files via FModel, copy them into your exports folder, and rerun the batch.
 
 > The exporter preserves whatever folder structure you have under your export root. You can point it directly at an export from FModel or at a copy living elsewhere on disk.
 
 ---
 
-## 5. Preview layers with the mock SquadCalc API
+# 6. Preview layers with the mock SquadCalc API
 
 The mock server lives in `mock-api/` and now proxies missing data to the live SquadCalc service when possible.
 
@@ -159,6 +173,7 @@ Use `npm run dev` for auto‑reload while tweaking the mock server code.
 - `src/main/java/com/pipemasters/Main.java` – layer exporter entry point.
 - `src/main/java/com/pipemasters/units/UnitsMain.java` – units exporter entry point.
 - `output/` – generated `units.json` and converted layer files.
+- `layers.txt` – sample layer batch definition consumed by `com.pipemasters.Main`.
 - `mock-api/` – local backend with Express, JSON fixtures, and proxy behaviour.
 - `SQUADGAME10.usmap` – mapping file for FModel’s Local Mapping setting.
 
@@ -166,7 +181,8 @@ Use `npm run dev` for auto‑reload while tweaking the mock server code.
 
 ## Troubleshooting
 
-- **`Gameplay data file does not exist`** – double‑check the first CLI argument or drag‑and‑drop the JSON onto your terminal to get the absolute path.
+- **`Layer list file '<path>' does not exist`** – double‑check the path you passed as the first CLI argument. Drag‑and‑drop `layers.txt` into the terminal to capture the absolute path if needed.
+- **`Gameplay data file does not exist`** – fix or re-export the entry listed on that line in `layers.txt`. Quoting the path prevents spaces from being split into multiple tokens.
 - **`Unable to resolve gameplay layer file` / `missing-layers.txt` keeps filling up** – export every asset listed in the file via FModel, copy it into your export directory, and rerun the layer exporter.
 - **`missing-assets.txt` lists more files after running UnitsMain** – repeat the Missing Asset Extractor workflow until the file stays empty.
 - **Layer references factions that are not in `units.json`** – rerun UnitsMain after updating your mod, then reconvert the layer.
