@@ -113,6 +113,9 @@ public final class LayerExportApplication {
         Path outputPath = outputDir.resolve(outputFileName);
 
         LOGGER.info("Writing exported layer JSON to '{}'.", outputPath);
+        if (Files.exists(outputPath)) {
+            LOGGER.warn("Output file '{}' already exists and will be overwritten.", outputPath);
+        }
         Files.deleteIfExists(outputPath);
         mapper.writeValue(outputPath.toFile(), layer);
 
