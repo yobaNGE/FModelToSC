@@ -1,0 +1,38 @@
+[
+  {
+    "rawName": "GooseBay_RAAS_v1",
+    "shortName": "RAAS v1"
+  },
+  {
+    "rawName": "GooseBay_RAAS_v2",
+    "shortName": "RAAS v2"
+  },
+  {
+    "rawName": "GooseBay_Invasion_v1",
+    "shortName": "Invasion v1"
+  },
+  {
+    "rawName": "SD_GooseBay_Invasion_v1_d",
+    "shortName": "SD Invasion v1"
+  },
+  {
+    "rawName": "SD_GooseBay_Invasion_v2_d",
+    "shortName": "SD Invasion v2"
+  },
+  {
+    "rawName": "SD_GooseBay_Invasion_v3_d",
+    "shortName": "SD Invasion v3"
+  },
+  {
+    "rawName": "GooseBay_AAS_v1",
+    "shortName": "AAS v1"
+  },
+  {
+    "rawName": "GooseBay_Seed_v1",
+    "shortName": "Seed v1"
+  },
+  {
+    "rawName": "GooseBay_Skirmish_v1",
+    "shortName": "Skirmish v1"
+  }
+]

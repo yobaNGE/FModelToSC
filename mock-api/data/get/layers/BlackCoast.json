@@ -1,0 +1,50 @@
+[
+  {
+    "rawName": "BlackCoast_RAAS_v1",
+    "shortName": "RAAS v1"
+  },
+  {
+    "rawName": "BlackCoast_RAAS_v2",
+    "shortName": "RAAS v2"
+  },
+  {
+    "rawName": "BlackCoast_Invasion_v1",
+    "shortName": "Invasion v1"
+  },
+  {
+    "rawName": "BlackCoast_Invasion_v2",
+    "shortName": "Invasion v2"
+  },
+  {
+    "rawName": "BlackCoast_Invasion_v3",
+    "shortName": "Invasion v3"
+  },
+  {
+    "rawName": "SD_BlackCoast_Invasion_v1_dv",
+    "shortName": "SD Invasion v1"
+  },
+  {
+    "rawName": "SD_BlackCoast_Invasion_v2",
+    "shortName": "SD Invasion v2"
+  },
+  {
+    "rawName": "SD_BlackCoast_Invasion_v3",
+    "shortName": "SD Invasion v3"
+  },
+  {
+    "rawName": "BlackCoast_AAS_v1",
+    "shortName": "AAS v1"
+  },
+  {
+    "rawName": "BlackCoast_AAS_v2",
+    "shortName": "AAS v2"
+  },
+  {
+    "rawName": "BlackCoast_Seed_v1",
+    "shortName": "Seed v1"
+  },
+  {
+    "rawName": "BlackCoast_Skirmish_v1",
+    "shortName": "Skirmish v1"
+  }
+]
