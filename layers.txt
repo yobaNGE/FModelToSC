@@ -49,3 +49,4 @@ C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Con
 C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Narva\Gameplay_Layer_Data\Layer\SD_Narva_Invasion_v1.json
 C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Narva\Gameplay_Layer_Data\Layer\SD_Narva_Invasion_v2_D.json
 C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Narva\Gameplay_Layer_Data\Layer\SD_Narva_Invasion_v3_D.json
+C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Fallujah\Gameplay_Layer_Data\Layer\SDLite_Fallujah_Invasion_TSFvRED_d.json

@@ -388,6 +388,7 @@ final class VehicleSettingsLoader {
             Map.entry("ESQVehicle::NewEnumerator5", "LTV"),
             Map.entry("ESQVehicle::NewEnumerator6", "UH"),
             Map.entry("ESQVehicle::NewEnumerator7", "AH"),
+            Map.entry("", "AH"), //just cause for some reason empty EQSVehicle defaults to AH
             Map.entry("ESQVehicle::NewEnumerator8", "ULTV"),
             Map.entry("ESQVehicle::NewEnumerator9", "SPAA"),
             Map.entry("ESQVehicle::NewEnumerator10", "MRAP"),

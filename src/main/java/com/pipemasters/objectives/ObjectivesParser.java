@@ -134,6 +134,9 @@ public class ObjectivesParser {
     private ComponentDefinition parseBoxComponent(JsonNode node) {
         JsonNode extentNode = node.path("Properties").path("BoxExtent");
         Vector3D extent = readVector(extentNode, "X", "Y", "Z", Vector3D.ZERO);
+        if (extentNode.isMissingNode() || extentNode.isNull()) {
+            extent = new Vector3D(50.0, 50.0, 50.0);
+        }
         return parseComponent(node, ComponentType.BOX, extent, 0.0, 0.0, 0.0);
     }
 
@@ -324,36 +327,41 @@ public class ObjectivesParser {
         double locationY = transform.location().y();
         double locationZ = transform.location().z();
         Rotation rotation = transform.rotation();
-        Vector3D scale = transform.scale();
+        Vector3D worldScale = transform.scale();
+        Vector3D localScale = definition.scale();
 
         return switch (definition.type()) {
-            case BOX -> createBoxVolume(definition, transform, locationX, locationY, locationZ, rotation, scale);
-            case SPHERE -> createSphereVolume(definition, locationX, locationY, locationZ, rotation, scale);
-            case CAPSULE -> createCapsuleVolume(definition, locationX, locationY, locationZ, rotation, scale);
+            case BOX -> createBoxVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
+            case SPHERE -> createSphereVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
+            case CAPSULE -> createCapsuleVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
             default -> null;
         };
     }
 
     private ObjectiveVolume createBoxVolume(ComponentDefinition definition,
-                                            ResolvedTransform transform,
                                             double locationX,
                                             double locationY,
                                             double locationZ,
                                             Rotation rotation,
-                                            Vector3D scale) {
-        Vector3D extent = definition.extent().multiply(scale);
-        double radius = Math.sqrt(extent.x() * extent.x() + extent.y() * extent.y() + extent.z() * extent.z());
+                                            Vector3D worldScale,
+                                            Vector3D localScale) {
+        Vector3D baseExtent = definition.extent();
+        Vector3D scaledExtent = baseExtent.multiply(worldScale);
+        double radius = Math.sqrt(
+                scaledExtent.x() * scaledExtent.x()
+                        + scaledExtent.y() * scaledExtent.y()
+                        + scaledExtent.z() * scaledExtent.z());
 
         ObjectiveBoxExtent boxExtent = new ObjectiveBoxExtent(
-                extent.x(),
-                extent.y(),
-                extent.z(),
+                baseExtent.x(),
+                baseExtent.y(),
+                baseExtent.z(),
                 rotation.roll(),
                 rotation.pitch(),
                 rotation.yaw(),
-                scale.x(),
-                scale.y(),
-                scale.z()
+                localScale.x(),
+                localScale.y(),
+                localScale.z()
         );
         ObjectiveObject object = new ObjectiveObject(
                 definition.key().name(),
@@ -379,8 +387,9 @@ public class ObjectivesParser {
                                                double locationY,
                                                double locationZ,
                                                Rotation rotation,
-                                               Vector3D scale) {
-        double radius = definition.sphereRadius() * scale.x();
+                                               Vector3D worldScale,
+                                               Vector3D localScale) {
+        double radius = definition.sphereRadius() * worldScale.x();
         // Squadcalc expects yaw to "rotation_z". what about roll and pitch? sharkman only knows...
         ObjectiveBoxExtent boxExtent = new ObjectiveBoxExtent(
                 radius,
@@ -389,9 +398,9 @@ public class ObjectivesParser {
                 rotation.pitch(),
                 rotation.roll(),
                 rotation.yaw(),
-                scale.x(),
-                scale.y(),
-                scale.z()
+                localScale.x(),
+                localScale.y(),
+                localScale.z()
         );
         ObjectiveObject object = new ObjectiveObject(
                 definition.key().name(),
@@ -417,13 +426,14 @@ public class ObjectivesParser {
                                                 double locationY,
                                                 double locationZ,
                                                 Rotation rotation,
-                                                Vector3D scale) {
+                                                Vector3D worldScale,
+                                                Vector3D localScale) {
 
         double radius = definition.capsuleRadius();
         double halfHeight = definition.capsuleHalfHeight();
 
-        double scaledHalfHeight = halfHeight * scale.z();
-        double scaledRadius = radius * Math.max(scale.x(), scale.y());
+        double scaledHalfHeight = halfHeight * worldScale.z();
+        double scaledRadius = radius * Math.max(worldScale.x(), worldScale.y());
         double cylinderHalfHeight = Math.max(0.0, scaledHalfHeight - scaledRadius);
 
         Vector3D axis = rotation.rotate(new Vector3D(0.0, 0.0, 1.0));
@@ -446,9 +456,9 @@ public class ObjectivesParser {
 //                rotation.pitch(),
 //                rotation.roll(),
 //                rotation.yaw() + 90,
-                scale.x(),
-                scale.y(),
-                scale.z()
+                localScale.x(),
+                localScale.y(),
+                localScale.z()
         );
 
         String capsuleRadiusValue = formatDecimal(scaledRadius);

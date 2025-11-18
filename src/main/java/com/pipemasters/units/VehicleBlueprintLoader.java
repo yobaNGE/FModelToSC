@@ -188,27 +188,6 @@ final class VehicleBlueprintLoader {
 //        return false;
     }
 
-    private boolean containsAtgmKeyword(String text) {
-        if (text == null || text.isBlank()) {
-            return false;
-        }
-        String lower = text.toLowerCase(Locale.ROOT);
-        if (ATGM_PATTERN.matcher(lower).find()) {
-            return true;
-        }
-
-        String sanitized = lower.replaceAll("[^a-z0-9]+", " ");
-        for (String token : sanitized.split(" ")) {
-            if (token.isBlank()) {
-                continue;
-            }
-            if (ATGM_TOKENS.contains(token)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
     private boolean hasComponent(JsonNode properties, String classFragment) {
         JsonNode componentNode = JsonUtils.findFirstProperty(properties, classFragment);
         if (componentNode.isMissingNode()) {
