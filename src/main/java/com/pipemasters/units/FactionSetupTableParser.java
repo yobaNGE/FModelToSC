@@ -27,7 +27,7 @@ final class FactionSetupTableParser {
             return Map.of();
         }
         if (!Files.exists(path)) {
-            LOGGER.warn("Faction setup table '{}' does not exist.", path);
+            LOGGER.error("Faction setup table '{}' does not exist.", path);
             return Map.of();
         }
         LOGGER.info("Parsing faction setup table from '{}'", path);
