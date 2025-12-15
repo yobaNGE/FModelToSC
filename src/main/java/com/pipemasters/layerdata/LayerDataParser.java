@@ -71,6 +71,7 @@ public class LayerDataParser {
 
         JsonNode properties = layerNode.path("Properties");
         boolean separated = properties.path("bSeparatedFactionsList").asBoolean(false);
+        boolean raasMode = "raas".equalsIgnoreCase(properties.path("GameMode").path("RowName").asText(""));
 
         List<FactionConfig> team1 = new ArrayList<>();
         List<FactionConfig> team2 = new ArrayList<>();
@@ -91,7 +92,12 @@ public class LayerDataParser {
 
         if (!hasExplicitTeamOne) {
             TeamSide defaultTeam = hasExplicitTeamTwo ? TeamSide.TEAM1 : null;
-            parseFactionEntries(factionsListNode, defaultTeam, team1, team2);
+            if (raasMode && !hasExplicitTeamTwo) {
+                parseFactionEntries(factionsListNode, TeamSide.TEAM1, team1, team2);
+                team2.addAll(team1);
+            } else {
+                parseFactionEntries(factionsListNode, defaultTeam, team1, team2);
+            }
         }
 
         if ((team1.isEmpty() || team2.isEmpty()) && root.isArray()) {
