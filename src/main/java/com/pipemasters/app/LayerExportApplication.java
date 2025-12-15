@@ -102,14 +102,15 @@ public final class LayerExportApplication {
         Units units = loadUnits(request.unitsPath());
         LayerTeamConfiguration teamConfiguration = teamConfigurationComposer.compose(request.gameplayDataPath(), units);
 
-        Units filteredUnits = unitsFilter.filter(units, teamConfiguration);
+        Units adjustedUnits = adjustUnitsForMirroredFactions(units, teamConfiguration);
+        Units filteredUnits = unitsFilter.filter(adjustedUnits, teamConfiguration);
 
         Layer layer = new Layer(metadata, capturePoints, objectives, mapAssets, assets, teamConfiguration, filteredUnits);
 
         Path outputDir = request.projectRoot().resolve("output");
         Files.createDirectories(outputDir);
 
-        String outputFileName = createOutputFileName(layerJsonPath, metadata.layerVersion());
+        String outputFileName = createOutputFileName(layerJsonPath, metadata.layerVersion(), gameplayDataInfo.rowName());
         Path outputPath = outputDir.resolve(outputFileName);
 
         LOGGER.info("Writing exported layer JSON to '{}'.", outputPath);
@@ -131,7 +132,20 @@ public final class LayerExportApplication {
         return mapper.readValue(unitsPath.toFile(), Units.class);
     }
 
-    private String createOutputFileName(Path originalPath, String reportedVersion) {
+    private Units adjustUnitsForMirroredFactions(Units units, LayerTeamConfiguration teamConfiguration) {
+        if (units == null || teamConfiguration == null || teamConfiguration.factions() == null) {
+            return units;
+        }
+
+        if (teamConfiguration.factions().team1Units() != null
+                && teamConfiguration.factions().team1Units().equals(teamConfiguration.factions().team2Units())) {
+            return new Units(units.team1Units(), units.team1Units());
+        }
+
+        return units;
+    }
+
+    private String createOutputFileName(Path originalPath, String reportedVersion, String preferredBaseName) {
         String originalFileName = originalPath.getFileName().toString();
         if (reportedVersion == null || reportedVersion.isBlank()) {
             return originalFileName;
@@ -146,6 +160,13 @@ public final class LayerExportApplication {
         }
 
         String sanitizedVersion = reportedVersion.startsWith("v") ? reportedVersion : "v" + reportedVersion;
+        String baseNameFromData = (preferredBaseName == null || preferredBaseName.isBlank())
+                ? null
+                : preferredBaseName.trim();
+
+        if (baseNameFromData != null && !baseNameFromData.isBlank()) {
+            baseName = baseNameFromData;
+        }
         Matcher matcher = VERSION_SEGMENT_PATTERN.matcher(baseName);
         int lastMatchStart = -1;
         int lastMatchEnd = -1;
