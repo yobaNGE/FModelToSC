@@ -3,6 +3,7 @@ package com.pipemasters.capture;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pipemasters.util.MainNameFormatter;
+import com.pipemasters.layerdata.GameMode;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -17,21 +18,29 @@ public class CapturePointsParser {
     }
 
     public CapturePoints parseCapturePoints(Path exportPath) throws IOException {
-        JsonNode root = objectMapper.readTree(exportPath.toFile());
-        return parseCapturePoints(root);
+        return parseCapturePoints(exportPath, GameMode.UNKNOWN);
     }
 
-    public CapturePoints parseCapturePoints(JsonNode root) {
+    public CapturePoints parseCapturePoints(Path exportPath, GameMode gameMode) throws IOException {
+        JsonNode root = objectMapper.readTree(exportPath.toFile());
+        return parseCapturePoints(root, gameMode);
+    }
+
+    public CapturePoints parseCapturePoints(JsonNode root, GameMode gameMode) {
         if (root == null || !root.isArray()) {
             throw new IllegalArgumentException("FModel export is expected to be a JSON array of objects");
         }
 
-        JsonNode laneInitializer = findLaneInitializerNode(root);
-        if (laneInitializer != null) {
-            return parseRaasLaneGraph(laneInitializer);
+        GameMode mode = gameMode == null ? GameMode.UNKNOWN : gameMode;
+
+        if (mode == GameMode.RAAS) {
+            JsonNode laneInitializer = findLaneInitializerNode(root);
+            if (laneInitializer != null) {
+                return parseRaasLaneGraph(laneInitializer);
+            }
         }
 
-        JsonNode initializerNode = findInitializerNode(root);
+        JsonNode initializerNode = findInitializerNode(root, mode);
         JsonNode designOutgoingLinks = initializerNode.path("Properties").path("DesignOutgoingLinks");
         if (!designOutgoingLinks.isArray()) {
             throw new IllegalStateException("DesignOutgoingLinks array is missing in the initializer component");
@@ -228,13 +237,21 @@ public class CapturePointsParser {
         return null;
     }
 
-    private JsonNode findInitializerNode(JsonNode root) {
+    private JsonNode findInitializerNode(JsonNode root, GameMode gameMode) {
+        List<String> supportedInitializers = switch (gameMode) {
+            case RAAS -> List.of("SQGraphRAASInitializerComponent");
+            case AAS -> List.of("SQGraphAASInitializerComponent");
+            default -> List.of("SQGraphRAASInitializerComponent", "SQGraphAASInitializerComponent");
+        };
+
         for (JsonNode node : root) {
-            if ("SQGraphRAASInitializerComponent".equals(node.path("Type").asText())) {
+            String type = node.path("Type").asText();
+            if (supportedInitializers.contains(type)) {
                 return node;
             }
         }
-        throw new IllegalStateException("Unable to locate SQGraphRAASInitializerComponent in the export");
+
+        throw new IllegalStateException("Unable to locate a graph initializer component in the export for gamemode: " + gameMode);
     }
 
     private String extractNodeName(String objectName) {

@@ -65,7 +65,8 @@ public class LayerDataParser {
 
         JsonNode properties = layerNode.path("Properties");
         boolean separated = properties.path("bSeparatedFactionsList").asBoolean(false);
-        boolean raasMode = isRaasMode(properties);
+        GameMode gameMode = parseGameMode(properties);
+        boolean mirroredTeams = gameMode.hasMirroredTeams();
 
         List<FactionConfig> team1 = new ArrayList<>();
         List<FactionConfig> team2 = new ArrayList<>();
@@ -86,7 +87,7 @@ public class LayerDataParser {
 
         if (!hasExplicitTeamOne) {
             TeamSide defaultTeam = hasExplicitTeamTwo ? TeamSide.TEAM1 : null;
-            if (raasMode && !hasExplicitTeamTwo) {
+            if (mirroredTeams && !hasExplicitTeamTwo) {
                 parseFactionEntries(factionsListNode, TeamSide.TEAM1, team1, team2);
                 team2.addAll(team1);
             } else {
@@ -101,6 +102,25 @@ public class LayerDataParser {
         return new TeamFactions(separated, List.copyOf(team1), List.copyOf(team2));
     }
 
+    public GameMode parseGameMode(Path layerDataPath) throws IOException {
+        Objects.requireNonNull(layerDataPath, "layerDataPath");
+        if (!Files.exists(layerDataPath)) {
+            return GameMode.UNKNOWN;
+        }
+
+        JsonNode root = mapper.readTree(layerDataPath.toFile());
+        if (root == null || !root.isArray()) {
+            return GameMode.UNKNOWN;
+        }
+
+        JsonNode layerNode = findLayerNode(root);
+        if (layerNode == null) {
+            return GameMode.UNKNOWN;
+        }
+
+        return parseGameMode(layerNode.path("Properties"));
+    }
+
     public LayerTeamConfigs parseTeamConfigs(Path layerDataPath) throws IOException {
         Objects.requireNonNull(layerDataPath, "layerDataPath");
         if (!Files.exists(layerDataPath)) {
@@ -113,7 +133,8 @@ public class LayerDataParser {
         }
 
         JsonNode layerNode = findLayerNode(root);
-        boolean raasMode = isRaasMode(layerNode == null ? null : layerNode.path("Properties"));
+        GameMode gameMode = parseGameMode(layerNode == null ? null : layerNode.path("Properties"));
+        boolean mirroredTeams = gameMode.hasMirroredTeams();
 
         TeamConfig team1 = null;
         TeamConfig team2 = null;
@@ -145,7 +166,7 @@ public class LayerDataParser {
             team2 = fallback.remove(0);
         }
 
-        if (raasMode) {
+        if (mirroredTeams) {
             team1 = duplicateIfMissing(team1, team2, 1);
             team2 = duplicateIfMissing(team2, team1, 2);
         }
@@ -253,11 +274,11 @@ public class LayerDataParser {
         return null;
     }
 
-    private boolean isRaasMode(JsonNode properties) {
+    private GameMode parseGameMode(JsonNode properties) {
         if (properties == null || properties.isMissingNode()) {
-            return false;
+            return GameMode.UNKNOWN;
         }
-        return "raas".equalsIgnoreCase(properties.path("GameMode").path("RowName").asText(""));
+        return GameMode.fromRowName(properties.path("GameMode").path("RowName").asText(null));
     }
 
     private void addFallbackFaction(List<FactionConfig> target, TeamConfig config) {

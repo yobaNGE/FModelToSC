@@ -11,6 +11,7 @@ import com.pipemasters.gameplay.GameplayDataParser;
 import com.pipemasters.layer.LayerMetadata;
 import com.pipemasters.layer.LayerMetadataParser;
 import com.pipemasters.layer.LayerPathResolver;
+import com.pipemasters.layerdata.GameMode;
 import com.pipemasters.layerdata.LayerDataParser;
 import com.pipemasters.layerdata.TeamConfigurationComposer;
 import com.pipemasters.mapassets.MapAssets;
@@ -40,12 +41,13 @@ public final class LayerExportApplication {
     private final ObjectMapper mapper;
     private final GameplayDataParser gameplayDataParser;
     private final LayerPathResolver layerPathResolver;
+    private final LayerDataParser layerDataParser;
     private final TeamConfigurationComposer teamConfigurationComposer;
     private final UnitsFilter unitsFilter;
 
     public LayerExportApplication(ObjectMapper mapper) {
         this.mapper = Objects.requireNonNull(mapper, "mapper");
-        LayerDataParser layerDataParser = new LayerDataParser(mapper);
+        this.layerDataParser = new LayerDataParser(mapper);
         this.gameplayDataParser = new GameplayDataParser();
         this.layerPathResolver = new LayerPathResolver();
         this.teamConfigurationComposer = new TeamConfigurationComposer(layerDataParser, new UnitFactionFactory());
@@ -80,9 +82,10 @@ public final class LayerExportApplication {
 
         LOGGER.info("Resolved layer JSON path to '{}'.", layerJsonPath);
         JsonNode layerRoot = mapper.readTree(layerJsonPath.toFile());
-        CapturePointsParser capturePointsParser = new CapturePointsParser(mapper);
-        CapturePoints capturePoints = capturePointsParser.parseCapturePoints(layerRoot);
+        GameMode gameMode = layerDataParser.parseGameMode(request.gameplayDataPath());
 
+        CapturePointsParser capturePointsParser = new CapturePointsParser(mapper);
+        CapturePoints capturePoints = capturePointsParser.parseCapturePoints(layerRoot, gameMode);
         ObjectivesParser objectivesParser = new ObjectivesParser();
         Map<String, Objective> objectives = objectivesParser.parseObjectives(layerRoot, capturePoints.clusters());
 
