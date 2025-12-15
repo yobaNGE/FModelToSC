@@ -163,7 +163,7 @@ public class CapturePointsParser {
         lanesSection.put("laneObjects", laneObjects);
         lanesSection.put("listOfLanes", laneNames);
 
-        CaptureClusters clusters = new CaptureClusters(List.of(), List.of(), 0, List.of(), mainNameOverrides);
+        CaptureClusters clusters = new CaptureClusters(canonicalLinks, List.of(), 0, List.of(), mainNameOverrides);
 
         return new CapturePoints("RAASLane Graph", lanesSection, Map.of(), clusters, Map.of(), List.of(), Map.of());
     }

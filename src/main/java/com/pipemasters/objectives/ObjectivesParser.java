@@ -29,12 +29,11 @@ public class ObjectivesParser {
                 case "SceneComponent" -> registerComponent(parseSceneComponent(node), components, componentsByOwner);
                 case "BoxComponent" -> registerComponent(parseBoxComponent(node), components, componentsByOwner);
                 case "SphereComponent" -> registerComponent(parseSphereComponent(node), components, componentsByOwner);
-                case "CapsuleComponent" ->
-                        registerComponent(parseCapsuleComponent(node), components, componentsByOwner);
-                case "BP_CaptureZoneInvasion_C" -> captureZoneActors.add(node.path("Name").asText());
+                case "CapsuleComponent" -> registerComponent(parseCapsuleComponent(node), components, componentsByOwner);
+                case "BP_CaptureZoneInvasion_C", "BP_CaptureZone_C" -> captureZoneActors.add(node.path("Name").asText());
                 case "BP_CaptureZoneCluster_C" -> clusterActors.add(node.path("Name").asText());
                 case "BP_CaptureZoneMain_C" -> mainActors.add(node.path("Name").asText());
-                case "SQCaptureZoneInvasionComponent" -> storeCaptureZoneDisplayName(node, pointDisplayNames);
+                case "SQCaptureZoneInvasionComponent", "SQCaptureZoneComponent" -> storeCaptureZoneDisplayName(node, pointDisplayNames);
                 default -> {
                 }
             }
@@ -332,8 +331,10 @@ public class ObjectivesParser {
 
         return switch (definition.type()) {
             case BOX -> createBoxVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
-            case SPHERE -> createSphereVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
-            case CAPSULE -> createCapsuleVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
+            case SPHERE ->
+                    createSphereVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
+            case CAPSULE ->
+                    createCapsuleVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
             default -> null;
         };
     }

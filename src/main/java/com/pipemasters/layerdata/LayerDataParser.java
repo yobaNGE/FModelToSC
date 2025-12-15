@@ -57,13 +57,7 @@ public class LayerDataParser {
             return TeamFactions.empty();
         }
 
-        JsonNode layerNode = null;
-        for (JsonNode node : root) {
-            if ("BP_SQLayer_C".equals(node.path("Type").asText())) {
-                layerNode = node;
-                break;
-            }
-        }
+        JsonNode layerNode = findLayerNode(root);
 
         if (layerNode == null) {
             return TeamFactions.empty();
@@ -71,7 +65,7 @@ public class LayerDataParser {
 
         JsonNode properties = layerNode.path("Properties");
         boolean separated = properties.path("bSeparatedFactionsList").asBoolean(false);
-        boolean raasMode = "raas".equalsIgnoreCase(properties.path("GameMode").path("RowName").asText(""));
+        boolean raasMode = isRaasMode(properties);
 
         List<FactionConfig> team1 = new ArrayList<>();
         List<FactionConfig> team2 = new ArrayList<>();
@@ -118,6 +112,9 @@ public class LayerDataParser {
             return LayerTeamConfigs.empty();
         }
 
+        JsonNode layerNode = findLayerNode(root);
+        boolean raasMode = isRaasMode(layerNode == null ? null : layerNode.path("Properties"));
+
         TeamConfig team1 = null;
         TeamConfig team2 = null;
         List<TeamConfig> fallback = new ArrayList<>();
@@ -146,6 +143,11 @@ public class LayerDataParser {
         }
         if (team2 == null && !fallback.isEmpty()) {
             team2 = fallback.remove(0);
+        }
+
+        if (raasMode) {
+            team1 = duplicateIfMissing(team1, team2, 1);
+            team2 = duplicateIfMissing(team2, team1, 2);
         }
 
         team1 = ensureTeamIndex(team1, 1);
@@ -237,6 +239,25 @@ public class LayerDataParser {
         if (team2.isEmpty()) {
             addFallbackFaction(team2, team2Config);
         }
+    }
+
+    private JsonNode findLayerNode(JsonNode root) {
+        if (root == null || !root.isArray()) {
+            return null;
+        }
+        for (JsonNode node : root) {
+            if ("BP_SQLayer_C".equals(node.path("Type").asText())) {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    private boolean isRaasMode(JsonNode properties) {
+        if (properties == null || properties.isMissingNode()) {
+            return false;
+        }
+        return "raas".equalsIgnoreCase(properties.path("GameMode").path("RowName").asText(""));
     }
 
     private void addFallbackFaction(List<FactionConfig> target, TeamConfig config) {
@@ -436,6 +457,23 @@ public class LayerDataParser {
 
         return new TeamConfig(index, defaultFactionUnit, tickets, vehiclesDisabled, playerPercent,
                 List.copyOf(allowedAlliances), List.copyOf(allowedFactionTypes), List.copyOf(requiredTags));
+    }
+
+    private TeamConfig duplicateIfMissing(TeamConfig primary, TeamConfig secondary, int targetIndex) {
+        if (primary != null) {
+            return primary;
+        }
+        if (secondary == null) {
+            return null;
+        }
+        return new TeamConfig(targetIndex,
+                secondary.defaultFactionUnit(),
+                secondary.tickets(),
+                secondary.vehiclesDisabled(),
+                secondary.playerPercent(),
+                secondary.allowedAlliances(),
+                secondary.allowedFactionUnitTypes(),
+                secondary.requiredTags());
     }
 
     private int parseTeamIndex(String rawIndex) {
