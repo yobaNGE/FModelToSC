@@ -2,7 +2,9 @@ package com.pipemasters.objectives;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.pipemasters.capture.CaptureClusters;
+import com.pipemasters.layerdata.GameMode;
 import com.pipemasters.util.MainNameFormatter;
+import com.pipemasters.util.ObjectiveNameFormatter;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -11,7 +13,7 @@ public class ObjectivesParser {
     public ObjectivesParser() {
     }
 
-    public Map<String, Objective> parseObjectives(JsonNode root, CaptureClusters captureClusters) {
+    public Map<String, Objective> parseObjectives(JsonNode root, CaptureClusters captureClusters, GameMode gameMode) {
         if (root == null || !root.isArray()) {
             throw new IllegalArgumentException("FModel export is expected to be a JSON array of objects");
         }
@@ -68,9 +70,13 @@ public class ObjectivesParser {
             clusterDisplayNames.putIfAbsent(clusterName, displayName);
 
             List<ObjectiveObject> objects = buildObjectiveObjects(zoneName, resolver, componentsByOwner);
+            String pointObjectDisplayName = gameMode == GameMode.RAAS
+                    ? ObjectiveNameFormatter.formatObjectDisplayName(zoneName)
+                    : null;
             ObjectivePoint point = new ObjectivePoint(
                     displayName,
                     zoneName,
+                    pointObjectDisplayName,
                     zoneTransform.location().x(),
                     zoneTransform.location().y(),
                     zoneTransform.location().z(),
@@ -82,27 +88,39 @@ public class ObjectivesParser {
         LinkedHashMap<String, Objective> objectives = new LinkedHashMap<>();
         List<String> sortedClusters = new ArrayList<>(clusterActors);
         sortedClusters.sort(Comparator.naturalOrder());
-        for (String clusterName : sortedClusters) {
-            List<ObjectivePoint> points = clusterPoints.getOrDefault(clusterName, List.of());
-            List<ObjectivePoint> sortedPoints = sortPoints(points);
-            ObjectiveLocation avgLocation = computeAverageLocation(sortedPoints);
-            List<ObjectiveObject> objects = sortedPoints.isEmpty()
-                    ? List.of()
-                    : sortedPoints.getFirst().objects();
-            Integer pointPosition = stageIndex.get(clusterName);
-            String displayName = clusterDisplayNames.getOrDefault(clusterName, clusterName);
-            objectives.put(clusterName, new ObjectiveCluster(
-                    displayName,
-                    clusterName,
-                    clusterName,
-                    avgLocation.locationX(),
-                    avgLocation.locationY(),
-                    avgLocation.locationZ(),
-                    objects,
-                    pointPosition,
-                    avgLocation,
-                    sortedPoints
-            ));
+
+        if (gameMode == GameMode.AAS) {
+            for (String clusterName : sortedClusters) {
+                List<ObjectivePoint> points = clusterPoints.getOrDefault(clusterName, List.of());
+                List<ObjectivePoint> sortedPoints = sortPoints(points);
+                if (!sortedPoints.isEmpty()) {
+                    ObjectivePoint firstPoint = sortedPoints.getFirst();
+                    Integer pointPosition = stageIndex.get(clusterName);
+                    objectives.put(clusterName, new ObjectiveSimple(
+                            firstPoint.name(),
+                            clusterName,
+                            clusterName,
+                            firstPoint.locationX(),
+                            firstPoint.locationY(),
+                            firstPoint.locationZ(),
+                            firstPoint.objects(),
+                            pointPosition
+                    ));
+                }
+            }
+        } else {
+            for (String clusterName : sortedClusters) {
+                List<ObjectivePoint> points = clusterPoints.getOrDefault(clusterName, List.of());
+                List<ObjectivePoint> sortedPoints = sortPoints(points);
+                ObjectiveLocation avgLocation = computeAverageLocation(sortedPoints);
+                Integer pointPosition = stageIndex.get(clusterName);
+                objectives.put(clusterName, new ObjectiveCluster(
+                        clusterName,
+                        pointPosition,
+                        avgLocation,
+                        sortedPoints
+                ));
+            }
         }
 
         List<ObjectiveWithKey> mainObjectives = new ArrayList<>();
@@ -112,7 +130,8 @@ public class ObjectivesParser {
             String displayName = formatMainDisplayName(mainName, mainNameOverrides);
             List<ObjectiveObject> objects = buildObjectiveObjects(mainName, resolver, componentsByOwner);
             Integer pointPosition = stageIndex.get(displayName);
-            ObjectiveMain main = new ObjectiveMain(
+
+            Objective mainObjective = new ObjectiveSimple(
                     "Main",
                     displayName,
                     displayName,
@@ -122,12 +141,16 @@ public class ObjectivesParser {
                     objects,
                     pointPosition
             );
-            mainObjectives.add(new ObjectiveWithKey(displayName, main));
+            mainObjectives.add(new ObjectiveWithKey(displayName, mainObjective));
         }
 
         mainObjectives.sort(Comparator
-                .comparingInt((ObjectiveWithKey entry) -> Optional.ofNullable(((ObjectiveMain) entry.objective()).pointPosition())
-                        .orElse(Integer.MAX_VALUE))
+                .comparingInt((ObjectiveWithKey entry) -> {
+                    if (entry.objective() instanceof ObjectiveSimple simple) {
+                        return Optional.ofNullable(simple.pointPosition()).orElse(Integer.MAX_VALUE);
+                    }
+                    return Integer.MAX_VALUE;
+                })
                 .thenComparing(ObjectiveWithKey::key));
 
         for (ObjectiveWithKey entry : mainObjectives) {

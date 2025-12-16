@@ -45,7 +45,7 @@
     </dependencies>
     <build>
         <plugins>
-            <!-- Run app with: mvn -q -DskipTests exec:java -Dexec.args="<file>.json" -->
+            <!-- Run app with: mvn -q -DskipTests exec:java -Dexec.args="<file>.txt" -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

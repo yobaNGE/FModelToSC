@@ -87,7 +87,7 @@ public final class LayerExportApplication {
         CapturePointsParser capturePointsParser = new CapturePointsParser(mapper);
         CapturePoints capturePoints = capturePointsParser.parseCapturePoints(layerRoot, gameMode);
         ObjectivesParser objectivesParser = new ObjectivesParser();
-        Map<String, Objective> objectives = objectivesParser.parseObjectives(layerRoot, capturePoints.clusters());
+        Map<String, Objective> objectives = objectivesParser.parseObjectives(layerRoot, capturePoints.clusters(), gameMode);
 
         LayerMetadataParser metadataParser = new LayerMetadataParser();
         LayerMetadata metadata = metadataParser.parse(layerJsonPath, layerRoot);

@@ -139,7 +139,6 @@ public class MapAssetsParser {
         List<ProtectionZone> protectionZones = new ArrayList<>();
         for (ProtectionZoneDefinition definition : definitions) {
             List<MapAssetObject> objects = buildObjects(definition.name(), componentsByOwner, resolver);
-            objects = adjustProtectionZoneObjects(definition, objects);
             String displayName = prettifyName(definition.name());
             protectionZones.add(new ProtectionZone(
                     displayName,
@@ -152,47 +151,6 @@ public class MapAssetsParser {
         return protectionZones;
     }
 
-    private List<MapAssetObject> adjustProtectionZoneObjects(ProtectionZoneDefinition definition,
-                                                             List<MapAssetObject> objects) {
-        double lockDistance = definition.deployableLockDistance();
-        if (lockDistance <= 0) {
-            return objects;
-        }
-
-        List<MapAssetObject> adjusted = new ArrayList<>(objects.size());
-        for (MapAssetObject object : objects) {
-            double radius = Math.abs(object.sphereRadius());
-            if (object.isSphere() && radius < lockDistance) {
-                MapAssetObjectExtent extent = object.boxExtent();
-                MapAssetObjectExtent adjustedExtent = extent == null
-                        ? new MapAssetObjectExtent(lockDistance, lockDistance, lockDistance, 0.0, 0.0, 0.0)
-                        : new MapAssetObjectExtent(
-                        lockDistance,
-                        lockDistance,
-                        lockDistance,
-                        extent.rotation_x(),
-                        extent.rotation_y(),
-                        extent.rotation_z()
-                );
-
-                adjusted.add(new MapAssetObject(
-                        object.objectName(),
-                        true,
-                        lockDistance,
-                        object.locationX(),
-                        object.locationY(),
-                        object.locationZ(),
-                        object.isBox(),
-                        adjustedExtent,
-                        object.isCapsule()
-                ));
-            } else {
-                adjusted.add(object);
-            }
-        }
-
-        return adjusted;
-    }
 
     private Map<String, SpawnGroup> buildSpawnGroups(List<SpawnGroupDefinition> definitions,
                                                      Map<String, List<ComponentDefinition>> componentsByOwner,
