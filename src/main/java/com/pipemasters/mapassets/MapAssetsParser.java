@@ -160,7 +160,8 @@ public class MapAssetsParser {
 
         List<MapAssetObject> adjusted = new ArrayList<>(objects.size());
         for (MapAssetObject object : objects) {
-            if (object.isSphere() && object.sphereRadius() > lockDistance) {
+            double radius = Math.abs(object.sphereRadius());
+            if (object.isSphere() && radius > lockDistance) {
                 MapAssetObjectExtent extent = object.boxExtent();
                 MapAssetObjectExtent adjustedExtent = extent == null
                         ? new MapAssetObjectExtent(lockDistance, lockDistance, lockDistance, 0.0, 0.0, 0.0)
@@ -316,7 +317,11 @@ public class MapAssetsParser {
                                               double locationZ,
                                               Rotation rotation,
                                               Vector3D scale) {
-        double radius = definition.sphereRadius() * scale.x();
+        double scaleFactor = Math.max(
+                Math.abs(scale.x()),
+                Math.max(Math.abs(scale.y()), Math.abs(scale.z()))
+        );
+        double radius = definition.sphereRadius() * scaleFactor;
         MapAssetObjectExtent boxExtent = new MapAssetObjectExtent(
                 radius,
                 radius,
