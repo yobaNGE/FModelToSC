@@ -6,6 +6,7 @@ import java.util.*;
 
 public class MapAssetsParser {
     private static final double DEFAULT_DEPLOYABLE_LOCK_DISTANCE = 15000.0;
+    private static final double MAX_REASONABLE_SPHERE_RADIUS = 100_000.0;
     private static final int TEMP_SPAWN_LIFESPAN = 240;
 
     public MapAssets parse(JsonNode root) {
@@ -322,6 +323,10 @@ public class MapAssetsParser {
                 Math.max(Math.abs(scale.y()), Math.abs(scale.z()))
         );
         double radius = definition.sphereRadius() * scaleFactor;
+        if (radius > MAX_REASONABLE_SPHERE_RADIUS) {
+            radius = definition.sphereRadius();
+            scaleFactor = 1.0;
+        }
         MapAssetObjectExtent boxExtent = new MapAssetObjectExtent(
                 radius,
                 radius,
