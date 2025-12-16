@@ -19,6 +19,7 @@ public class ObjectivesParser {
         Map<ComponentKey, ComponentDefinition> components = new LinkedHashMap<>();
         Map<String, List<ComponentDefinition>> componentsByOwner = new HashMap<>();
         Map<String, String> pointDisplayNames = new HashMap<>();
+        Map<String, String> clusterDisplayNames = new HashMap<>();
         Set<String> captureZoneActors = new LinkedHashSet<>();
         Set<String> clusterActors = new LinkedHashSet<>();
         Set<String> mainActors = new LinkedHashSet<>();
@@ -64,6 +65,7 @@ public class ObjectivesParser {
                 clusterName = zoneName;
                 clusterActors.add(clusterName);
             }
+            clusterDisplayNames.putIfAbsent(clusterName, displayName);
 
             List<ObjectiveObject> objects = buildObjectiveObjects(zoneName, resolver, componentsByOwner);
             ObjectivePoint point = new ObjectivePoint(
@@ -88,8 +90,9 @@ public class ObjectivesParser {
                     ? List.of()
                     : sortedPoints.getFirst().objects();
             Integer pointPosition = stageIndex.get(clusterName);
+            String displayName = clusterDisplayNames.getOrDefault(clusterName, clusterName);
             objectives.put(clusterName, new ObjectiveCluster(
-                    clusterName,
+                    displayName,
                     clusterName,
                     clusterName,
                     avgLocation.locationX(),
