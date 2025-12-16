@@ -1970,6 +1970,228 @@
     "destructionObject" : { }
   },
   "objectives" : {
+    "01-Sheshatshiu" : {
+      "name" : "01-Sheshatshiu",
+      "pointPosition" : 2,
+      "avgLocation" : {
+        "location_x" : -43963.53452010265,
+        "location_y" : -129528.00340786634,
+        "location_z" : -15526.926999999996
+      },
+      "points" : [ {
+        "name" : "Sheshatshiu",
+        "objectName" : "01-Sheshatshiu",
+        "location_x" : -43963.53452010265,
+        "location_y" : -129528.00340786634,
+        "location_z" : -15526.926999999996,
+        "objects" : [ {
+          "objectName" : "Box",
+          "location_x" : -43963.53452010265,
+          "location_y" : -129528.00340786634,
+          "location_z" : -15526.926999999996,
+          "isSphere" : false,
+          "sphereRadius" : "9013.878188659974",
+          "isBox" : true,
+          "boxExtent" : {
+            "extent_x" : 7500.0,
+            "extent_y" : 4000.0,
+            "extent_z" : 3000.0,
+            "rotation_x" : 0.0,
+            "rotation_y" : -0.0,
+            "rotation_z" : 14.017539999999995,
+            "scaling_x" : 1.0,
+            "scaling_y" : 1.0,
+            "scaling_z" : 1.0
+          },
+          "isCapsule" : false
+        } ]
+      } ]
+    },
+    "02-FOBInkpen" : {
+      "name" : "02-FOBInkpen",
+      "pointPosition" : 3,
+      "avgLocation" : {
+        "location_x" : 93113.22883173943,
+        "location_y" : -109303.37867996859,
+        "location_z" : -16392.0
+      },
+      "points" : [ {
+        "name" : "FOB Inkpen",
+        "objectName" : "02-FOBInkpen",
+        "location_x" : 93113.22883173943,
+        "location_y" : -109303.37867996859,
+        "location_z" : -16392.0,
+        "objects" : [ {
+          "objectName" : "Box",
+          "location_x" : 93113.22883173943,
+          "location_y" : -109303.37867996859,
+          "location_z" : -16392.0,
+          "isSphere" : false,
+          "sphereRadius" : "7681.145747868608",
+          "isBox" : true,
+          "boxExtent" : {
+            "extent_x" : 5000.0,
+            "extent_y" : 5000.0,
+            "extent_z" : 3000.0,
+            "rotation_x" : 0.0,
+            "rotation_y" : -0.0,
+            "rotation_z" : 42.47192,
+            "scaling_x" : 1.0,
+            "scaling_y" : 1.0,
+            "scaling_z" : 1.0
+          },
+          "isCapsule" : false
+        } ]
+      } ]
+    },
+    "03-NORADGroundStation" : {
+      "name" : "03-NORADGroundStation",
+      "pointPosition" : 4,
+      "avgLocation" : {
+        "location_x" : 93115.46237614288,
+        "location_y" : -50387.29566047815,
+        "location_z" : -15503.972000000002
+      },
+      "points" : [ {
+        "name" : "NORAD Ground Station",
+        "objectName" : "03-NORADGroundStation",
+        "location_x" : 93115.46237614288,
+        "location_y" : -50387.29566047815,
+        "location_z" : -15503.972000000002,
+        "objects" : [ {
+          "objectName" : "Box",
+          "location_x" : 93115.46237614288,
+          "location_y" : -50387.29566047815,
+          "location_z" : -15503.972000000002,
+          "isSphere" : false,
+          "sphereRadius" : "17748.245687956212",
+          "isBox" : true,
+          "boxExtent" : {
+            "extent_x" : 15000.0,
+            "extent_y" : 9000.0,
+            "extent_z" : 3000.0,
+            "rotation_x" : 0.0,
+            "rotation_y" : -0.0,
+            "rotation_z" : -118.12784400000001,
+            "scaling_x" : 1.0,
+            "scaling_y" : 1.0,
+            "scaling_z" : 1.0
+          },
+          "isCapsule" : false
+        } ]
+      } ]
+    },
+    "04-CFBGooseBay" : {
+      "name" : "04-CFBGooseBay",
+      "pointPosition" : 5,
+      "avgLocation" : {
+        "location_x" : 37979.64624220305,
+        "location_y" : 37518.74299663991,
+        "location_z" : -13693.0
+      },
+      "points" : [ {
+        "name" : "CFB Goose Bay",
+        "objectName" : "04-CFBGooseBay",
+        "location_x" : 37979.64624220305,
+        "location_y" : 37518.74299663991,
+        "location_z" : -13693.0,
+        "objects" : [ {
+          "objectName" : "Box",
+          "location_x" : 37979.64624220305,
+          "location_y" : 37518.74299663991,
+          "location_z" : -13693.0,
+          "isSphere" : false,
+          "sphereRadius" : "14456.83229480096",
+          "isBox" : true,
+          "boxExtent" : {
+            "extent_x" : 4000.0,
+            "extent_y" : 6000.0,
+            "extent_z" : 2000.0,
+            "rotation_x" : 0.0,
+            "rotation_y" : -0.0,
+            "rotation_z" : -9.709164000000007,
+            "scaling_x" : 3.25,
+            "scaling_y" : 1.0,
+            "scaling_z" : 1.0
+          },
+          "isCapsule" : false
+        } ]
+      } ]
+    },
+    "05-OPHebb" : {
+      "name" : "05-OPHebb",
+      "pointPosition" : 6,
+      "avgLocation" : {
+        "location_x" : 16147.086537524054,
+        "location_y" : 108129.79223414278,
+        "location_z" : -19746.055
+      },
+      "points" : [ {
+        "name" : "OP Hebb",
+        "objectName" : "05-OPHebb",
+        "location_x" : 16147.086537524054,
+        "location_y" : 108129.79223414278,
+        "location_z" : -19746.055,
+        "objects" : [ {
+          "objectName" : "Box",
+          "location_x" : 15854.561607490643,
+          "location_y" : 108231.53647422686,
+          "location_z" : -19746.055,
+          "isSphere" : false,
+          "sphereRadius" : "10050.198818077033",
+          "isBox" : true,
+          "boxExtent" : {
+            "extent_x" : 5000.0,
+            "extent_y" : 3000.0,
+            "extent_z" : 1000.0,
+            "rotation_x" : 0.0,
+            "rotation_y" : -0.0,
+            "rotation_z" : 98.96984000000002,
+            "scaling_x" : 1.0,
+            "scaling_y" : 1.0,
+            "scaling_z" : 1.0
+          },
+          "isCapsule" : false
+        } ]
+      } ]
+    },
+    "06-Postville" : {
+      "name" : "06-Postville",
+      "pointPosition" : 7,
+      "avgLocation" : {
+        "location_x" : 145216.60979874636,
+        "location_y" : 128703.7720966686,
+        "location_z" : -21303.0
+      },
+      "points" : [ {
+        "name" : "Postville",
+        "objectName" : "06-Postville",
+        "location_x" : 145216.60979874636,
+        "location_y" : 128703.7720966686,
+        "location_z" : -21303.0,
+        "objects" : [ {
+          "objectName" : "Box",
+          "location_x" : 145216.60979874636,
+          "location_y" : 128703.7720966686,
+          "location_z" : -21303.0,
+          "isSphere" : false,
+          "sphereRadius" : "12011.020131384179",
+          "isBox" : true,
+          "boxExtent" : {
+            "extent_x" : 3000.0,
+            "extent_y" : 3000.0,
+            "extent_z" : 3000.0,
+            "rotation_x" : 0.0,
+            "rotation_y" : -0.0,
+            "rotation_z" : -106.20368,
+            "scaling_x" : 1.0,
+            "scaling_y" : 1.0,
+            "scaling_z" : 1.0
+          },
+          "isCapsule" : false
+        } ]
+      } ]
+    },
     "00-Team1 Main" : {
       "name" : "Main",
       "objectName" : "00-Team1 Main",

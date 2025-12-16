@@ -54,12 +54,14 @@ public class ObjectivesParser {
             if (zoneDefinition == null || zoneDefinition.parentKey() == null) {
                 continue;
             }
+            String displayName = pointDisplayNames.getOrDefault(zoneName, zoneName);
             String clusterName = zoneDefinition.parentKey().owner();
-            if (clusterName == null) {
-                continue;
+
+            if (!clusterActors.contains(clusterName)) {
+                clusterName = zoneName;
+                clusterActors.add(clusterName);
             }
 
-            String displayName = pointDisplayNames.getOrDefault(zoneName, zoneName);
             List<ObjectiveObject> objects = buildObjectiveObjects(zoneName, resolver, componentsByOwner);
             ObjectivePoint point = new ObjectivePoint(
                     displayName,
@@ -79,7 +81,7 @@ public class ObjectivesParser {
             List<ObjectivePoint> points = clusterPoints.getOrDefault(clusterName, List.of());
             List<ObjectivePoint> sortedPoints = sortPoints(points);
             ObjectiveLocation avgLocation = computeAverageLocation(sortedPoints);
-            int pointPosition = stageIndex.getOrDefault(clusterName, 0);
+            Integer pointPosition = stageIndex.get(clusterName);
             objectives.put(clusterName, new ObjectiveCluster(clusterName, pointPosition, avgLocation, sortedPoints));
         }
 
@@ -89,7 +91,7 @@ public class ObjectivesParser {
             ResolvedTransform transform = resolver.resolve(mainRootKey);
             String displayName = formatMainDisplayName(mainName, mainNameOverrides);
             List<ObjectiveObject> objects = buildObjectiveObjects(mainName, resolver, componentsByOwner);
-            int pointPosition = stageIndex.getOrDefault(displayName, 0);
+            Integer pointPosition = stageIndex.get(displayName);
             ObjectiveMain main = new ObjectiveMain(
                     "Main",
                     displayName,
