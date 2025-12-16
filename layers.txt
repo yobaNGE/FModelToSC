@@ -1,3 +1,3 @@
-C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Goose_Bay\Gameplay_Layer_Data\Layer\SD_GooseBay_RAAS_v2_d.json
-C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Mods\Steel_Division\Content\Maps\Goose_Bay\Gameplay_Layer_Data\Layer\SD_GooseBay_Invasion_v3.json
-C:\Program Files\Fmodel\Output\Exports\SquadGame\Plugins\Al_Basrah\Content\Maps\Gameplay_Layer_Data\AlBasrah_Invasion_v1.json
+C:\Program Files\Fmodel\Output\Exports\SquadGame\Content\Maps\Goose_Bay\Gameplay_Layer_Data\GooseBay_AAS_v1.json
+C:\Program Files\Fmodel\Output\Exports\SquadGame\Content\Maps\Goose_Bay\Gameplay_Layer_Data\GooseBay_Invasion_v1.json
+C:\Program Files\Fmodel\Output\Exports\SquadGame\Content\Maps\Goose_Bay\Gameplay_Layer_Data\GooseBay_RAAS_v1.json

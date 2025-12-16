@@ -161,7 +161,7 @@ public class MapAssetsParser {
         List<MapAssetObject> adjusted = new ArrayList<>(objects.size());
         for (MapAssetObject object : objects) {
             double radius = Math.abs(object.sphereRadius());
-            if (object.isSphere() && radius > lockDistance) {
+            if (object.isSphere() && radius < lockDistance) {
                 MapAssetObjectExtent extent = object.boxExtent();
                 MapAssetObjectExtent adjustedExtent = extent == null
                         ? new MapAssetObjectExtent(lockDistance, lockDistance, lockDistance, 0.0, 0.0, 0.0)

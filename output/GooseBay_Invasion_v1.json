@@ -2809,15 +2809,15 @@
       "objects" : [ {
         "objectName" : "Sphere",
         "isSphere" : true,
-        "sphereRadius" : 15000.0,
+        "sphereRadius" : 30000.0,
         "location_x" : 190846.92,
         "location_y" : 175561.58,
         "location_z" : -20391.92,
         "isBox" : false,
         "boxExtent" : {
-          "extent_x" : 15000.0,
-          "extent_y" : 15000.0,
-          "extent_z" : 15000.0,
+          "extent_x" : 30000.0,
+          "extent_y" : 30000.0,
+          "extent_z" : 30000.0,
           "rotation_x" : -0.0,
           "rotation_y" : 0.0,
           "rotation_z" : -102.06293000000001
@@ -2831,15 +2831,15 @@
       "objects" : [ {
         "objectName" : "Sphere",
         "isSphere" : true,
-        "sphereRadius" : 15000.0,
+        "sphereRadius" : 25000.0,
         "location_x" : -156910.14,
         "location_y" : -179997.22,
         "location_z" : -23018.447,
         "isBox" : false,
         "boxExtent" : {
-          "extent_x" : 15000.0,
-          "extent_y" : 15000.0,
-          "extent_z" : 15000.0,
+          "extent_x" : 25000.0,
+          "extent_y" : 25000.0,
+          "extent_z" : 25000.0,
           "rotation_x" : -0.0,
           "rotation_y" : 0.0,
           "rotation_z" : 0.0

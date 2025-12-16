@@ -4112,15 +4112,15 @@
       "objects" : [ {
         "objectName" : "Sphere",
         "isSphere" : true,
-        "sphereRadius" : 15000.0,
+        "sphereRadius" : 4.672435390297038E8,
         "location_x" : -153601.5221872493,
         "location_y" : -175253.69020727684,
         "location_z" : -25426.287999999997,
         "isBox" : false,
         "boxExtent" : {
-          "extent_x" : 15000.0,
-          "extent_y" : 15000.0,
-          "extent_z" : 15000.0,
+          "extent_x" : 4.672435390297038E8,
+          "extent_y" : 4.672435390297038E8,
+          "extent_z" : 4.672435390297038E8,
           "rotation_x" : -0.0,
           "rotation_y" : 0.0,
           "rotation_z" : -76.04822
