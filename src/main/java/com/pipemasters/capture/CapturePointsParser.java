@@ -98,6 +98,17 @@ public class CapturePointsParser {
 
         CaptureClusters clusters = new CaptureClusters(canonicalLinks, canonicalPointsOrder, canonicalPointsOrder.size(), canonicalMains, mainNameOverrides);
 
+        if (mode == GameMode.AAS) {
+            Map<String, Object> pointsSection = new LinkedHashMap<>();
+            pointsSection.put("pointsOrder", canonicalPointsOrder);
+            pointsSection.put("numberOfPoints", canonicalPointsOrder.size());
+            pointsSection.put("listOfMains", canonicalMains);
+            pointsSection.put("links", canonicalLinks);
+
+            CaptureClusters emptyClusters = new CaptureClusters(List.of(), List.of(), 0, canonicalMains, mainNameOverrides);
+            return new CapturePoints("AAS Graph", Map.of(), pointsSection, emptyClusters, Map.of(), List.of(), Map.of());
+        }
+
         return new CapturePoints("Invasion Random Graph", Map.of(), Map.of(), clusters, Map.of(), List.of(), Map.of());
     }
 

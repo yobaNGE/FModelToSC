@@ -29,11 +29,14 @@ public class ObjectivesParser {
                 case "SceneComponent" -> registerComponent(parseSceneComponent(node), components, componentsByOwner);
                 case "BoxComponent" -> registerComponent(parseBoxComponent(node), components, componentsByOwner);
                 case "SphereComponent" -> registerComponent(parseSphereComponent(node), components, componentsByOwner);
-                case "CapsuleComponent" -> registerComponent(parseCapsuleComponent(node), components, componentsByOwner);
-                case "BP_CaptureZoneInvasion_C", "BP_CaptureZone_C" -> captureZoneActors.add(node.path("Name").asText());
+                case "CapsuleComponent" ->
+                        registerComponent(parseCapsuleComponent(node), components, componentsByOwner);
+                case "BP_CaptureZoneInvasion_C", "BP_CaptureZone_C" ->
+                        captureZoneActors.add(node.path("Name").asText());
                 case "BP_CaptureZoneCluster_C" -> clusterActors.add(node.path("Name").asText());
                 case "BP_CaptureZoneMain_C" -> mainActors.add(node.path("Name").asText());
-                case "SQCaptureZoneInvasionComponent", "SQCaptureZoneComponent" -> storeCaptureZoneDisplayName(node, pointDisplayNames);
+                case "SQCaptureZoneInvasionComponent", "SQCaptureZoneComponent" ->
+                        storeCaptureZoneDisplayName(node, pointDisplayNames);
                 default -> {
                 }
             }
@@ -81,8 +84,22 @@ public class ObjectivesParser {
             List<ObjectivePoint> points = clusterPoints.getOrDefault(clusterName, List.of());
             List<ObjectivePoint> sortedPoints = sortPoints(points);
             ObjectiveLocation avgLocation = computeAverageLocation(sortedPoints);
+            List<ObjectiveObject> objects = sortedPoints.isEmpty()
+                    ? List.of()
+                    : sortedPoints.getFirst().objects();
             Integer pointPosition = stageIndex.get(clusterName);
-            objectives.put(clusterName, new ObjectiveCluster(clusterName, pointPosition, avgLocation, sortedPoints));
+            objectives.put(clusterName, new ObjectiveCluster(
+                    clusterName,
+                    clusterName,
+                    clusterName,
+                    avgLocation.locationX(),
+                    avgLocation.locationY(),
+                    avgLocation.locationZ(),
+                    objects,
+                    pointPosition,
+                    avgLocation,
+                    sortedPoints
+            ));
         }
 
         List<ObjectiveWithKey> mainObjectives = new ArrayList<>();
@@ -106,7 +123,8 @@ public class ObjectivesParser {
         }
 
         mainObjectives.sort(Comparator
-                .comparingInt((ObjectiveWithKey entry) -> ((ObjectiveMain) entry.objective()).pointPosition())
+                .comparingInt((ObjectiveWithKey entry) -> Optional.ofNullable(((ObjectiveMain) entry.objective()).pointPosition())
+                        .orElse(Integer.MAX_VALUE))
                 .thenComparing(ObjectiveWithKey::key));
 
         for (ObjectiveWithKey entry : mainObjectives) {
