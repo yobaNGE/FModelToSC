@@ -1,0 +1,3833 @@
+{
+  "Name": "Goose Bay Invasion v1",
+  "rawName": "GooseBay_Invasion_v1",
+  "mapId": "GooseBay",
+  "mapName": "Goose Bay",
+  "gamemode": "Invasion",
+  "layerVersion": "v1",
+  "seaLevel": 0,
+  "mapCameraActor": {
+    "name": "MapCameraLocation",
+    "location_x": -128127.234375,
+    "location_y": 116244.234375,
+    "location_z": -23499.015625,
+    "rotation_x": 0.000015156851986830588,
+    "rotation_y": 1.0132858753204346,
+    "rotation_z": 132.98719787597656
+  },
+  "border": [
+    {
+      "point": 0,
+      "location_x": -201564.984375,
+      "location_y": 201353.40625,
+      "location_z": -24898.28515625
+    },
+    {
+      "point": 1,
+      "location_x": 187383.5,
+      "location_y": 191983.546875,
+      "location_z": -24898.2734375
+    },
+    {
+      "point": 2,
+      "location_x": 193716.140625,
+      "location_y": 173794.21875,
+      "location_z": -24898.2734375
+    },
+    {
+      "point": 3,
+      "location_x": 191364.703125,
+      "location_y": -58977.15625,
+      "location_z": -24898.2734375
+    },
+    {
+      "point": 4,
+      "location_x": 142257.515625,
+      "location_y": -195561.0625,
+      "location_z": -24898.2734375
+    },
+    {
+      "point": 5,
+      "location_x": -201137.453125,
+      "location_y": -201008.3125,
+      "location_z": -24898.2734375
+    }
+  ],
+  "mapSize": "4.0x4.0 km",
+  "mapTextureCorners": [
+    {
+      "point": 0,
+      "location_x": -201657.890625,
+      "location_y": -201674.84375,
+      "location_z": 100
+    },
+    {
+      "point": 1,
+      "location_x": 201523.078125,
+      "location_y": 201503.078125,
+      "location_z": 0
+    }
+  ],
+  "assets": {
+    "vehicleSpawners": [
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerMBT1",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -157694.5625,
+        "location_y": -175265.3125,
+        "location_z": -23049.63671875,
+        "rotation_x": 0.1484835296869278,
+        "rotation_y": 0.20506447553634644,
+        "rotation_z": 80.90654754638672,
+        "typePriorities": [
+          {
+            "name": "MBT",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerLogi1",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -155457.296875,
+        "location_y": -175940.9375,
+        "location_z": -22938.765625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 174.99993896484375,
+        "typePriorities": [
+          {
+            "name": "LOGI",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerLogi2",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -154104.3125,
+        "location_y": -176161.578125,
+        "location_z": -22959.025390625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 174.99993896484375,
+        "typePriorities": [
+          {
+            "name": "LOGI",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerLogi3",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -153004.921875,
+        "location_y": -176704.375,
+        "location_z": -22959.017578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 164.99996948242188,
+        "typePriorities": [
+          {
+            "name": "LOGI",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerLightArmor3",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 180875.4375,
+        "location_y": 171139.46875,
+        "location_z": -20318.7421875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00013732910156,
+        "typePriorities": [
+          {
+            "name": "IFV",
+            "icon": "10"
+          },
+          {
+            "name": "APC",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerLightArmor2",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -158741.625,
+        "location_y": -176822.796875,
+        "location_z": -23078.154296875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000091552734375,
+        "typePriorities": [
+          {
+            "name": "IFV",
+            "icon": "10"
+          },
+          {
+            "name": "APC",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerMBT1",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 189069.125,
+        "location_y": 175575.140625,
+        "location_z": -20378.92578125,
+        "rotation_x": 1.8830790519714355,
+        "rotation_y": 0.44953569769859314,
+        "rotation_z": -159.7318115234375,
+        "typePriorities": [
+          {
+            "name": "MBT",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerLogi2",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 186179.96875,
+        "location_y": 173006.515625,
+        "location_z": -20351.33984375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00011444091797,
+        "typePriorities": [
+          {
+            "name": "LOGI",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerLogi1",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 185566.03125,
+        "location_y": 172791.40625,
+        "location_z": -20352.580078125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00011444091797,
+        "typePriorities": [
+          {
+            "name": "LOGI",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny1",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 181356.84375,
+        "location_y": 171344.359375,
+        "location_z": -20326.794921875,
+        "rotation_x": -0.129638671875,
+        "rotation_y": 0.6323661804199219,
+        "rotation_z": 112.10210418701172,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerLightArmor1",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -158641.5,
+        "location_y": -176294.03125,
+        "location_z": -23084.96484375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000091552734375,
+        "typePriorities": [
+          {
+            "name": "IFV",
+            "icon": "10"
+          },
+          {
+            "name": "APC",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerLogi3",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 187011.140625,
+        "location_y": 173290.375,
+        "location_z": -20341.85546875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00011444091797,
+        "typePriorities": [
+          {
+            "name": "LOGI",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerLightArmor2",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 179462.484375,
+        "location_y": 170648.75,
+        "location_z": -20315.482421875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00013732910156,
+        "typePriorities": [
+          {
+            "name": "IFV",
+            "icon": "10"
+          },
+          {
+            "name": "APC",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerLightArmor1",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 180309.796875,
+        "location_y": 170934.953125,
+        "location_z": -20322.20703125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00013732910156,
+        "typePriorities": [
+          {
+            "name": "IFV",
+            "icon": "10"
+          },
+          {
+            "name": "APC",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerHelicopter1",
+        "type": "Team Two",
+        "size": "Helicopter",
+        "maxNum": 0,
+        "location_x": 180741.796875,
+        "location_y": 168646.578125,
+        "location_z": -20120.890625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00008392333984,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerHelicopter1",
+        "type": "Team One",
+        "size": "Helicopter",
+        "maxNum": 0,
+        "location_x": -160201.078125,
+        "location_y": -173548.03125,
+        "location_z": -22928.751953125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.00006103515625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny1",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -153362.109375,
+        "location_y": -181098.265625,
+        "location_z": -22312.6796875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 173.78504943847656,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerLightArmor3",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -158847.265625,
+        "location_y": -177363.8125,
+        "location_z": -23072.138671875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000091552734375,
+        "typePriorities": [
+          {
+            "name": "IFV",
+            "icon": "10"
+          },
+          {
+            "name": "APC",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerCar1",
+        "type": "Team Two",
+        "size": "Car",
+        "maxNum": 0,
+        "location_x": 178503.9375,
+        "location_y": 170367.3125,
+        "location_z": -20298.396484375,
+        "rotation_x": -0.18426513671875,
+        "rotation_y": 0.6186648607254028,
+        "rotation_z": 107.102294921875,
+        "typePriorities": [
+          {
+            "name": "MRAP",
+            "icon": "10"
+          },
+          {
+            "name": "LTV",
+            "icon": "10"
+          },
+          {
+            "name": "TD",
+            "icon": "8"
+          },
+          {
+            "name": "RSV",
+            "icon": "0"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerCar2",
+        "type": "Team Two",
+        "size": "Car",
+        "maxNum": 0,
+        "location_x": 178928.953125,
+        "location_y": 170496.1875,
+        "location_z": -20298.205078125,
+        "rotation_x": -0.18426513671875,
+        "rotation_y": 0.6186648607254028,
+        "rotation_z": 107.102294921875,
+        "typePriorities": [
+          {
+            "name": "MRAP",
+            "icon": "10"
+          },
+          {
+            "name": "LTV",
+            "icon": "10"
+          },
+          {
+            "name": "TD",
+            "icon": "8"
+          },
+          {
+            "name": "RSV",
+            "icon": "0"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerCar1",
+        "type": "Team One",
+        "size": "Car",
+        "maxNum": 0,
+        "location_x": -154388.40625,
+        "location_y": -170062.390625,
+        "location_z": -22958.623046875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 148.64100646972656,
+        "typePriorities": [
+          {
+            "name": "MRAP",
+            "icon": "10"
+          },
+          {
+            "name": "LTV",
+            "icon": "10"
+          },
+          {
+            "name": "TD",
+            "icon": "8"
+          },
+          {
+            "name": "RSV",
+            "icon": "0"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerCar2",
+        "type": "Team One",
+        "size": "Car",
+        "maxNum": 0,
+        "location_x": -153601.6875,
+        "location_y": -170118.296875,
+        "location_z": -22958.623046875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 148.64100646972656,
+        "typePriorities": [
+          {
+            "name": "MRAP",
+            "icon": "10"
+          },
+          {
+            "name": "LTV",
+            "icon": "10"
+          },
+          {
+            "name": "TD",
+            "icon": "8"
+          },
+          {
+            "name": "RSV",
+            "icon": "0"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerLightArmor4",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -158934.15625,
+        "location_y": -177916.84375,
+        "location_z": -23066.34765625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000091552734375,
+        "typePriorities": [
+          {
+            "name": "IFV",
+            "icon": "10"
+          },
+          {
+            "name": "APC",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerLogi4",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 187606.15625,
+        "location_y": 173526.09375,
+        "location_z": -20332.296875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00011444091797,
+        "typePriorities": [
+          {
+            "name": "LOGI",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerHelicopter2",
+        "type": "Team One",
+        "size": "Helicopter",
+        "maxNum": 0,
+        "location_x": -159629.171875,
+        "location_y": -170304.8125,
+        "location_z": -22928.751953125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.00006103515625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerHelicopter3",
+        "type": "Team One",
+        "size": "Helicopter",
+        "maxNum": 0,
+        "location_x": -159054.515625,
+        "location_y": -167045.78125,
+        "location_z": -22928.751953125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.00006103515625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerMBT2",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -157497.921875,
+        "location_y": -174036.734375,
+        "location_z": -23045.134765625,
+        "rotation_x": 0.1300514042377472,
+        "rotation_y": 0.2172205001115799,
+        "rotation_z": 75.90647888183594,
+        "typePriorities": [
+          {
+            "name": "MBT",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerMBT3",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -157245.5625,
+        "location_y": -172767.015625,
+        "location_z": -23040.375,
+        "rotation_x": 0.13005100190639496,
+        "rotation_y": 0.21722100675106049,
+        "rotation_z": 75.90647888183594,
+        "typePriorities": [
+          {
+            "name": "MBT",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny2_5",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -153794.875,
+        "location_y": -181521.734375,
+        "location_z": -22312.6796875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 178.78504943847656,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny3_7",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -153917.84375,
+        "location_y": -182010.875,
+        "location_z": -22312.6796875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 178.78504943847656,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny4",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -154198.046875,
+        "location_y": -182462.265625,
+        "location_z": -22312.68359375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 178.78504943847656,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny5",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -154467.375,
+        "location_y": -182934.96875,
+        "location_z": -22312.68359375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 178.78504943847656,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny6",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -154952.84375,
+        "location_y": -183671.796875,
+        "location_z": -22312.677734375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -126.21487426757812,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny7",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -155367.78125,
+        "location_y": -184617.21875,
+        "location_z": -22313.001953125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -106.21487426757812,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny8",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -155611.125,
+        "location_y": -185603.546875,
+        "location_z": -22313.306640625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -116.21484375,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny9",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -156128.703125,
+        "location_y": -186310.46875,
+        "location_z": -22313.296875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 173.78512573242188,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny10",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159042.484375,
+        "location_y": -178417.609375,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny11",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159135.609375,
+        "location_y": -178945.9375,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny12",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159224.71875,
+        "location_y": -179451.015625,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny13",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159317.84375,
+        "location_y": -179979.34375,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny14",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159404.28125,
+        "location_y": -180469.59375,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny15",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159497.40625,
+        "location_y": -180997.921875,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny16",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159586.515625,
+        "location_y": -181503,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny17",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159679.640625,
+        "location_y": -182031.328125,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny18",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159762.6875,
+        "location_y": -182502.234375,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny19",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -159848.203125,
+        "location_y": -182987.3125,
+        "location_z": -23068.267578125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.000030517578125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny20",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -152315.59375,
+        "location_y": -168557.265625,
+        "location_z": -22919.251953125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00009155273438,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny21",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -152820.671875,
+        "location_y": -168468.171875,
+        "location_z": -22998.626953125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00009155273438,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny22",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -153349,
+        "location_y": -168375.0625,
+        "location_z": -22998.625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00009155273438,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny23",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -153819.921875,
+        "location_y": -168292.015625,
+        "location_z": -22998.615234375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00009155273438,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny24",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -154305,
+        "location_y": -168206.484375,
+        "location_z": -22998.60546875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00009155273438,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny25",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -150079.21875,
+        "location_y": -169976.828125,
+        "location_z": -22919.251953125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -145.0001220703125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny26",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -150373.328125,
+        "location_y": -169556.6875,
+        "location_z": -22998.626953125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -145.0001220703125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny27",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -150681.09375,
+        "location_y": -169117.25,
+        "location_z": -22998.625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -145.0001220703125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny28",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -151369.109375,
+        "location_y": -168724.15625,
+        "location_z": -22998.615234375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00009155273438,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny29",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -151854.1875,
+        "location_y": -168638.625,
+        "location_z": -22998.60546875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00009155273438,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerGroundAny30",
+        "type": "Team One",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": -149773.796875,
+        "location_y": -170413.078125,
+        "location_z": -22919.251953125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -145.0001220703125,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerBike1",
+        "type": "Team One",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": -156076.546875,
+        "location_y": -174188.828125,
+        "location_z": -22987.646484375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 170.0000457763672,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerBike2",
+        "type": "Team One",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": -156034.125,
+        "location_y": -173948.171875,
+        "location_z": -22987.646484375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 170.0000457763672,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerBike3",
+        "type": "Team One",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": -155991.0625,
+        "location_y": -173704.21875,
+        "location_z": -22987.646484375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 170.0000457763672,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerBike4",
+        "type": "Team One",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": -155948.640625,
+        "location_y": -173463.5625,
+        "location_z": -22987.646484375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 170.0000457763672,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerBike5",
+        "type": "Team One",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": -155905.859375,
+        "location_y": -173220.8125,
+        "location_z": -22987.646484375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 170.0000457763672,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerBike6",
+        "type": "Team One",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": -155863.4375,
+        "location_y": -172980.15625,
+        "location_z": -22987.646484375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 170.0000457763672,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerBike7",
+        "type": "Team One",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": -155820.375,
+        "location_y": -172736.203125,
+        "location_z": -22987.646484375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 170.0000457763672,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerBike8",
+        "type": "Team One",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": -155777.953125,
+        "location_y": -172495.546875,
+        "location_z": -22987.646484375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 170.0000457763672,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerHelicopter2",
+        "type": "Team Two",
+        "size": "Helicopter",
+        "maxNum": 0,
+        "location_x": 183950.421875,
+        "location_y": 169814.453125,
+        "location_z": -20120.890625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00008392333984,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerHelicopter3",
+        "type": "Team Two",
+        "size": "Helicopter",
+        "maxNum": 0,
+        "location_x": 187393.28125,
+        "location_y": 171067.625,
+        "location_z": -20120.890625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 110.00008392333984,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerMBT2",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 190206.59375,
+        "location_y": 175995.1875,
+        "location_z": -20388.466796875,
+        "rotation_x": 1.8830790519714355,
+        "rotation_y": 0.449535995721817,
+        "rotation_z": -159.7318115234375,
+        "typePriorities": [
+          {
+            "name": "MBT",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerMBT3",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 191337.6875,
+        "location_y": 176412.875,
+        "location_z": -20397.94140625,
+        "rotation_x": 1.8830790519714355,
+        "rotation_y": 0.449535995721817,
+        "rotation_z": -159.7318115234375,
+        "typePriorities": [
+          {
+            "name": "MBT",
+            "icon": "10"
+          }
+        ],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny2_58",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 181836.328125,
+        "location_y": 171539.09375,
+        "location_z": -20327.931640625,
+        "rotation_x": -0.129638671875,
+        "rotation_y": 0.6323661804199219,
+        "rotation_z": 112.10210418701172,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny3_61",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 182298.53125,
+        "location_y": 171726.84375,
+        "location_z": -20329.0703125,
+        "rotation_x": -0.129638671875,
+        "rotation_y": 0.6323661804199219,
+        "rotation_z": 112.10210418701172,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny4_62",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 182778.015625,
+        "location_y": 171921.5625,
+        "location_z": -20330.20703125,
+        "rotation_x": -0.129638671875,
+        "rotation_y": 0.6323661804199219,
+        "rotation_z": 112.10210418701172,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny5_67",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 183557.359375,
+        "location_y": 172143.328125,
+        "location_z": -20333.037109375,
+        "rotation_x": -0.18426513671875,
+        "rotation_y": 0.6186648607254028,
+        "rotation_z": 107.10167694091797,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny6_68",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 184038.515625,
+        "location_y": 172339.296875,
+        "location_z": -20334.166015625,
+        "rotation_x": -0.18426513671875,
+        "rotation_y": 0.6186648607254028,
+        "rotation_z": 107.10167694091797,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny7",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 184515.859375,
+        "location_y": 172484.65625,
+        "location_z": -20335.798828125,
+        "rotation_x": -0.18426513671875,
+        "rotation_y": 0.6186648607254028,
+        "rotation_z": 107.10167694091797,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny8",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 185004.359375,
+        "location_y": 172656.203125,
+        "location_z": -20337.21484375,
+        "rotation_x": -0.18426513671875,
+        "rotation_y": 0.6186648607254028,
+        "rotation_z": 107.10167694091797,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny9",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 188684.9375,
+        "location_y": 176811.765625,
+        "location_z": -20382.619140625,
+        "rotation_x": 0.18425580859184265,
+        "rotation_y": -0.61865234375,
+        "rotation_z": -72.8980712890625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny10",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 188203.8125,
+        "location_y": 176615.765625,
+        "location_z": -20375.220703125,
+        "rotation_x": 0.18425580859184265,
+        "rotation_y": -0.61865234375,
+        "rotation_z": -72.8980712890625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny11",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 187726.453125,
+        "location_y": 176470.375,
+        "location_z": -20369.857421875,
+        "rotation_x": 0.18425580859184265,
+        "rotation_y": -0.61865234375,
+        "rotation_z": -72.8980712890625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny12",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 187237.96875,
+        "location_y": 176298.828125,
+        "location_z": -20369.529296875,
+        "rotation_x": 0.18425580859184265,
+        "rotation_y": -0.61865234375,
+        "rotation_z": -72.8980712890625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny13",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 186683.890625,
+        "location_y": 176196,
+        "location_z": -20375.90234375,
+        "rotation_x": 0.18425600230693817,
+        "rotation_y": -0.61865234375,
+        "rotation_z": -72.8980712890625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny14",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 186202.765625,
+        "location_y": 176000,
+        "location_z": -20368.50390625,
+        "rotation_x": 0.18425600230693817,
+        "rotation_y": -0.61865234375,
+        "rotation_z": -72.8980712890625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny15",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 185725.40625,
+        "location_y": 175854.609375,
+        "location_z": -20363.140625,
+        "rotation_x": 0.18425600230693817,
+        "rotation_y": -0.61865234375,
+        "rotation_z": -72.8980712890625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny16",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 185236.921875,
+        "location_y": 175683.0625,
+        "location_z": -20362.8125,
+        "rotation_x": 0.18425600230693817,
+        "rotation_y": -0.61865234375,
+        "rotation_z": -72.8980712890625,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny17",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 184680.53125,
+        "location_y": 175572.515625,
+        "location_z": -20369.224609375,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny18",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 184205.015625,
+        "location_y": 175363.25,
+        "location_z": -20361.990234375,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny19",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 183731.921875,
+        "location_y": 175204.703125,
+        "location_z": -20356.77734375,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny20",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 183248.34375,
+        "location_y": 175019.65625,
+        "location_z": -20356.607421875,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny21",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 182675.609375,
+        "location_y": 174894.15625,
+        "location_z": -20363.080078125,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny22",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 182200.125,
+        "location_y": 174684.921875,
+        "location_z": -20355.83984375,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny23",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 181726.984375,
+        "location_y": 174526.3125,
+        "location_z": -20350.62890625,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny24",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 181243.40625,
+        "location_y": 174341.296875,
+        "location_z": -20350.453125,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny25",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 180648.59375,
+        "location_y": 174208.375,
+        "location_z": -20356.837890625,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny26",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 180173.09375,
+        "location_y": 173999.109375,
+        "location_z": -20349.6015625,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny27",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 179699.96875,
+        "location_y": 173840.53125,
+        "location_z": -20344.388671875,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny28",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 179216.421875,
+        "location_y": 173655.484375,
+        "location_z": -20344.22265625,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny29",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 178570,
+        "location_y": 173458.265625,
+        "location_z": -20340.927734375,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerGroundAny30",
+        "type": "Team Two",
+        "size": "MBT",
+        "maxNum": 0,
+        "location_x": 178086.4375,
+        "location_y": 173273.234375,
+        "location_z": -20340.75390625,
+        "rotation_x": 0.16702626645565033,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerBike1",
+        "type": "Team Two",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": 177622.703125,
+        "location_y": 173116.34375,
+        "location_z": -20339.326171875,
+        "rotation_x": 0.16702599823474884,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerBike2",
+        "type": "Team Two",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": 177377.890625,
+        "location_y": 173033.484375,
+        "location_z": -20338.546875,
+        "rotation_x": 0.16702599823474884,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerBike3",
+        "type": "Team Two",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": 177134.203125,
+        "location_y": 172951.0625,
+        "location_z": -20337.80859375,
+        "rotation_x": 0.16702599823474884,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerBike4",
+        "type": "Team Two",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": 176889.390625,
+        "location_y": 172868.203125,
+        "location_z": -20337.029296875,
+        "rotation_x": 0.16702599823474884,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerBike5",
+        "type": "Team Two",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": 177520.375,
+        "location_y": 173418.796875,
+        "location_z": -20335.84375,
+        "rotation_x": 0.16702599823474884,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerBike6",
+        "type": "Team Two",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": 177275.5625,
+        "location_y": 173335.9375,
+        "location_z": -20335.064453125,
+        "rotation_x": 0.16702599823474884,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerBike7",
+        "type": "Team Two",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": 177031.875,
+        "location_y": 173253.515625,
+        "location_z": -20334.326171875,
+        "rotation_x": 0.16702599823474884,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerBike8",
+        "type": "Team Two",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": 176787.0625,
+        "location_y": 173170.65625,
+        "location_z": -20333.546875,
+        "rotation_x": 0.16702599823474884,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team1SpawnerBike9",
+        "type": "Team Two",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": 176631.078125,
+        "location_y": 172773.78125,
+        "location_z": -20417.455078125,
+        "rotation_x": 0.16702599823474884,
+        "rotation_y": -0.62347412109375,
+        "rotation_z": -71.30941772460938,
+        "typePriorities": [],
+        "tagPriorities": []
+      },
+      {
+        "icon": "questionmark",
+        "name": "Team2SpawnerBike9",
+        "type": "Team One",
+        "size": "QuadBike",
+        "maxNum": 0,
+        "location_x": -155562.90625,
+        "location_y": -171604.34375,
+        "location_z": -22963.623046875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 170.0000457763672,
+        "typePriorities": [],
+        "tagPriorities": []
+      }
+    ],
+    "deployables": [
+      {
+        "type": "Repair Station",
+        "icon": "inventory_category_repair",
+        "team": "Team Two",
+        "location_x": 177970.65625,
+        "location_y": 169641.375,
+        "location_z": -20323.380859375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 100.84149169921875
+      },
+      {
+        "type": "Ammo Crate",
+        "icon": "deployable_ammocrate",
+        "team": "Team One",
+        "location_x": -155044.140625,
+        "location_y": -180821.25,
+        "location_z": -22297.673828125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 179.21267700195312
+      },
+      {
+        "type": "Repair Station",
+        "icon": "inventory_category_repair",
+        "team": "Team Two",
+        "location_x": 177518.390625,
+        "location_y": 169557.390625,
+        "location_z": -20329.37890625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 100.5792465209961
+      },
+      {
+        "type": "Ammo Crate",
+        "icon": "deployable_ammocrate",
+        "team": "Team One",
+        "location_x": -155943.25,
+        "location_y": -175328,
+        "location_z": -22989.28515625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -110.11505126953125
+      },
+      {
+        "type": "Ammo Crate",
+        "icon": "deployable_ammocrate",
+        "team": "Team One",
+        "location_x": -158372.0625,
+        "location_y": -172239.4375,
+        "location_z": -23087.048828125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -10.15203857421875
+      },
+      {
+        "type": "Repair Station",
+        "icon": "inventory_category_repair",
+        "team": "Team One",
+        "location_x": -156038.96875,
+        "location_y": -174668.921875,
+        "location_z": -22982.986328125,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 168.12611389160156
+      },
+      {
+        "type": "Repair Station",
+        "icon": "inventory_category_repair",
+        "team": "Team One",
+        "location_x": -156160.40625,
+        "location_y": -175130.890625,
+        "location_z": -22983.318359375,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 161.31570434570312
+      },
+      {
+        "type": "Ammo Crate",
+        "icon": "deployable_ammocrate",
+        "team": "Team Two",
+        "location_x": 177656.421875,
+        "location_y": 169849.53125,
+        "location_z": -20332.625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -78.11367797851562
+      },
+      {
+        "type": "Ammo Crate",
+        "icon": "deployable_ammocrate",
+        "team": "Team Two",
+        "location_x": 185018.53125,
+        "location_y": 171804.34375,
+        "location_z": -20337.46875,
+        "rotation_x": 0.15685507655143738,
+        "rotation_y": -2.724365234375,
+        "rotation_z": 102.10226440429688
+      },
+      {
+        "type": "Ammo Crate",
+        "icon": "deployable_ammocrate",
+        "team": "Team Two",
+        "location_x": 185106.53125,
+        "location_y": 174912.28125,
+        "location_z": -20375.197265625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -74.08331298828125
+      },
+      {
+        "type": "Ammo Crate",
+        "icon": "deployable_ammocrate",
+        "team": "Team Two",
+        "location_x": -89009.703125,
+        "location_y": -45958.3125,
+        "location_z": -23562.625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -83.1494140625
+      },
+      {
+        "type": "Ammo Crate",
+        "icon": "deployable_ammocrate",
+        "team": "Team Two",
+        "location_x": 91.78952026367188,
+        "location_y": -126316.3984375,
+        "location_z": -15621.884765625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -113.1492919921875
+      }
+    ],
+    "helipads": [
+      {
+        "type": "Team1HelicopterRepairPad1",
+        "icon": "deployable_helipad",
+        "team": "Team Two",
+        "location_x": 179846.84375,
+        "location_y": 168852.875,
+        "location_z": -20155.00390625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 20.00007438659668
+      },
+      {
+        "type": "Team2HelicopterRepairPad1",
+        "icon": "deployable_helipad",
+        "team": "Team One",
+        "location_x": -159579.90625,
+        "location_y": -172883.421875,
+        "location_z": -23020.421875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00003051757812
+      },
+      {
+        "type": "Team2HelicopterRepairPad2",
+        "icon": "deployable_helipad",
+        "team": "Team One",
+        "location_x": -159008,
+        "location_y": -169640.203125,
+        "location_z": -23020.421875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00003051757812
+      },
+      {
+        "type": "Team2HelicopterRepairPad3",
+        "icon": "deployable_helipad",
+        "team": "Team One",
+        "location_x": -158433.34375,
+        "location_y": -166381.171875,
+        "location_z": -23020.421875,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": -100.00003051757812
+      },
+      {
+        "type": "Team1HelicopterRepairPad2",
+        "icon": "deployable_helipad",
+        "team": "Team Two",
+        "location_x": 183055.46875,
+        "location_y": 170020.75,
+        "location_z": -20155.00390625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 20.00007438659668
+      },
+      {
+        "type": "Team1HelicopterRepairPad3",
+        "icon": "deployable_helipad",
+        "team": "Team Two",
+        "location_x": 186498.328125,
+        "location_y": 171273.921875,
+        "location_z": -20155.00390625,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 20.00007438659668
+      }
+    ]
+  },
+  "capturePoints": {
+    "type": "Invasion Random Graph",
+    "lanes": {},
+    "points": {},
+    "clusters": {
+      "links": [
+        {
+          "name": "Link0",
+          "nodeA": "00-Team1 Main",
+          "nodeB": "A1-CaptureZoneCluster"
+        },
+        {
+          "name": "Link1",
+          "nodeA": "A1-CaptureZoneCluster",
+          "nodeB": "A2-CaptureZoneCluster"
+        },
+        {
+          "name": "Link2",
+          "nodeA": "A2-CaptureZoneCluster",
+          "nodeB": "A3-CaptureZoneCluster"
+        },
+        {
+          "name": "Link3",
+          "nodeA": "A3-CaptureZoneCluster",
+          "nodeB": "A4-CaptureZoneCluster"
+        },
+        {
+          "name": "Link4",
+          "nodeA": "A4-CaptureZoneCluster",
+          "nodeB": "A5-CaptureZoneCluster"
+        },
+        {
+          "name": "Link5",
+          "nodeA": "A5-CaptureZoneCluster",
+          "nodeB": "Z-Team2 Main"
+        },
+        {
+          "name": "Link6",
+          "nodeA": "00-Team1 Main",
+          "nodeB": "B1-CaptureZoneCluster"
+        },
+        {
+          "name": "Link7",
+          "nodeA": "B1-CaptureZoneCluster",
+          "nodeB": "B2-CaptureZoneCluster"
+        },
+        {
+          "name": "Link8",
+          "nodeA": "B2-CaptureZoneCluster",
+          "nodeB": "B3-CaptureZoneCluster"
+        },
+        {
+          "name": "Link9",
+          "nodeA": "B3-CaptureZoneCluster",
+          "nodeB": "B4-CaptureZoneCluster"
+        },
+        {
+          "name": "Link10",
+          "nodeA": "B4-CaptureZoneCluster",
+          "nodeB": "B5-CaptureZoneCluster"
+        },
+        {
+          "name": "Link11",
+          "nodeA": "B5-CaptureZoneCluster",
+          "nodeB": "Z-Team2 Main"
+        },
+        {
+          "name": "Link12",
+          "nodeA": "00-Team1 Main",
+          "nodeB": "C1-CaptureZoneCluster"
+        },
+        {
+          "name": "Link13",
+          "nodeA": "C1-CaptureZoneCluster",
+          "nodeB": "C2-CaptureZoneCluster"
+        },
+        {
+          "name": "Link14",
+          "nodeA": "C2-CaptureZoneCluster",
+          "nodeB": "C3-CaptureZoneCluster"
+        },
+        {
+          "name": "Link15",
+          "nodeA": "C3-CaptureZoneCluster",
+          "nodeB": "C4-CaptureZoneCluster"
+        },
+        {
+          "name": "Link16",
+          "nodeA": "C4-CaptureZoneCluster",
+          "nodeB": "C5-CaptureZoneCluster"
+        },
+        {
+          "name": "Link17",
+          "nodeA": "C5-CaptureZoneCluster",
+          "nodeB": "Z-Team2 Main"
+        }
+      ],
+      "pointsOrder": [
+        "00-Team1 Main",
+        "A1-CaptureZoneCluster",
+        "A2-CaptureZoneCluster",
+        "A3-CaptureZoneCluster",
+        "A4-CaptureZoneCluster",
+        "A5-CaptureZoneCluster",
+        "00-Team1 Main",
+        "B1-CaptureZoneCluster",
+        "B2-CaptureZoneCluster",
+        "B3-CaptureZoneCluster",
+        "B4-CaptureZoneCluster",
+        "B5-CaptureZoneCluster",
+        "00-Team1 Main",
+        "C1-CaptureZoneCluster",
+        "C2-CaptureZoneCluster",
+        "C3-CaptureZoneCluster",
+        "C4-CaptureZoneCluster",
+        "C5-CaptureZoneCluster",
+        "Z-Team2 Main"
+      ],
+      "numberOfPoints": 19,
+      "listOfMains": [
+        "00-Team1 Main",
+        "Z-Team2 Main"
+      ]
+    },
+    "hexs": {},
+    "objectiveSpawnLocations": [],
+    "destructionObject": {}
+  },
+  "objectives": {
+    "A1-CaptureZoneCluster": {
+      "name": "A1-CaptureZoneCluster",
+      "pointPosition": 2,
+      "avgLocation": {
+        "location_x": -44169.86328125,
+        "location_y": -128504.875,
+        "location_z": -15982.7109375
+      },
+      "points": [
+        {
+          "name": "Sheshatshiu",
+          "objectName": "A1-Sheshatshiu",
+          "location_x": -44169.86328125,
+          "location_y": -128504.875,
+          "location_z": -15982.7109375,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": -44169.86328125,
+              "location_y": -128504.875,
+              "location_z": -15982.7109375,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "A2-CaptureZoneCluster": {
+      "name": "A2-CaptureZoneCluster",
+      "pointPosition": 3,
+      "avgLocation": {
+        "location_x": 33717.4921875,
+        "location_y": -89701.6796875,
+        "location_z": -19086.4375
+      },
+      "points": [
+        {
+          "name": "Churchill",
+          "objectName": "A2-Churchill",
+          "location_x": 33717.4921875,
+          "location_y": -89701.6796875,
+          "location_z": -19086.4375,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": 33717.4921875,
+              "location_y": -89701.6796875,
+              "location_z": -19086.4375,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "A3-CaptureZoneCluster": {
+      "name": "A3-CaptureZoneCluster",
+      "pointPosition": 4,
+      "avgLocation": {
+        "location_x": 96928.421875,
+        "location_y": -77684.34375,
+        "location_z": -15517.2080078125
+      },
+      "points": [
+        {
+          "name": "NORAD Facility",
+          "objectName": "A3-NORADFacility",
+          "location_x": 100267.8046875,
+          "location_y": -44503.58203125,
+          "location_z": -16490.111328125,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": 100267.8046875,
+              "location_y": -44503.58203125,
+              "location_z": -16490.111328125,
+              "isSphere": true,
+              "sphereRadius": "10000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 14138.8046875,
+                "extent_y": 14138.8046875,
+                "extent_z": 10000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        },
+        {
+          "name": "FOB Inkpen",
+          "objectName": "A3-FOBInkpen",
+          "location_x": 93589.046875,
+          "location_y": -110865.1015625,
+          "location_z": -14544.3046875,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": 93589.046875,
+              "location_y": -110865.1015625,
+              "location_z": -14544.3046875,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "A4-CaptureZoneCluster": {
+      "name": "A4-CaptureZoneCluster",
+      "pointPosition": 5,
+      "avgLocation": {
+        "location_x": 97947.40625,
+        "location_y": 10622.083984375,
+        "location_z": -16670.810546875
+      },
+      "points": [
+        {
+          "name": "Military Housing",
+          "objectName": "A4-MilitaryHousing",
+          "location_x": 137724.90625,
+          "location_y": 11863.1171875,
+          "location_z": -16670.810546875,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": 137724.90625,
+              "location_y": 11863.1171875,
+              "location_z": -16670.810546875,
+              "isSphere": false,
+              "sphereRadius": "15000.0",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 10000,
+                "extent_y": 5000,
+                "extent_z": 10000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 89.9998779296875,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        },
+        {
+          "name": "CFB Goose Bay",
+          "objectName": "A4-CFBGooseBay",
+          "location_x": 58169.90625,
+          "location_y": 9381.05078125,
+          "location_z": -16670.810546875,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": 58169.90625,
+              "location_y": 9381.05078125,
+              "location_z": -16670.810546875,
+              "isSphere": false,
+              "sphereRadius": "16770.509766",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 12500,
+                "extent_y": 5000,
+                "extent_z": 10000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 78.89856719970703,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "A5-CaptureZoneCluster": {
+      "name": "A5-CaptureZoneCluster",
+      "pointPosition": 6,
+      "avgLocation": {
+        "location_x": 96144.9453125,
+        "location_y": 71934.234375,
+        "location_z": -16490.111328125
+      },
+      "points": [
+        {
+          "name": "Refinery",
+          "objectName": "A5-Refinery",
+          "location_x": 96144.9453125,
+          "location_y": 71934.234375,
+          "location_z": -16490.111328125,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": 96144.9453125,
+              "location_y": 71934.234375,
+              "location_z": -16490.111328125,
+              "isSphere": true,
+              "sphereRadius": "10000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 14138.8046875,
+                "extent_y": 14138.8046875,
+                "extent_z": 10000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.7563591003418
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "B1-CaptureZoneCluster": {
+      "name": "B1-CaptureZoneCluster",
+      "pointPosition": 2,
+      "avgLocation": {
+        "location_x": -83950.265625,
+        "location_y": -102441.15625,
+        "location_z": -23572.697265625
+      },
+      "points": [
+        {
+          "name": "Train Yard",
+          "objectName": "B1-TrainYard",
+          "location_x": -83950.265625,
+          "location_y": -102441.15625,
+          "location_z": -23572.697265625,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": -83950.265625,
+              "location_y": -102441.15625,
+              "location_z": -23572.697265625,
+              "isSphere": false,
+              "sphereRadius": "12041.594727",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 10000,
+                "extent_y": 6000,
+                "extent_z": 3000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 26.1015625,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "B2-CaptureZoneCluster": {
+      "name": "B2-CaptureZoneCluster",
+      "pointPosition": 3,
+      "avgLocation": {
+        "location_x": -116586.6328125,
+        "location_y": -61517.234375,
+        "location_z": -23572.697265625
+      },
+      "points": [
+        {
+          "name": "Naval Refueling Station",
+          "objectName": "B2-NavalRefuelingStation",
+          "location_x": -116586.6328125,
+          "location_y": -61517.234375,
+          "location_z": -23572.697265625,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": -116586.6328125,
+              "location_y": -61517.234375,
+              "location_z": -23572.697265625,
+              "isSphere": false,
+              "sphereRadius": "9000.0",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 6000,
+                "extent_y": 6000,
+                "extent_z": 3000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 5.935511589050293,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "B3-CaptureZoneCluster": {
+      "name": "B3-CaptureZoneCluster",
+      "pointPosition": 4,
+      "avgLocation": {
+        "location_x": -90964.6875,
+        "location_y": -30361.046875,
+        "location_z": -21825.23828125
+      },
+      "points": [
+        {
+          "name": "Drilling Site",
+          "objectName": "B3-DrillingSite",
+          "location_x": -92314.140625,
+          "location_y": -14392.5,
+          "location_z": -20077.78125,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": -92314.140625,
+              "location_y": -14392.5,
+              "location_z": -20077.78125,
+              "isSphere": false,
+              "sphereRadius": "11704.700195",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 8000,
+                "extent_y": 8000,
+                "extent_z": 3000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        },
+        {
+          "name": "Shimik",
+          "objectName": "B3-Shimik",
+          "location_x": -89615.234375,
+          "location_y": -46329.59375,
+          "location_z": -23572.697265625,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": -89615.234375,
+              "location_y": -46329.59375,
+              "location_z": -23572.697265625,
+              "isSphere": false,
+              "sphereRadius": "9000.0",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 6000,
+                "extent_y": 6000,
+                "extent_z": 3000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": -13.89593505859375,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "B4-CaptureZoneCluster": {
+      "name": "B4-CaptureZoneCluster",
+      "pointPosition": 5,
+      "avgLocation": {
+        "location_x": -9463.9140625,
+        "location_y": -13970.375,
+        "location_z": -16321.375
+      },
+      "points": [
+        {
+          "name": "Hilltop Redoubt",
+          "objectName": "B4-HilltopRedoubt",
+          "location_x": -9463.9140625,
+          "location_y": -13970.375,
+          "location_z": -16321.375,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": -9463.9140625,
+              "location_y": -13970.375,
+              "location_z": -16321.375,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "B5-CaptureZoneCluster": {
+      "name": "B5-CaptureZoneCluster",
+      "pointPosition": 6,
+      "avgLocation": {
+        "location_x": 44023.375,
+        "location_y": 33135.70703125,
+        "location_z": -16670.810546875
+      },
+      "points": [
+        {
+          "name": "CFB Goose Bay",
+          "objectName": "B5-CFBGooseBay3",
+          "location_x": 52387.71875,
+          "location_y": 27864.0859375,
+          "location_z": -16670.810546875,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": 52387.71875,
+              "location_y": 27864.0859375,
+              "location_z": -16670.810546875,
+              "isSphere": false,
+              "sphereRadius": "23748.683594",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 20000,
+                "extent_y": 8000,
+                "extent_z": 10000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": -53.68701171875,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        },
+        {
+          "name": "CFB Goose Bay",
+          "objectName": "B5-CFBGooseBay2",
+          "location_x": 35659.03125,
+          "location_y": 38407.328125,
+          "location_z": -16670.810546875,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": 35659.03125,
+              "location_y": 38407.328125,
+              "location_z": -16670.810546875,
+              "isSphere": false,
+              "sphereRadius": "16770.509766",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 12500,
+                "extent_y": 5000,
+                "extent_z": 10000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": -11.09930419921875,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "C1-CaptureZoneCluster": {
+      "name": "C1-CaptureZoneCluster",
+      "pointPosition": 2,
+      "avgLocation": {
+        "location_x": -116586.6328125,
+        "location_y": -61517.234375,
+        "location_z": -23572.697265625
+      },
+      "points": [
+        {
+          "name": "Naval Refueling Station",
+          "objectName": "C1-NavalRefuelingStation",
+          "location_x": -116586.6328125,
+          "location_y": -61517.234375,
+          "location_z": -23572.697265625,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": -116586.6328125,
+              "location_y": -61517.234375,
+              "location_z": -23572.697265625,
+              "isSphere": false,
+              "sphereRadius": "9000.0",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 6000,
+                "extent_y": 6000,
+                "extent_z": 3000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 5.935533046722412,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "C2-CaptureZoneCluster": {
+      "name": "C2-CaptureZoneCluster",
+      "pointPosition": 3,
+      "avgLocation": {
+        "location_x": -92314.140625,
+        "location_y": -14392.5,
+        "location_z": -20077.78125
+      },
+      "points": [
+        {
+          "name": "Drilling Site",
+          "objectName": "C2-DrillingSite",
+          "location_x": -92314.140625,
+          "location_y": -14392.5,
+          "location_z": -20077.78125,
+          "objects": [
+            {
+              "objectName": "Box",
+              "location_x": -92314.140625,
+              "location_y": -14392.5,
+              "location_z": -20077.78125,
+              "isSphere": false,
+              "sphereRadius": "11704.700195",
+              "isBox": true,
+              "boxExtent": {
+                "extent_x": 8000,
+                "extent_y": 8000,
+                "extent_z": 3000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445,
+                "scaling_x": 1,
+                "scaling_y": 1,
+                "scaling_z": 1
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "C3-CaptureZoneCluster": {
+      "name": "C3-CaptureZoneCluster",
+      "pointPosition": 4,
+      "avgLocation": {
+        "location_x": -94084.578125,
+        "location_y": 39236.24609375,
+        "location_z": -24012.375
+      },
+      "points": [
+        {
+          "name": "Fishing Village",
+          "objectName": "C3-FishingVillage",
+          "location_x": -116539.6015625,
+          "location_y": 55716.9609375,
+          "location_z": -24012.375,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": -116539.6015625,
+              "location_y": 55716.9609375,
+              "location_z": -24012.375,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        },
+        {
+          "name": "Weather Station",
+          "objectName": "C3-WeatherStation",
+          "location_x": -71629.546875,
+          "location_y": 22755.53125,
+          "location_z": -24012.375,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": -71629.546875,
+              "location_y": 22755.53125,
+              "location_z": -24012.375,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "C4-CaptureZoneCluster": {
+      "name": "C4-CaptureZoneCluster",
+      "pointPosition": 5,
+      "avgLocation": {
+        "location_x": -75876.6328125,
+        "location_y": 102401.890625,
+        "location_z": -23989.3125
+      },
+      "points": [
+        {
+          "name": "5 Wing HQ",
+          "objectName": "C4-5WingHQ",
+          "location_x": -94476.3046875,
+          "location_y": 113003.828125,
+          "location_z": -24288.416015625,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": -94476.3046875,
+              "location_y": 113003.828125,
+              "location_z": -24288.416015625,
+              "isSphere": true,
+              "sphereRadius": "5000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 7069.40234375,
+                "extent_y": 7069.40234375,
+                "extent_z": 5000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        },
+        {
+          "name": "Research Station",
+          "objectName": "C4-ResearchStation",
+          "location_x": -57276.95703125,
+          "location_y": 91799.9609375,
+          "location_z": -23690.2109375,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": -57276.95703125,
+              "location_y": 91799.9609375,
+              "location_z": -23690.2109375,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "C5-CaptureZoneCluster": {
+      "name": "C5-CaptureZoneCluster",
+      "pointPosition": 6,
+      "avgLocation": {
+        "location_x": -9179.9248046875,
+        "location_y": 132451,
+        "location_z": -22271.98046875
+      },
+      "points": [
+        {
+          "name": "OP Hebb",
+          "objectName": "C5-OPHebb",
+          "location_x": 15809.2734375,
+          "location_y": 109533.2734375,
+          "location_z": -19049.703125,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": 15809.2734375,
+              "location_y": 109533.2734375,
+              "location_z": -19049.703125,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        },
+        {
+          "name": "Happy Valley",
+          "objectName": "C5-HappyValley",
+          "location_x": -12101.876953125,
+          "location_y": 153666.4375,
+          "location_z": -23947.5390625,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": -12101.876953125,
+              "location_y": 153666.4375,
+              "location_z": -23947.5390625,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        },
+        {
+          "name": "Airstrip",
+          "objectName": "C5-Airstrip",
+          "location_x": -31247.171875,
+          "location_y": 134153.296875,
+          "location_z": -23818.69921875,
+          "objects": [
+            {
+              "objectName": "Sphere",
+              "location_x": -31247.171875,
+              "location_y": 134153.296875,
+              "location_z": -23818.69921875,
+              "isSphere": true,
+              "sphereRadius": "8000.0",
+              "isBox": false,
+              "boxExtent": {
+                "extent_x": 11311.0439453125,
+                "extent_y": 11311.0439453125,
+                "extent_z": 8000,
+                "rotation_x": 0,
+                "rotation_y": 0,
+                "rotation_z": 43.75639724731445
+              },
+              "isCapsule": false
+            }
+          ]
+        }
+      ]
+    },
+    "00-Team1 Main": {
+      "name": "Main",
+      "objectName": "00-Team1 Main",
+      "objectDisplayName": "00-Team1 Main",
+      "location_x": -154917.921875,
+      "location_y": -178377.34375,
+      "location_z": -22998.64453125,
+      "objects": [
+        {
+          "objectName": "Sphere",
+          "location_x": -154917.921875,
+          "location_y": -178377.34375,
+          "location_z": -22998.64453125,
+          "isSphere": true,
+          "sphereRadius": "13670.105469",
+          "isBox": false,
+          "boxExtent": {
+            "extent_x": 13670.10546875,
+            "extent_y": 13670.10546875,
+            "extent_z": 13670.10546875,
+            "rotation_x": 0,
+            "rotation_y": 0,
+            "rotation_z": 0
+          },
+          "isCapsule": false
+        }
+      ],
+      "pointPosition": 1
+    },
+    "Z-Team2 Main": {
+      "name": "Main",
+      "objectName": "Z-Team2 Main",
+      "objectDisplayName": "Z-Team2 Main",
+      "location_x": 186623.9375,
+      "location_y": 173893.71875,
+      "location_z": -20372.83203125,
+      "objects": [
+        {
+          "objectName": "Sphere",
+          "location_x": 186623.9375,
+          "location_y": 173893.71875,
+          "location_z": -20372.83203125,
+          "isSphere": true,
+          "sphereRadius": "12475.212891",
+          "isBox": false,
+          "boxExtent": {
+            "extent_x": 12475.212890625,
+            "extent_y": 12475.212890625,
+            "extent_z": 12475.212890625,
+            "rotation_x": 0,
+            "rotation_y": 0,
+            "rotation_z": 0
+          },
+          "isCapsule": false
+        }
+      ],
+      "pointPosition": 7
+    }
+  },
+  "mapAssets": {
+    "protectionZones": [
+      {
+        "displayName": "Team2 Protection Zone",
+        "deployableLockDistance": 15000,
+        "teamid": "1",
+        "objects": [
+          {
+            "objectName": "Sphere",
+            "isSphere": true,
+            "sphereRadius": 25000,
+            "location_x": -156910.140625,
+            "location_y": -179997.21875,
+            "location_z": -23018.447265625,
+            "isBox": false,
+            "boxExtent": {
+              "extent_x": 25000,
+              "extent_y": 25000,
+              "extent_z": 25000,
+              "rotation_x": 0,
+              "rotation_y": 0,
+              "rotation_z": 0
+            },
+            "isCapsule": false
+          }
+        ]
+      },
+      {
+        "displayName": "Team1 Protection Zone",
+        "deployableLockDistance": 15000,
+        "teamid": "2",
+        "objects": [
+          {
+            "objectName": "Sphere",
+            "isSphere": true,
+            "sphereRadius": 30000,
+            "location_x": 190846.921875,
+            "location_y": 175561.578125,
+            "location_z": -20391.919921875,
+            "isBox": false,
+            "boxExtent": {
+              "extent_x": 35607.13671875,
+              "extent_y": 35607.13671875,
+              "extent_z": 30000,
+              "rotation_x": 0,
+              "rotation_y": 0,
+              "rotation_z": -102.06292724609375
+            },
+            "isCapsule": false
+          }
+        ]
+      }
+    ],
+    "spawnGroups": [
+      {
+        "location_x": 188586.15625,
+        "location_y": 173883.265625,
+        "location_z": -20266.361328125,
+        "team": "Team Two",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "displayName": "Team1 SpawnGroup Main"
+      },
+      {
+        "location_x": -152780.5625,
+        "location_y": -179346.484375,
+        "location_z": -22219.73046875,
+        "team": "Team One",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "displayName": "Team2 SpawnGroup Main"
+      },
+      {
+        "location_x": -87236.0859375,
+        "location_y": -47939.3828125,
+        "location_z": -23454.001953125,
+        "team": "Team Two",
+        "initialLifeSpan": 240,
+        "spawningEnabled": true,
+        "displayName": "Team2 Temp SpawnGroup CannabisFarm"
+      },
+      {
+        "location_x": 637.249755859375,
+        "location_y": -128918.859375,
+        "location_z": -15556.4453125,
+        "team": "Team Two",
+        "initialLifeSpan": 240,
+        "spawningEnabled": true,
+        "displayName": "Team2 Temp SpawnGroup CannabisFarm2"
+      }
+    ],
+    "spawnPoints": [
+      {
+        "location_x": 188952.796875,
+        "location_y": 173872.34375,
+        "location_z": -20279.978515625,
+        "team": "Team Two",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team1 SpawnGroup Main"
+      },
+      {
+        "location_x": 189257.890625,
+        "location_y": 174067.875,
+        "location_z": -20285.97265625,
+        "team": "Team Two",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team1 SpawnGroup Main"
+      },
+      {
+        "location_x": 188754.3125,
+        "location_y": 173476.96875,
+        "location_z": -20274.708984375,
+        "team": "Team Two",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team1 SpawnGroup Main"
+      },
+      {
+        "location_x": 189209.25,
+        "location_y": 174296.140625,
+        "location_z": -20285.8984375,
+        "team": "Team Two",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team1 SpawnGroup Main"
+      },
+      {
+        "location_x": -152548,
+        "location_y": -178931.984375,
+        "location_z": -22221.6796875,
+        "team": "Team One",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 SpawnGroup Main"
+      },
+      {
+        "location_x": -152939.203125,
+        "location_y": -179777.796875,
+        "location_z": -22219.740234375,
+        "team": "Team One",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 SpawnGroup Main"
+      },
+      {
+        "location_x": -152986.953125,
+        "location_y": -178945.640625,
+        "location_z": -22224.271484375,
+        "team": "Team One",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 SpawnGroup Main"
+      },
+      {
+        "location_x": -152232.546875,
+        "location_y": -179034.3125,
+        "location_z": -22218.970703125,
+        "team": "Team One",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 SpawnGroup Main"
+      },
+      {
+        "location_x": 189034.390625,
+        "location_y": 174114.984375,
+        "location_z": -20282.1796875,
+        "team": "Team Two",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team1 SpawnGroup Main"
+      },
+      {
+        "location_x": -153362.5,
+        "location_y": -179849.0625,
+        "location_z": -22219.75,
+        "team": "Team One",
+        "initialLifeSpan": 0,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 SpawnGroup Main"
+      },
+      {
+        "location_x": -88378.7109375,
+        "location_y": -46097.59375,
+        "location_z": -23453.892578125,
+        "team": "Team Two",
+        "initialLifeSpan": 240,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 Temp SpawnGroup CannabisFarm"
+      },
+      {
+        "location_x": -87188.5546875,
+        "location_y": -46546.1015625,
+        "location_z": -23454.15625,
+        "team": "Team Two",
+        "initialLifeSpan": 240,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 Temp SpawnGroup CannabisFarm"
+      },
+      {
+        "location_x": -87821.484375,
+        "location_y": -46179.55859375,
+        "location_z": -23453.8984375,
+        "team": "Team Two",
+        "initialLifeSpan": 240,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 Temp SpawnGroup CannabisFarm"
+      },
+      {
+        "location_x": 568.6053466796875,
+        "location_y": -126752.5078125,
+        "location_z": -15515.1552734375,
+        "team": "Team Two",
+        "initialLifeSpan": 240,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 Temp SpawnGroup CannabisFarm2"
+      },
+      {
+        "location_x": 1375.0545654296875,
+        "location_y": -127736.0078125,
+        "location_z": -15582.9267578125,
+        "team": "Team Two",
+        "initialLifeSpan": 240,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 Temp SpawnGroup CannabisFarm2"
+      },
+      {
+        "location_x": 1010.1935424804688,
+        "location_y": -127102.109375,
+        "location_z": -15571.408203125,
+        "team": "Team Two",
+        "initialLifeSpan": 240,
+        "spawningEnabled": true,
+        "spawnGroup": "Team2 Temp SpawnGroup CannabisFarm2"
+      }
+    ]
+  },
+  "teamConfigs": {
+    "team1": {
+      "index": 1,
+      "defaultFactionUnit": "RGF_LO_CombinedArms",
+      "tickets": 250,
+      "disabledVeh": true,
+      "playerPercent": 50,
+      "allowedAlliances": [
+        "BLUFOR",
+        "PAC",
+        "REDFOR"
+      ],
+      "allowedFactionUnitTypes": [
+        "Combined Arms",
+        "Infantry (Air Mobile)",
+        "Armored",
+        "Mechanized",
+        "Support",
+        "Motorized",
+        "Light Infantry"
+      ],
+      "requiredTags": []
+    },
+    "team2": {
+      "index": 2,
+      "defaultFactionUnit": "CAF_LD_CombinedArms",
+      "tickets": 800,
+      "disabledVeh": false,
+      "playerPercent": 50,
+      "allowedAlliances": [
+        "BLUFOR",
+        "PAC",
+        "REDFOR"
+      ],
+      "allowedFactionUnitTypes": [
+        "Combined Arms",
+        "Armored",
+        "Mechanized",
+        "Support",
+        "Motorized",
+        "Light Infantry"
+      ],
+      "requiredTags": []
+    },
+    "factions": {
+      "separatedFactionsList": true,
+      "team1Units": [
+        {
+          "factionID": "BAF",
+          "defaultUnit": "BAF_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "AirAssault",
+              "unit": "BAF_LO_AirAssault"
+            },
+            {
+              "unitType": "Armored",
+              "unit": "BAF_LO_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "BAF_LO_Mechanized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "BAF_LO_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "CAF",
+          "defaultUnit": "CAF_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "AirAssault",
+              "unit": "CAF_LO_AirAssault"
+            },
+            {
+              "unitType": "Armored",
+              "unit": "CAF_LO_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "CAF_LO_Mechanized"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "CAF_LO_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "CAF_LO_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "CRF",
+          "defaultUnit": "CRF_LO_CombinedArms",
+          "types": []
+        },
+        {
+          "factionID": "PLA",
+          "defaultUnit": "PLA_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "AirAssault",
+              "unit": "PLA_LO_AirAssault"
+            },
+            {
+              "unitType": "Armored",
+              "unit": "PLA_LO_Armored"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "PLA_LO_LightInfantry"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "PLA_LO_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "PLA_LO_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "PLAAGF",
+          "defaultUnit": "PLAAGF_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "PLAAGF_LO_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "PLAAGF_LO_Mechanized"
+            }
+          ]
+        },
+        {
+          "factionID": "PLANMC",
+          "defaultUnit": "PLANMC_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "AirAssault",
+              "unit": "PLANMC_LO_AirAssault"
+            },
+            {
+              "unitType": "Armored",
+              "unit": "PLANMC_LO_Armored"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "PLANMC_LO_LightInfantry"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "PLANMC_LO_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "PLANMC_LO_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "RGF",
+          "defaultUnit": "RGF_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "RGF_LO_Armored"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "RGF_LO_LightInfantry"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "RGF_LO_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "RGF_LO_Support"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "RGF_LO_Mechanized"
+            }
+          ]
+        },
+        {
+          "factionID": "USA",
+          "defaultUnit": "USA_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "AirAssault",
+              "unit": "USA_LO_AirAssault"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "USA_LO_LightInfantry"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "USA_LO_Motorized"
+            },
+            {
+              "unitType": "Armored",
+              "unit": "USA_LO_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "USA_LO_Mechanized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "USA_LO_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "USMC",
+          "defaultUnit": "USMC_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "USMC_LO_Armored"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "USMC_LO_LightInfantry"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "USMC_LO_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "USMC_LO_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "VDV",
+          "defaultUnit": "VDV_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "AirAssault",
+              "unit": "VDV_LO_AirAssault"
+            },
+            {
+              "unitType": "Armored",
+              "unit": "VDV_LO_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "VDV_LO_Mechanized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "VDV_LO_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "WPMC",
+          "defaultUnit": "WPMC_LO_CombinedArms",
+          "types": [
+            {
+              "unitType": "AirAssault",
+              "unit": "WPMC_LO_AirAssault"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "WPMC_LO_LightInfantry"
+            }
+          ]
+        }
+      ],
+      "team2Units": [
+        {
+          "factionID": "BAF",
+          "defaultUnit": "BAF_LD_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "BAF_LD_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "BAF_LD_Mechanized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "BAF_LD_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "CAF",
+          "defaultUnit": "CAF_LD_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "CAF_LD_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "CAF_LD_Mechanized"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "CAF_LD_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "CAF_LD_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "CRF",
+          "defaultUnit": "CRF_LD_CombinedArms",
+          "types": []
+        },
+        {
+          "factionID": "PLA",
+          "defaultUnit": "PLA_LD_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "PLA_LD_Armored"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "PLA_LD_LightInfantry"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "PLA_LD_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "PLA_LD_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "PLAAGF",
+          "defaultUnit": "PLAAGF_LD_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "PLAAGF_LD_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "PLAAGF_LD_Mechanized"
+            }
+          ]
+        },
+        {
+          "factionID": "PLANMC",
+          "defaultUnit": "PLANMC_LD_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "PLANMC_LD_Armored"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "PLANMC_LD_LightInfantry"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "PLANMC_LD_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "PLANMC_LD_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "RGF",
+          "defaultUnit": "RGF_LD_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "RGF_LD_Armored"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "RGF_LD_LightInfantry"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "RGF_LD_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "RGF_LD_Support"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "RGF_LD_Mechanized"
+            }
+          ]
+        },
+        {
+          "factionID": "USA",
+          "defaultUnit": "USA_LD_CombinedArms-",
+          "types": [
+            {
+              "unitType": "LightInfantry",
+              "unit": "USA_LD_LightInfantry-"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "USA_LD_Motorized"
+            },
+            {
+              "unitType": "Armored",
+              "unit": "USA_LD_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "USA_LD_Mechanized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "USA_LD_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "USMC",
+          "defaultUnit": "USMC_LD_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "USMC_LD_Armored"
+            },
+            {
+              "unitType": "LightInfantry",
+              "unit": "USMC_LD_LightInfantry"
+            },
+            {
+              "unitType": "Motorized",
+              "unit": "USMC_LD_Motorized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "USMC_LD_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "VDV",
+          "defaultUnit": "VDV_LD_CombinedArms",
+          "types": [
+            {
+              "unitType": "Armored",
+              "unit": "VDV_LD_Armored"
+            },
+            {
+              "unitType": "Mechanized",
+              "unit": "VDV_LD_Mechanized"
+            },
+            {
+              "unitType": "Support",
+              "unit": "VDV_LD_Support"
+            }
+          ]
+        },
+        {
+          "factionID": "WPMC",
+          "defaultUnit": "WPMC_LD_CombinedArms",
+          "types": [
+            {
+              "unitType": "LightInfantry",
+              "unit": "WPMC_LD_LightInfantry"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "helicoptersAvailable": true,
+  "boatsAvailable": false,
+  "tanksAvailable": true,
+  "commanderDisabled": false,
+  "team1boats": false,
+  "team2boats": false,
+  "team1heli": true,
+  "team2heli": true
+}

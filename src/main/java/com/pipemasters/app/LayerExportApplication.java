@@ -11,6 +11,7 @@ import com.pipemasters.gameplay.GameplayDataParser;
 import com.pipemasters.layer.LayerMetadata;
 import com.pipemasters.layer.LayerMetadataParser;
 import com.pipemasters.layer.LayerPathResolver;
+import com.pipemasters.layerdata.GameMode;
 import com.pipemasters.layerdata.LayerDataParser;
 import com.pipemasters.layerdata.TeamConfigurationComposer;
 import com.pipemasters.mapassets.MapAssets;
@@ -40,12 +41,13 @@ public final class LayerExportApplication {
     private final ObjectMapper mapper;
     private final GameplayDataParser gameplayDataParser;
     private final LayerPathResolver layerPathResolver;
+    private final LayerDataParser layerDataParser;
     private final TeamConfigurationComposer teamConfigurationComposer;
     private final UnitsFilter unitsFilter;
 
     public LayerExportApplication(ObjectMapper mapper) {
         this.mapper = Objects.requireNonNull(mapper, "mapper");
-        LayerDataParser layerDataParser = new LayerDataParser(mapper);
+        this.layerDataParser = new LayerDataParser(mapper);
         this.gameplayDataParser = new GameplayDataParser();
         this.layerPathResolver = new LayerPathResolver();
         this.teamConfigurationComposer = new TeamConfigurationComposer(layerDataParser, new UnitFactionFactory());
@@ -80,9 +82,10 @@ public final class LayerExportApplication {
 
         LOGGER.info("Resolved layer JSON path to '{}'.", layerJsonPath);
         JsonNode layerRoot = mapper.readTree(layerJsonPath.toFile());
-        CapturePointsParser capturePointsParser = new CapturePointsParser(mapper);
-        CapturePoints capturePoints = capturePointsParser.parseCapturePoints(layerRoot);
+        GameMode gameMode = layerDataParser.parseGameMode(request.gameplayDataPath());
 
+        CapturePointsParser capturePointsParser = new CapturePointsParser(mapper);
+        CapturePoints capturePoints = capturePointsParser.parseCapturePoints(layerRoot, gameMode);
         ObjectivesParser objectivesParser = new ObjectivesParser();
         Map<String, Objective> objectives = objectivesParser.parseObjectives(layerRoot, capturePoints.clusters());
 
@@ -102,14 +105,15 @@ public final class LayerExportApplication {
         Units units = loadUnits(request.unitsPath());
         LayerTeamConfiguration teamConfiguration = teamConfigurationComposer.compose(request.gameplayDataPath(), units);
 
-        Units filteredUnits = unitsFilter.filter(units, teamConfiguration);
+        Units adjustedUnits = adjustUnitsForMirroredFactions(units, teamConfiguration);
+        Units filteredUnits = unitsFilter.filter(adjustedUnits, teamConfiguration);
 
         Layer layer = new Layer(metadata, capturePoints, objectives, mapAssets, assets, teamConfiguration, filteredUnits);
 
         Path outputDir = request.projectRoot().resolve("output");
         Files.createDirectories(outputDir);
 
-        String outputFileName = createOutputFileName(layerJsonPath, metadata.layerVersion());
+        String outputFileName = createOutputFileName(layerJsonPath, metadata.layerVersion(), gameplayDataInfo.rowName());
         Path outputPath = outputDir.resolve(outputFileName);
 
         LOGGER.info("Writing exported layer JSON to '{}'.", outputPath);
@@ -131,7 +135,20 @@ public final class LayerExportApplication {
         return mapper.readValue(unitsPath.toFile(), Units.class);
     }
 
-    private String createOutputFileName(Path originalPath, String reportedVersion) {
+    private Units adjustUnitsForMirroredFactions(Units units, LayerTeamConfiguration teamConfiguration) {
+        if (units == null || teamConfiguration == null || teamConfiguration.factions() == null) {
+            return units;
+        }
+
+        if (teamConfiguration.factions().team1Units() != null
+                && teamConfiguration.factions().team1Units().equals(teamConfiguration.factions().team2Units())) {
+            return new Units(units.team1Units(), units.team1Units());
+        }
+
+        return units;
+    }
+
+    private String createOutputFileName(Path originalPath, String reportedVersion, String preferredBaseName) {
         String originalFileName = originalPath.getFileName().toString();
         if (reportedVersion == null || reportedVersion.isBlank()) {
             return originalFileName;
@@ -146,6 +163,13 @@ public final class LayerExportApplication {
         }
 
         String sanitizedVersion = reportedVersion.startsWith("v") ? reportedVersion : "v" + reportedVersion;
+        String baseNameFromData = (preferredBaseName == null || preferredBaseName.isBlank())
+                ? null
+                : preferredBaseName.trim();
+
+        if (baseNameFromData != null && !baseNameFromData.isBlank()) {
+            baseName = baseNameFromData;
+        }
         Matcher matcher = VERSION_SEGMENT_PATTERN.matcher(baseName);
         int lastMatchStart = -1;
         int lastMatchEnd = -1;

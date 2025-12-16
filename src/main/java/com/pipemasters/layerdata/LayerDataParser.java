@@ -57,13 +57,7 @@ public class LayerDataParser {
             return TeamFactions.empty();
         }
 
-        JsonNode layerNode = null;
-        for (JsonNode node : root) {
-            if ("BP_SQLayer_C".equals(node.path("Type").asText())) {
-                layerNode = node;
-                break;
-            }
-        }
+        JsonNode layerNode = findLayerNode(root);
 
         if (layerNode == null) {
             return TeamFactions.empty();
@@ -71,6 +65,8 @@ public class LayerDataParser {
 
         JsonNode properties = layerNode.path("Properties");
         boolean separated = properties.path("bSeparatedFactionsList").asBoolean(false);
+        GameMode gameMode = parseGameMode(properties);
+        boolean mirroredTeams = gameMode.hasMirroredTeams();
 
         List<FactionConfig> team1 = new ArrayList<>();
         List<FactionConfig> team2 = new ArrayList<>();
@@ -91,7 +87,12 @@ public class LayerDataParser {
 
         if (!hasExplicitTeamOne) {
             TeamSide defaultTeam = hasExplicitTeamTwo ? TeamSide.TEAM1 : null;
-            parseFactionEntries(factionsListNode, defaultTeam, team1, team2);
+            if (mirroredTeams && !hasExplicitTeamTwo) {
+                parseFactionEntries(factionsListNode, TeamSide.TEAM1, team1, team2);
+                team2.addAll(team1);
+            } else {
+                parseFactionEntries(factionsListNode, defaultTeam, team1, team2);
+            }
         }
 
         if ((team1.isEmpty() || team2.isEmpty()) && root.isArray()) {
@@ -99,6 +100,25 @@ public class LayerDataParser {
         }
 
         return new TeamFactions(separated, List.copyOf(team1), List.copyOf(team2));
+    }
+
+    public GameMode parseGameMode(Path layerDataPath) throws IOException {
+        Objects.requireNonNull(layerDataPath, "layerDataPath");
+        if (!Files.exists(layerDataPath)) {
+            return GameMode.UNKNOWN;
+        }
+
+        JsonNode root = mapper.readTree(layerDataPath.toFile());
+        if (root == null || !root.isArray()) {
+            return GameMode.UNKNOWN;
+        }
+
+        JsonNode layerNode = findLayerNode(root);
+        if (layerNode == null) {
+            return GameMode.UNKNOWN;
+        }
+
+        return parseGameMode(layerNode.path("Properties"));
     }
 
     public LayerTeamConfigs parseTeamConfigs(Path layerDataPath) throws IOException {
@@ -111,6 +131,10 @@ public class LayerDataParser {
         if (root == null || !root.isArray()) {
             return LayerTeamConfigs.empty();
         }
+
+        JsonNode layerNode = findLayerNode(root);
+        GameMode gameMode = parseGameMode(layerNode == null ? null : layerNode.path("Properties"));
+        boolean mirroredTeams = gameMode.hasMirroredTeams();
 
         TeamConfig team1 = null;
         TeamConfig team2 = null;
@@ -140,6 +164,11 @@ public class LayerDataParser {
         }
         if (team2 == null && !fallback.isEmpty()) {
             team2 = fallback.remove(0);
+        }
+
+        if (mirroredTeams) {
+            team1 = duplicateIfMissing(team1, team2, 1);
+            team2 = duplicateIfMissing(team2, team1, 2);
         }
 
         team1 = ensureTeamIndex(team1, 1);
@@ -231,6 +260,25 @@ public class LayerDataParser {
         if (team2.isEmpty()) {
             addFallbackFaction(team2, team2Config);
         }
+    }
+
+    private JsonNode findLayerNode(JsonNode root) {
+        if (root == null || !root.isArray()) {
+            return null;
+        }
+        for (JsonNode node : root) {
+            if ("BP_SQLayer_C".equals(node.path("Type").asText())) {
+                return node;
+            }
+        }
+        return null;
+    }
+
+    private GameMode parseGameMode(JsonNode properties) {
+        if (properties == null || properties.isMissingNode()) {
+            return GameMode.UNKNOWN;
+        }
+        return GameMode.fromRowName(properties.path("GameMode").path("RowName").asText(null));
     }
 
     private void addFallbackFaction(List<FactionConfig> target, TeamConfig config) {
@@ -430,6 +478,23 @@ public class LayerDataParser {
 
         return new TeamConfig(index, defaultFactionUnit, tickets, vehiclesDisabled, playerPercent,
                 List.copyOf(allowedAlliances), List.copyOf(allowedFactionTypes), List.copyOf(requiredTags));
+    }
+
+    private TeamConfig duplicateIfMissing(TeamConfig primary, TeamConfig secondary, int targetIndex) {
+        if (primary != null) {
+            return primary;
+        }
+        if (secondary == null) {
+            return null;
+        }
+        return new TeamConfig(targetIndex,
+                secondary.defaultFactionUnit(),
+                secondary.tickets(),
+                secondary.vehiclesDisabled(),
+                secondary.playerPercent(),
+                secondary.allowedAlliances(),
+                secondary.allowedFactionUnitTypes(),
+                secondary.requiredTags());
     }
 
     private int parseTeamIndex(String rawIndex) {

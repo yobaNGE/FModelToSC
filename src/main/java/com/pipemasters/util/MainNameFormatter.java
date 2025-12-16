@@ -7,7 +7,7 @@ import java.util.Map;
 
 public final class MainNameFormatter {
     private static final String ATTACK_MAIN = "00-Team1 Main";
-    private static final String DEFENSE_MAIN = "100-Team2 Main";
+    private static final String DEFENSE_MAIN = "Z-Team2 Main";
 
 
     private MainNameFormatter() {

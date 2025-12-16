@@ -19,6 +19,7 @@ public class ObjectivesParser {
         Map<ComponentKey, ComponentDefinition> components = new LinkedHashMap<>();
         Map<String, List<ComponentDefinition>> componentsByOwner = new HashMap<>();
         Map<String, String> pointDisplayNames = new HashMap<>();
+        Map<String, String> clusterDisplayNames = new HashMap<>();
         Set<String> captureZoneActors = new LinkedHashSet<>();
         Set<String> clusterActors = new LinkedHashSet<>();
         Set<String> mainActors = new LinkedHashSet<>();
@@ -31,10 +32,12 @@ public class ObjectivesParser {
                 case "SphereComponent" -> registerComponent(parseSphereComponent(node), components, componentsByOwner);
                 case "CapsuleComponent" ->
                         registerComponent(parseCapsuleComponent(node), components, componentsByOwner);
-                case "BP_CaptureZoneInvasion_C" -> captureZoneActors.add(node.path("Name").asText());
+                case "BP_CaptureZoneInvasion_C", "BP_CaptureZone_C" ->
+                        captureZoneActors.add(node.path("Name").asText());
                 case "BP_CaptureZoneCluster_C" -> clusterActors.add(node.path("Name").asText());
                 case "BP_CaptureZoneMain_C" -> mainActors.add(node.path("Name").asText());
-                case "SQCaptureZoneInvasionComponent" -> storeCaptureZoneDisplayName(node, pointDisplayNames);
+                case "SQCaptureZoneInvasionComponent", "SQCaptureZoneComponent" ->
+                        storeCaptureZoneDisplayName(node, pointDisplayNames);
                 default -> {
                 }
             }
@@ -55,12 +58,15 @@ public class ObjectivesParser {
             if (zoneDefinition == null || zoneDefinition.parentKey() == null) {
                 continue;
             }
-            String clusterName = zoneDefinition.parentKey().owner();
-            if (clusterName == null) {
-                continue;
-            }
-
             String displayName = pointDisplayNames.getOrDefault(zoneName, zoneName);
+            String clusterName = zoneDefinition.parentKey().owner();
+
+            if (!clusterActors.contains(clusterName)) {
+                clusterName = zoneName;
+                clusterActors.add(clusterName);
+            }
+            clusterDisplayNames.putIfAbsent(clusterName, displayName);
+
             List<ObjectiveObject> objects = buildObjectiveObjects(zoneName, resolver, componentsByOwner);
             ObjectivePoint point = new ObjectivePoint(
                     displayName,
@@ -80,8 +86,23 @@ public class ObjectivesParser {
             List<ObjectivePoint> points = clusterPoints.getOrDefault(clusterName, List.of());
             List<ObjectivePoint> sortedPoints = sortPoints(points);
             ObjectiveLocation avgLocation = computeAverageLocation(sortedPoints);
-            int pointPosition = stageIndex.getOrDefault(clusterName, 0);
-            objectives.put(clusterName, new ObjectiveCluster(clusterName, pointPosition, avgLocation, sortedPoints));
+            List<ObjectiveObject> objects = sortedPoints.isEmpty()
+                    ? List.of()
+                    : sortedPoints.getFirst().objects();
+            Integer pointPosition = stageIndex.get(clusterName);
+            String displayName = clusterDisplayNames.getOrDefault(clusterName, clusterName);
+            objectives.put(clusterName, new ObjectiveCluster(
+                    displayName,
+                    clusterName,
+                    clusterName,
+                    avgLocation.locationX(),
+                    avgLocation.locationY(),
+                    avgLocation.locationZ(),
+                    objects,
+                    pointPosition,
+                    avgLocation,
+                    sortedPoints
+            ));
         }
 
         List<ObjectiveWithKey> mainObjectives = new ArrayList<>();
@@ -90,7 +111,7 @@ public class ObjectivesParser {
             ResolvedTransform transform = resolver.resolve(mainRootKey);
             String displayName = formatMainDisplayName(mainName, mainNameOverrides);
             List<ObjectiveObject> objects = buildObjectiveObjects(mainName, resolver, componentsByOwner);
-            int pointPosition = stageIndex.getOrDefault(displayName, 0);
+            Integer pointPosition = stageIndex.get(displayName);
             ObjectiveMain main = new ObjectiveMain(
                     "Main",
                     displayName,
@@ -105,7 +126,8 @@ public class ObjectivesParser {
         }
 
         mainObjectives.sort(Comparator
-                .comparingInt((ObjectiveWithKey entry) -> ((ObjectiveMain) entry.objective()).pointPosition())
+                .comparingInt((ObjectiveWithKey entry) -> Optional.ofNullable(((ObjectiveMain) entry.objective()).pointPosition())
+                        .orElse(Integer.MAX_VALUE))
                 .thenComparing(ObjectiveWithKey::key));
 
         for (ObjectiveWithKey entry : mainObjectives) {
@@ -332,8 +354,10 @@ public class ObjectivesParser {
 
         return switch (definition.type()) {
             case BOX -> createBoxVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
-            case SPHERE -> createSphereVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
-            case CAPSULE -> createCapsuleVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
+            case SPHERE ->
+                    createSphereVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
+            case CAPSULE ->
+                    createCapsuleVolume(definition, locationX, locationY, locationZ, rotation, worldScale, localScale);
             default -> null;
         };
     }

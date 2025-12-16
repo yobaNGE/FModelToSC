@@ -6,6 +6,7 @@ import java.util.*;
 
 public class MapAssetsParser {
     private static final double DEFAULT_DEPLOYABLE_LOCK_DISTANCE = 15000.0;
+    private static final double MAX_REASONABLE_SPHERE_RADIUS = 100_000.0;
     private static final int TEMP_SPAWN_LIFESPAN = 240;
 
     public MapAssets parse(JsonNode root) {
@@ -138,6 +139,7 @@ public class MapAssetsParser {
         List<ProtectionZone> protectionZones = new ArrayList<>();
         for (ProtectionZoneDefinition definition : definitions) {
             List<MapAssetObject> objects = buildObjects(definition.name(), componentsByOwner, resolver);
+            objects = adjustProtectionZoneObjects(definition, objects);
             String displayName = prettifyName(definition.name());
             protectionZones.add(new ProtectionZone(
                     displayName,
@@ -148,6 +150,48 @@ public class MapAssetsParser {
         }
         protectionZones.sort(Comparator.comparing(ProtectionZone::displayName));
         return protectionZones;
+    }
+
+    private List<MapAssetObject> adjustProtectionZoneObjects(ProtectionZoneDefinition definition,
+                                                             List<MapAssetObject> objects) {
+        double lockDistance = definition.deployableLockDistance();
+        if (lockDistance <= 0) {
+            return objects;
+        }
+
+        List<MapAssetObject> adjusted = new ArrayList<>(objects.size());
+        for (MapAssetObject object : objects) {
+            double radius = Math.abs(object.sphereRadius());
+            if (object.isSphere() && radius < lockDistance) {
+                MapAssetObjectExtent extent = object.boxExtent();
+                MapAssetObjectExtent adjustedExtent = extent == null
+                        ? new MapAssetObjectExtent(lockDistance, lockDistance, lockDistance, 0.0, 0.0, 0.0)
+                        : new MapAssetObjectExtent(
+                        lockDistance,
+                        lockDistance,
+                        lockDistance,
+                        extent.rotation_x(),
+                        extent.rotation_y(),
+                        extent.rotation_z()
+                );
+
+                adjusted.add(new MapAssetObject(
+                        object.objectName(),
+                        true,
+                        lockDistance,
+                        object.locationX(),
+                        object.locationY(),
+                        object.locationZ(),
+                        object.isBox(),
+                        adjustedExtent,
+                        object.isCapsule()
+                ));
+            } else {
+                adjusted.add(object);
+            }
+        }
+
+        return adjusted;
     }
 
     private Map<String, SpawnGroup> buildSpawnGroups(List<SpawnGroupDefinition> definitions,
@@ -274,7 +318,15 @@ public class MapAssetsParser {
                                               double locationZ,
                                               Rotation rotation,
                                               Vector3D scale) {
-        double radius = definition.sphereRadius() * scale.x();
+        double scaleFactor = Math.max(
+                Math.abs(scale.x()),
+                Math.max(Math.abs(scale.y()), Math.abs(scale.z()))
+        );
+        double radius = definition.sphereRadius() * scaleFactor;
+        if (radius > MAX_REASONABLE_SPHERE_RADIUS) {
+            radius = definition.sphereRadius();
+            scaleFactor = 1.0;
+        }
         MapAssetObjectExtent boxExtent = new MapAssetObjectExtent(
                 radius,
                 radius,

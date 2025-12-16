@@ -13,5 +13,5 @@ public record ObjectiveMain(String name,
                             @JsonProperty("location_y") double locationY,
                             @JsonProperty("location_z") double locationZ,
                             List<ObjectiveObject> objects,
-                            int pointPosition) implements Objective {
+                            Integer pointPosition) implements Objective {
 }

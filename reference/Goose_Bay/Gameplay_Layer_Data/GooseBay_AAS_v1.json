@@ -1,0 +1,662 @@
+[
+  {
+    "Type": "BP_SQLayer_C",
+    "Name": "GooseBay_AAS_v1",
+    "Class": "BlueprintGeneratedClass'/Game/Settings/Maps/BP_SQLayer.BP_SQLayer_C'",
+    "Template": {
+      "ObjectName": "BP_SQLayer_C'Default__BP_SQLayer_C'",
+      "ObjectPath": "/Game/Settings/Maps/BP_SQLayer.1"
+    },
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "GameMode": {
+        "RowName": "AAS"
+      },
+      "LevelId": "GooseBay",
+      "Worlds": [
+        {
+          "AssetPathName": "/Game/Maps/Goose_Bay/Gameplay_Layers/GooseBay_AAS_v1.GooseBay_AAS_v1",
+          "SubPathString": ""
+        }
+      ],
+      "PersistentLightingType": {
+        "RowName": "Daytime"
+      },
+      "TeamConfigs": [
+        {
+          "ObjectName": "BP_SQLayerTeamConfig_C'GooseBay_AAS_v1:BP_SQLayerTeamConfig_C_0'",
+          "ObjectPath": "/Game/Maps/Goose_Bay/Gameplay_Layer_Data/GooseBay_AAS_v1.1"
+        },
+        {
+          "ObjectName": "BP_SQLayerTeamConfig_C'GooseBay_AAS_v1:BP_SQLayerTeamConfig_C_1'",
+          "ObjectPath": "/Game/Maps/Goose_Bay/Gameplay_Layer_Data/GooseBay_AAS_v1.2"
+        }
+      ],
+      "FactionsList": [
+        {
+          "Key": "BAF",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/BAF/LargeMap-Offense/CombinedArms/BAF_LO_CombinedArms.BAF_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "AirAssault",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/BAF/LargeMap-Offense/AirAssault/BAF_LO_AirAssault.BAF_LO_AirAssault",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Armored",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/BAF/LargeMap-Offense/Armored/BAF_LO_Armored.BAF_LO_Armored",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Mechanized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/BAF/LargeMap-Offense/Mechanized/BAF_LO_Mechanized.BAF_LO_Mechanized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Support",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/BAF/LargeMap-Offense/Support/BAF_LO_Support.BAF_LO_Support",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "CAF",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/CAF/LargeMap-Offense/CombinedArms/CAF_LO_CombinedArms.CAF_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "AirAssault",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/CAF/LargeMap-Offense/AirAssault/CAF_LO_AirAssault.CAF_LO_AirAssault",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Armored",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/CAF/LargeMap-Offense/Armored/CAF_LO_Armored.CAF_LO_Armored",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Mechanized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/CAF/LargeMap-Offense/Mechanized/CAF_LO_Mechanized.CAF_LO_Mechanized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Motorized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/CAF/LargeMap-Offense/Motorized/CAF_LO_Motorized.CAF_LO_Motorized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Support",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/CAF/LargeMap-Offense/Support/CAF_LO_Support.CAF_LO_Support",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "PLA",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/PLA/LargeMap-Offense/CombinedArms/PLA_LO_CombinedArms.PLA_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "AirAssault",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLA/LargeMap-Offense/AirAssault/PLA_LO_AirAssault.PLA_LO_AirAssault",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Armored",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLA/LargeMap-Offense/Armored/PLA_LO_Armored.PLA_LO_Armored",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "LightInfantry",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLA/LargeMap-Offense/LightInfantry/PLA_LO_LightInfantry.PLA_LO_LightInfantry",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Motorized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLA/LargeMap-Offense/Motorized/PLA_LO_Motorized.PLA_LO_Motorized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Support",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLA/LargeMap-Offense/Support/PLA_LO_Support.PLA_LO_Support",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "RGF",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/RGF/LargeMap-Offense/CombinedArms/RGF_LO_CombinedArms.RGF_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "Armored",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/RGF/LargeMap-Offense/Armored/RGF_LO_Armored.RGF_LO_Armored",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "LightInfantry",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/RGF/LargeMap-Offense/LightInfantry/RGF_LO_LightInfantry.RGF_LO_LightInfantry",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Motorized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/RGF/LargeMap-Offense/Motorized/RGF_LO_Motorized.RGF_LO_Motorized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Support",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/RGF/LargeMap-Offense/Support/RGF_LO_Support.RGF_LO_Support",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Mechanized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/RGF/LargeMap-Offense/Mechanized/RGF_LO_Mechanized.RGF_LO_Mechanized",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "USA",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/USA/LargeMap-Offense/CombinedArms/USA_LO_CombinedArms.USA_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "AirAssault",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USA/LargeMap-Offense/AirAssault/USA_LO_AirAssault.USA_LO_AirAssault",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "LightInfantry",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USA/LargeMap-Offense/LightInfantry/USA_LO_LightInfantry.USA_LO_LightInfantry",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Motorized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USA/LargeMap-Offense/Motorized/USA_LO_Motorized.USA_LO_Motorized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Armored",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USA/LargeMap-Offense/Armored/USA_LO_Armored.USA_LO_Armored",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Mechanized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USA/LargeMap-Offense/Mechanized/USA_LO_Mechanized.USA_LO_Mechanized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Support",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USA/LargeMap-Offense/Support/USA_LO_Support.USA_LO_Support",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "USMC",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/USMC/LargeMap-Offense/CombinedArms/USMC_LO_CombinedArms.USMC_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "Armored",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USMC/LargeMap-Offense/Armored/USMC_LO_Armored.USMC_LO_Armored",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "LightInfantry",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USMC/LargeMap-Offense/LightInfantry/USMC_LO_LightInfantry.USMC_LO_LightInfantry",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Motorized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USMC/LargeMap-Offense/Motorized/USMC_LO_Motorized.USMC_LO_Motorized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Support",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/USMC/LargeMap-Offense/Support/USMC_LO_Support.USMC_LO_Support",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "VDV",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/VDV/LargeMap-Offense/CombinedArms/VDV_LO_CombinedArms.VDV_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "AirAssault",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/VDV/LargeMap-Offense/AirAssault/VDV_LO_AirAssault.VDV_LO_AirAssault",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Armored",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/VDV/LargeMap-Offense/Armored/VDV_LO_Armored.VDV_LO_Armored",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Mechanized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/VDV/LargeMap-Offense/Mechanized/VDV_LO_Mechanized.VDV_LO_Mechanized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Support",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/VDV/LargeMap-Offense/Support/VDV_LO_Support.VDV_LO_Support",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "PLANMC",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/PLANMC/LargeMap-Offense/CombinedArms/PLANMC_LO_CombinedArms.PLANMC_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "AirAssault",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLANMC/LargeMap-Offense/AirAssault/PLANMC_LO_AirAssault.PLANMC_LO_AirAssault",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Armored",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLANMC/LargeMap-Offense/Armored/PLANMC_LO_Armored.PLANMC_LO_Armored",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "LightInfantry",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLANMC/LargeMap-Offense/LightInfantry/PLANMC_LO_LightInfantry.PLANMC_LO_LightInfantry",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Motorized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLANMC/LargeMap-Offense/Motorized/PLANMC_LO_Motorized.PLANMC_LO_Motorized",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Support",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLANMC/LargeMap-Offense/Support/PLANMC_LO_Support.PLANMC_LO_Support",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "PLAAGF",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/PLAAGF/LargeMap-Offense/CombinedArms/PLAAGF_LO_CombinedArms.PLAAGF_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "Armored",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLAAGF/LargeMap-Offense/Armored/PLAAGF_LO_Armored.PLAAGF_LO_Armored",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "Mechanized",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/PLAAGF/LargeMap-Offense/Mechanized/PLAAGF_LO_Mechanized.PLAAGF_LO_Mechanized",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "WPMC",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/WPMC/LargeMap-Offense/CombinedArms/WPMC_LO_CombinedArms.WPMC_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": [
+              {
+                "Key": "AirAssault",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/WPMC/LargeMap-Offense/AirAssault/WPMC_LO_AirAssault.WPMC_LO_AirAssault",
+                  "SubPathString": ""
+                }
+              },
+              {
+                "Key": "LightInfantry",
+                "Value": {
+                  "AssetPathName": "/Game/Settings/FactionSetups/WPMC/LargeMap-Offense/LightInfantry/WPMC_LO_LightInfantry.WPMC_LO_LightInfantry",
+                  "SubPathString": ""
+                }
+              }
+            ]
+          }
+        },
+        {
+          "Key": "CRF",
+          "Value": {
+            "Faction": {
+              "AssetPathName": "/Game/Settings/FactionSetups/CRF/LargeMap-Offense/CombinedArms/CRF_LO_CombinedArms.CRF_LO_CombinedArms",
+              "SubPathString": ""
+            },
+            "Types": []
+          }
+        }
+      ],
+      "GameFlags": {
+        "bBoatsAvailable": false
+      },
+      "ObjectivesCount": 6,
+      "ObjectiveLocations": [
+        {
+          "Location": {
+            "X": -155433.69,
+            "Y": -177261.38,
+            "Z": -22543.062
+          },
+          "Order": 0,
+          "NameID": {
+            "Namespace": "",
+            "Key": "AA5B120D41331C4A6EB4828E8DB8FC20",
+            "SourceString": "Main",
+            "LocalizedString": "Main"
+          }
+        },
+        {
+          "Location": {
+            "X": 184455.75,
+            "Y": 172156.72,
+            "Z": -20352.984
+          },
+          "Order": 1,
+          "NameID": {
+            "Namespace": "",
+            "Key": "1EEAB08941FD7DE4120C6CBBDBFD7350",
+            "SourceString": "Main",
+            "LocalizedString": "Main"
+          }
+        },
+        {
+          "Location": {
+            "X": -43963.555,
+            "Y": -129528.0,
+            "Z": -15526.926
+          },
+          "Order": 1,
+          "NameID": {
+            "Namespace": "",
+            "Key": "0AA628F1462C34C69360D8A02DF23693",
+            "SourceString": "Sheshatshiu",
+            "LocalizedString": "Sheshatshiu"
+          }
+        },
+        {
+          "Location": {
+            "X": 93113.22,
+            "Y": -109303.39,
+            "Z": -16392.0
+          },
+          "Order": 2,
+          "NameID": {
+            "Namespace": "",
+            "Key": "DEB506C94A0B61213774189011D2015A",
+            "SourceString": "FOB Inkpen",
+            "LocalizedString": "FOB Inkpen"
+          }
+        },
+        {
+          "Location": {
+            "X": 93115.45,
+            "Y": -50387.297,
+            "Z": -15503.973
+          },
+          "Order": 3,
+          "NameID": {
+            "Namespace": "",
+            "Key": "C7034656454EDA9E16B0408C2B76034F",
+            "SourceString": "NORAD Ground Station",
+            "LocalizedString": "NORAD Ground Station"
+          }
+        },
+        {
+          "Location": {
+            "X": 37979.645,
+            "Y": 37518.734,
+            "Z": -13693.0
+          },
+          "Order": 4,
+          "NameID": {
+            "Namespace": "",
+            "Key": "E3F3EDEA4B07BCA28F8BE5A6FDFDA5A8",
+            "SourceString": "CFB Goose Bay",
+            "LocalizedString": "CFB Goose Bay"
+          }
+        },
+        {
+          "Location": {
+            "X": 16147.086,
+            "Y": 108129.79,
+            "Z": -19746.055
+          },
+          "Order": 5,
+          "NameID": {
+            "Namespace": "",
+            "Key": "9BCE163249C1F7781DA0F9AAA8A97911",
+            "SourceString": "OP Hebb",
+            "LocalizedString": "OP Hebb"
+          }
+        },
+        {
+          "Location": {
+            "X": 145216.61,
+            "Y": 128703.77,
+            "Z": -21303.0
+          },
+          "Order": 6,
+          "NameID": {
+            "Namespace": "",
+            "Key": "144F8FC0453F27E7284F76B224E8A0F8",
+            "SourceString": "Postville",
+            "LocalizedString": "Postville"
+          }
+        }
+      ],
+      "MinimapCornersPosition": {
+        "Min": {
+          "X": -201657.89,
+          "Y": -201674.84
+        },
+        "Max": {
+          "X": 201523.08,
+          "Y": 201503.08
+        },
+        "bIsValid": 1
+      },
+      "Data": {
+        "DataTable": {
+          "ObjectName": "DataTable'GooseBay_LayerTable'",
+          "ObjectPath": "/Game/Maps/Goose_Bay/Gameplay_Layer_Data/GooseBay_LayerTable.0"
+        },
+        "RowName": "GooseBay_AAS_v1"
+      },
+      "PackingRules": {
+        "Priority": 6,
+        "ChunkId": 6610
+      },
+      "NativeClass": {
+        "ObjectName": "BlueprintGeneratedClass'BP_SQLayer_C'",
+        "ObjectPath": "/Game/Settings/Maps/BP_SQLayer.0"
+      }
+    }
+  },
+  {
+    "Type": "BP_SQLayerTeamConfig_C",
+    "Name": "BP_SQLayerTeamConfig_C_0",
+    "Outer": "GooseBay_AAS_v1",
+    "Class": "BlueprintGeneratedClass'/Game/Settings/Maps/BP_SQLayerTeamConfig.BP_SQLayerTeamConfig_C'",
+    "Template": {
+      "ObjectName": "BP_SQLayerTeamConfig_C'Default__BP_SQLayerTeamConfig_C'",
+      "ObjectPath": "/Game/Settings/Maps/BP_SQLayerTeamConfig.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Allowed Alliances": [
+        "SQEAlliance::NewEnumerator21",
+        "SQEAlliance::NewEnumerator24",
+        "SQEAlliance::NewEnumerator22"
+      ],
+      "AllowedFactionSetupTypes": [
+        "ESQFactionSetupType::NewEnumerator6",
+        "ESQFactionSetupType::NewEnumerator5",
+        "ESQFactionSetupType::NewEnumerator4",
+        "ESQFactionSetupType::NewEnumerator3",
+        "ESQFactionSetupType::NewEnumerator9",
+        "ESQFactionSetupType::NewEnumerator2",
+        "ESQFactionSetupType::NewEnumerator1"
+      ],
+      "SpecificFactionSetup": {
+        "AssetPathName": "/Game/Settings/FactionSetups/CAF/LargeMap-Offense/CombinedArms/CAF_LO_CombinedArms.CAF_LO_CombinedArms",
+        "SubPathString": ""
+      },
+      "Tickets": 250
+    }
+  },
+  {
+    "Type": "BP_SQLayerTeamConfig_C",
+    "Name": "BP_SQLayerTeamConfig_C_1",
+    "Outer": "GooseBay_AAS_v1",
+    "Class": "BlueprintGeneratedClass'/Game/Settings/Maps/BP_SQLayerTeamConfig.BP_SQLayerTeamConfig_C'",
+    "Template": {
+      "ObjectName": "BP_SQLayerTeamConfig_C'Default__BP_SQLayerTeamConfig_C'",
+      "ObjectPath": "/Game/Settings/Maps/BP_SQLayerTeamConfig.1"
+    },
+    "Flags": "RF_Public | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Properties": {
+      "Allowed Alliances": [
+        "SQEAlliance::NewEnumerator21",
+        "SQEAlliance::NewEnumerator24",
+        "SQEAlliance::NewEnumerator22"
+      ],
+      "AllowedFactionSetupTypes": [
+        "ESQFactionSetupType::NewEnumerator6",
+        "ESQFactionSetupType::NewEnumerator5",
+        "ESQFactionSetupType::NewEnumerator4",
+        "ESQFactionSetupType::NewEnumerator3",
+        "ESQFactionSetupType::NewEnumerator9",
+        "ESQFactionSetupType::NewEnumerator2",
+        "ESQFactionSetupType::NewEnumerator1"
+      ],
+      "Index": "ESQTeam::Team_Two",
+      "SpecificFactionSetup": {
+        "AssetPathName": "/Game/Settings/FactionSetups/RGF/LargeMap-Offense/CombinedArms/RGF_LO_CombinedArms.RGF_LO_CombinedArms",
+        "SubPathString": ""
+      },
+      "Tickets": 250
+    }
+  }
+]
