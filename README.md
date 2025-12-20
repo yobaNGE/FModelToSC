@@ -21,7 +21,9 @@ Currently have some hardcoded values for path resolving just for Steel_Division 
 | [FModel fork](https://github.com/yobaNGE/FModel/releases/) | Provides the **Missing Asset Extractor** used to dump extra assets listed in `missing-assets.txt`. |
 | Java 21 (JDK) + Maven | Build and run both exporters. |
 | Node.js 18+ and npm | Run the mock API server. |
+| [SquadCalc](https://github.com/sh4rkman/SquadCalc) project| Run local instance of SquadCalc frontend |
 | Optional: IntelliJ IDEA or any Java IDE | For running the exporters without Maven commands. |
+
 
 ---
 
