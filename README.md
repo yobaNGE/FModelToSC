@@ -1,8 +1,8 @@
 # FModelToSC
 
-Convert FModel‑exported Squad mod data into JSON payloads that SquadCalc can read. The project now ships with two tooling entry points that work together:
+Convert FModel‑exported Squad mod data into JSON payloads that [SquadCalc](https://github.com/sh4rkman/SquadCalc) can read. The project now ships with two tooling entry points that work together:
 
-Parsed Invasion layers for Steel Division mod can be explored here [Link](https://squadcalc.obamus.ru/).
+Parsed layers for Steel Division mod can be explored here [Squadcalc alt](https://squadcalc.obamus.ru/).
 
 - **Layer exporter (`com.pipemasters.Main`)** – consumes a *list* of gameplay layer exports (the `layerdata.json` files that reference the layer, objectives, map assets, capture points, etc.), resolves every linked asset that FModel exported, and writes SquadCalc‑compatible payloads to `output/`. The exporter batches multiple entries, supports inline comments, ignores duplicates, and keeps track of any missing assets.
 - **Units exporter (`com.pipemasters.units.UnitsMain`)** – scans exported faction setup data and builds `units.json` with teams, vehicles, and commander abilities for every faction used by your mod. It recursively walks parent assets when fields are not defined on the current file so the end result is complete before you start converting layers.
@@ -21,7 +21,9 @@ Currently have some hardcoded values for path resolving just for Steel_Division 
 | [FModel fork](https://github.com/yobaNGE/FModel/releases/) | Provides the **Missing Asset Extractor** used to dump extra assets listed in `missing-assets.txt`. |
 | Java 21 (JDK) + Maven | Build and run both exporters. |
 | Node.js 18+ and npm | Run the mock API server. |
+| [SquadCalc](https://github.com/sh4rkman/SquadCalc) project| Run local instance of SquadCalc frontend |
 | Optional: IntelliJ IDEA or any Java IDE | For running the exporters without Maven commands. |
+
 
 ---
 
@@ -192,4 +194,5 @@ Use `npm run dev` for auto‑reload while tweaking the mock server code.
 
 ---
 ## Current limitations
-- Layers that are not Invasion will likely have issues. Or straight-up won't parse.
+- Layers that are not Invasion, RAAS or AAS will likely have issues. Or straight-up won't parse.
+- For non Steel Division factions code modification is required.
