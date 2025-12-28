@@ -17,12 +17,13 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 final class VehicleSettingsLoader {
     private static final Logger LOGGER = LogManager.getLogger(VehicleSettingsLoader.class);
     private final ObjectMapper mapper;
     private final AssetResolver resolver;
-    private final Map<Path, Map<String, VehicleSettings>> cache = new HashMap<>();
+    private final Map<Path, Map<String, VehicleSettings>> cache = new ConcurrentHashMap<>();
 
     private final MissingAssetLogger logger;
     private final VehicleDataTableLoader dataTableLoader;

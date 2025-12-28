@@ -14,13 +14,14 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 final class VehicleDataTableLoader {
     private static final Logger LOGGER = LogManager.getLogger(VehicleDataTableLoader.class);
     private final ObjectMapper mapper;
     private final AssetResolver resolver;
     private final MissingAssetLogger logger;
-    private final Map<Path, Map<String, VehicleDataRow>> cache = new HashMap<>();
+    private final Map<Path, Map<String, VehicleDataRow>> cache = new ConcurrentHashMap<>();
 
     VehicleDataTableLoader(ObjectMapper mapper, Path rootDir, MissingAssetLogger logger) {
         this.mapper = mapper;

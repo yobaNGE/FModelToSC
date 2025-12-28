@@ -1,55 +1,60 @@
-# Vehicle Extractor - Usage Examples
+﻿# Vehicle Extractor - Usage Examples
 
 ## Quick Start Examples
 
 ### Example 1: Extract ALL vehicles
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "all_vehicles.txt"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "all_vehicles.txt"
 ```
 
 ### Example 2: Extract only Main Battle Tanks (MBT)
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "mbts.txt" -VehTypes "MBT"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "mbts.txt" -VehTypes "MBT"
 ```
 
 ### Example 3: Extract all helicopters (Attack + Utility)
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "helicopters.txt" -VehTypes "AH,UH"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "helicopters.txt" -VehTypes "AH,UH"
 ```
 
 ### Example 4: Extract vehicles with ATGM capability
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "atgm_vehicles.txt" -VehTags "ATGM"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "atgm_vehicles.txt" -VehTags "ATGM"
 ```
 
 ### Example 5: Extract heavy armor (MBT, IFV, APC with Heavy tag)
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "heavy_armor.txt" -VehTypes "MBT,IFV,APC" -VehTags "Class_Heavy"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "heavy_armor.txt" -VehTypes "MBT,IFV,APC" -VehTags "Class_Heavy"
 ```
 
 ### Example 6: Extract all logistics vehicles
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "logistics.txt" -VehTypes "LOGI"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "logistics.txt" -VehTypes "LOGI"
 ```
 
 ### Example 7: Extract light vehicles
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "light_vehicles.txt" -VehTags "Class_Light"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "light_vehicles.txt" -VehTags "Class_Light"
 ```
 
 ### Example 8: Extract amphibious vehicles (Watercraft tag)
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "watercraft.txt" -VehTags "Watercraft"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "watercraft.txt" -VehTags "Watercraft"
 ```
 
 ### Example 9: Extract transport vehicles
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "transports.txt" -VehTypes "TRAN"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "transports.txt" -VehTypes "TRAN"
 ```
 
 ### Example 10: Extract artillery (Self-Propelled Artillery)
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\units.json" -OutputFile "artillery.txt" -VehTypes "SPA"
+powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "artillery.txt" -VehTypes "SPA"
+```
+
+### Example 11: Export unique weapons from vehicles.json
+```powershell
+powershell.exe -ExecutionPolicy Bypass -File export_unique_weapons.ps1 -InputFile "output\vehicles.json" -OutputFile "unique_weapons.json"
 ```
 
 ---
@@ -99,4 +104,3 @@ powershell.exe -ExecutionPolicy Bypass -File extract_vehicles.ps1 -InputFile "ou
 - Filters work together (AND logic): vehicles must match BOTH type AND tag filters
 - Leave filters empty to extract all vehicles
 - The script automatically removes duplicates based on `type:rawType` combination
-

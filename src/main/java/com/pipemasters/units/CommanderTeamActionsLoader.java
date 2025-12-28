@@ -27,7 +27,7 @@ final class CommanderTeamActionsLoader {
     private static final String PROPERTY_TABLES = "units.commanderTeamActionTables";
     private static final String ENV_TABLES = "UNITS_COMMANDER_TEAM_ACTION_TABLES";
     private static final List<String> DEFAULT_TABLES = List.of(
-//            "Settings/Actions/Commander/SD_DT_TeamCommandActions.json",
+//            "Settings/Actions/Commander/SD_DT_TeamCommandActions.json", FIXME: this need to be changed to mod path
             "SquadGame/Plugins/Mods/Steel_Division/Content/Settings/Actions/Commander/SD_DT_TeamCommandActions.json"
     );
 

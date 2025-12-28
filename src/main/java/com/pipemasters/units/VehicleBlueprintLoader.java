@@ -9,13 +9,18 @@ import com.pipemasters.util.MissingAssetLogger;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 final class VehicleBlueprintLoader {
     private final ObjectMapper mapper;
     private final AssetResolver resolver;
     private final MissingAssetLogger logger;
-    private final Map<Path, VehicleBlueprintInfo> cache = new HashMap<>();
+    private final Map<Path, VehicleBlueprintInfo> cache = new ConcurrentHashMap<>();
 
     VehicleBlueprintLoader(ObjectMapper mapper, Path rootDir, MissingAssetLogger logger) {
         this.mapper = mapper;

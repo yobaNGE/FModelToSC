@@ -1,6 +1,6 @@
 # Vehicle Extractor Script
-# Extracts vehicles from JSON files based on vehType and vehTags filters
-# Usage: .\extract_vehicles.ps1 -InputFile "path\to\file.json" -OutputFile "vehicles.txt" [-VehTypes "MBT,IFV"] [-VehTags "Class_Heavy,ATGM"]
+# Extracts vehicles from vehicles.json based on vehType and vehTags filters
+# Usage: .\extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "vehicles.txt" [-VehTypes "MBT,IFV"] [-VehTags "Class_Heavy,ATGM"]
 
 param(
     [Parameter(Mandatory=$true)]
@@ -16,6 +16,38 @@ param(
     [string]$VehTags = ""    # Comma-separated list (e.g., "Class_Heavy,ATGM")
 )
 
+$scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$projectRoot = Resolve-Path (Join-Path $scriptDir "..")
+
+function Resolve-InputPath {
+    param([string]$PathValue)
+
+    if (Test-Path -LiteralPath $PathValue) {
+        return (Resolve-Path -LiteralPath $PathValue).Path
+    }
+    if ([System.IO.Path]::IsPathRooted($PathValue)) {
+        return $null
+    }
+    $candidate = Join-Path $projectRoot $PathValue
+    if (Test-Path -LiteralPath $candidate) {
+        return (Resolve-Path -LiteralPath $candidate).Path
+    }
+    return $null
+}
+
+function Resolve-OutputPath {
+    param([string]$PathValue)
+
+    if ([System.IO.Path]::IsPathRooted($PathValue)) {
+        return $PathValue
+    }
+    $dir = [System.IO.Path]::GetDirectoryName($PathValue)
+    if ([string]::IsNullOrWhiteSpace($dir)) {
+        return $PathValue
+    }
+    return (Join-Path $projectRoot $PathValue)
+}
+
 # Available vehicle types from VehicleSettingsLoader.java:
 # RSV, IFV, APC, MBT, LOGI, LTV, UH, AH, ULTV, SPAA, MRAP, TRAN, SPA, TD, MGS, MSV
 
@@ -27,9 +59,17 @@ Write-Host "=========================" -ForegroundColor Cyan
 Write-Host ""
 
 # Check if input file exists
-if (-not (Test-Path $InputFile)) {
+$resolvedInput = Resolve-InputPath -PathValue $InputFile
+if (-not $resolvedInput) {
     Write-Host "Error: Input file '$InputFile' not found!" -ForegroundColor Red
     exit 1
+}
+$InputFile = $resolvedInput
+
+$OutputFile = Resolve-OutputPath -PathValue $OutputFile
+$outputDir = Split-Path -Parent $OutputFile
+if (-not [string]::IsNullOrWhiteSpace($outputDir)) {
+    New-Item -ItemType Directory -Force -Path $outputDir | Out-Null
 }
 
 # Parse filter lists
@@ -115,30 +155,38 @@ function Process-Vehicles {
     return $count
 }
 
-# Process team1Units
 $team1Count = 0
-$team1StartCount = $script:vehicleList.Count
-if ($data.team1Units) {
-    Write-Host "`nProcessing team1Units..." -ForegroundColor Cyan
-    foreach ($unit in $data.team1Units) {
-        if ($unit.vehicles) {
-            Process-Vehicles -vehicles $unit.vehicles -teamName "Team1" | Out-Null
-        }
-    }
-    $team1Count = $script:vehicleList.Count - $team1StartCount
-}
-
-# Process team2Units
 $team2Count = 0
-$team2StartCount = $script:vehicleList.Count
-if ($data.team2Units) {
-    Write-Host "`nProcessing team2Units..." -ForegroundColor Cyan
-    foreach ($unit in $data.team2Units) {
-        if ($unit.vehicles) {
-            Process-Vehicles -vehicles $unit.vehicles -teamName "Team2" | Out-Null
+
+if ($data -is [System.Array]) {
+    Write-Host "`nProcessing vehicles list..." -ForegroundColor Cyan
+    Process-Vehicles -vehicles $data -teamName "Vehicles" | Out-Null
+} elseif ($data.team1Units -or $data.team2Units) {
+    # Backward-compatible path for units.json
+    $team1StartCount = $script:vehicleList.Count
+    if ($data.team1Units) {
+        Write-Host "`nProcessing team1Units..." -ForegroundColor Cyan
+        foreach ($unit in $data.team1Units) {
+            if ($unit.vehicles) {
+                Process-Vehicles -vehicles $unit.vehicles -teamName "Team1" | Out-Null
+            }
         }
+        $team1Count = $script:vehicleList.Count - $team1StartCount
     }
-    $team2Count = $script:vehicleList.Count - $team2StartCount
+
+    $team2StartCount = $script:vehicleList.Count
+    if ($data.team2Units) {
+        Write-Host "`nProcessing team2Units..." -ForegroundColor Cyan
+        foreach ($unit in $data.team2Units) {
+            if ($unit.vehicles) {
+                Process-Vehicles -vehicles $unit.vehicles -teamName "Team2" | Out-Null
+            }
+        }
+        $team2Count = $script:vehicleList.Count - $team2StartCount
+    }
+} else {
+    Write-Host "Error: Unsupported JSON format. Expected vehicles.json array." -ForegroundColor Red
+    exit 1
 }
 
 # Sort vehicles alphabetically
@@ -158,8 +206,10 @@ Write-Host ""
 Write-Host "=========================" -ForegroundColor Cyan
 Write-Host "Summary:" -ForegroundColor Cyan
 Write-Host "  Total unique vehicles found: $($script:vehicleList.Count)" -ForegroundColor White
-Write-Host "  From team1Units: $team1Count" -ForegroundColor White
-Write-Host "  From team2Units: $team2Count" -ForegroundColor White
+if ($team1Count -gt 0 -or $team2Count -gt 0) {
+    Write-Host "  From team1Units: $team1Count" -ForegroundColor White
+    Write-Host "  From team2Units: $team2Count" -ForegroundColor White
+}
 Write-Host "  Output saved to: $OutputFile" -ForegroundColor Green
 Write-Host "=========================" -ForegroundColor Cyan
 

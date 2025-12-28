@@ -11,8 +11,8 @@ import com.pipemasters.util.MissingAssetLogger;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 final class DelayLoader {
     private static final Logger LOGGER = LogManager.getLogger(DelayLoader.class);
@@ -20,7 +20,7 @@ final class DelayLoader {
 
     private final ObjectMapper mapper;
     private final AssetResolver resolver;
-    private final Map<Path, DelaySettings> cache = new HashMap<>();
+    private final Map<Path, DelaySettings> cache = new ConcurrentHashMap<>();
     private final MissingAssetLogger logger;
 
 

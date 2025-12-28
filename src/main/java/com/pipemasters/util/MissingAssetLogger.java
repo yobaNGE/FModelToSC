@@ -21,8 +21,8 @@ public final class MissingAssetLogger {
     private static final Path DEFAULT_OUTPUT_FILE = Path.of("missing-assets.txt");
     private static final Set<Path> RESET_OUTPUT_FILES = Collections.synchronizedSet(new HashSet<>());
 
-    private final Set<String> messages = new HashSet<>();
-    private final Set<String> recordedPaths = new HashSet<>();
+    private final Set<String> messages = Collections.synchronizedSet(new HashSet<>());
+    private final Set<String> recordedPaths = Collections.synchronizedSet(new HashSet<>());
     private final Path rootDir;
     private final Path exportsDir;
     private final String rootDirForward;
@@ -211,9 +211,30 @@ public final class MissingAssetLogger {
                 segments.add("SquadGame");
                 segments.add("Content");
             }
+        } else if (isModRoot(cleaned)) {
+            segments.add("SquadGame");
+            segments.add("Plugins");
+            segments.add("Mods");
+            segments.add(cleaned);
+            segments.add("Content");
         } else {
             segments.add(cleaned);
         }
+    }
+
+    private boolean isModRoot(String segment) {
+        if (segment == null || segment.isBlank()) {
+            return false;
+        }
+        String lower = segment.trim().toLowerCase(Locale.ROOT);
+        return !lower.equals("game")
+                && !lower.equals("steel_division")
+                && !lower.equals("script")
+                && !lower.equals("engine")
+                && !lower.equals("squadgame")
+                && !lower.equals("plugins")
+                && !lower.equals("mods")
+                && !lower.equals("content");
     }
 
     private String toJsonFileName(String segment) {

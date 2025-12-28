@@ -11,7 +11,7 @@
 
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="[%d{HH:mm:ss} %highlight{%-5p}{FATAL=red bright, ERROR=red, WARN=yellow, INFO=green, DEBUG=cyan, TRACE=blue}] %c - %m%n"/>
+            <PatternLayout pattern="[%d{HH:mm:ss} %t %highlight{%-5p}{FATAL=red bright, ERROR=red, WARN=yellow, INFO=green, DEBUG=cyan, TRACE=blue}] %c - %m%n"/>
         </Console>
     </Appenders>
 
