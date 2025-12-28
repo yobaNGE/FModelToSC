@@ -15,10 +15,6 @@
   "ticketValue" : 5,
   "ATGM" : false,
   "weapons" : [ {
-    "weaponName" : "Smoke Generator",
-    "rawWeaponName" : "SmokeGenerator_Wheeled_C",
-    "rawProjectileName" : "BP_ProjectileBlank_C"
-  }, {
     "weaponName" : "M2A1 Browning CROWS",
     "rawWeaponName" : "BP_M1126_CROWS_M2_C",
     "rawProjectileName" : "BP_Projectile_50cal_C"
@@ -64,10 +60,6 @@
     "weaponName" : "M2A1 Browning CROWS",
     "rawWeaponName" : "BP_CROWS_M2_Woodland_Green_C",
     "rawProjectileName" : "BP_Projectile_50cal_C"
-  }, {
-    "weaponName" : "M2A1 Browning",
-    "rawWeaponName" : "BP_50Cal_M1151_C",
-    "rawProjectileName" : "BP_Projectile_50cal_C"
   } ]
 }, {
   "type" : "Ejder Yalcin",
@@ -93,10 +85,6 @@
     "weaponName" : "40mm Smoke Launchers",
     "rawWeaponName" : "SD_Smoke_Launcher_Ejder_C",
     "rawProjectileName" : "BP_VehicleSmoke_Proj_C"
-  }, {
-    "weaponName" : "M2A1 Browning",
-    "rawWeaponName" : "BP_50Cal_M1151_C",
-    "rawProjectileName" : "BP_Projectile_50cal_C"
   } ]
 }, {
   "type" : "M-ATV MADIS",
@@ -143,10 +131,6 @@
     "weaponName" : "GAU 20mm",
     "rawWeaponName" : "BP_GAU20mm_UH60_DoorGun_C",
     "rawProjectileName" : "BP_TracerTunguska_30mm_HE_C"
-  }, {
-    "weaponName" : "GAU-17/A Minigun",
-    "rawWeaponName" : "BP_M134_UH60_DoorGun_C",
-    "rawProjectileName" : "BP_Projectile_7_62mm_C"
   } ]
 }, {
   "type" : "AH-6 Little Bird GAU-19",
@@ -416,7 +400,7 @@
     "rawProjectileName" : "BP_ProjectileBlank_C"
   }, {
     "weaponName" : "Detonator Switch",
-    "rawWeaponName" : "BP_GenericGerryDMS_Parent_C",
+    "rawWeaponName" : "BP_GenericGerryDMS_Light_Gerry_C",
     "rawProjectileName" : ""
   }, {
     "weaponName" : "PG-15V High Explosive Anti-Tank",
@@ -2319,6 +2303,129 @@
   "ATGM" : false,
   "weapons" : [ ]
 }, {
+  "type" : "M939 Transport",
+  "rawType" : "SD_BP_US_Util_Woodland_C",
+  "icon" : "map_truck_transport",
+  "count" : 2,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "TRAN",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 15,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Light" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "KamAZ 5350 Transport",
+  "rawType" : "SD_BP_Kamaz_5350_C",
+  "icon" : "map_truck_transport",
+  "count" : 2,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "TRAN",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 17,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Light" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "KamAZ 5350 Logistics Truck",
+  "rawType" : "SD_BP_Kamaz_5350_Logi_C",
+  "icon" : "map_truck_logistics",
+  "count" : 4,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "LOGI",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 11,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "Logistics Pickup Truck",
+  "rawType" : "SD_BP_Technical4Seater_Logi_Ukraine_C",
+  "icon" : "map_jeep_logistics",
+  "count" : 4,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "LOGI",
+  "spawnerSize" : "Car",
+  "passengerSeats" : 4,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Medium" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "Dshk",
+    "rawWeaponName" : "BP_DShK_Technical_Shield_C",
+    "rawProjectileName" : "BP_Projectile_Green50_C"
+  } ]
+}, {
+  "type" : "BMC-185 Logsitics",
+  "rawType" : "SD_BP_BMC_UMOG_Logi_C",
+  "icon" : "map_truck_logistics",
+  "count" : 4,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "LOGI",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 8,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "BMC-185 Transport",
+  "rawType" : "SD_BP_BMC_UMOG_Transport_C",
+  "icon" : "map_truck_transport",
+  "count" : 2,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "TRAN",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 12,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Light" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "M939 Logistics Truck",
+  "rawType" : "SD_BP_US_Util_Woodland_Logi_C",
+  "icon" : "map_truck_logistics",
+  "count" : 4,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "LOGI",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 9,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
   "type" : "RHIB Logistics",
   "rawType" : "SD_BP_RHIB_Logistics_RED_C",
   "icon" : "map_boat_logistics",
@@ -2534,40 +2641,6 @@
     "rawWeaponName" : "BP_MLRS_C",
     "rawProjectileName" : "BP_HIMARS_Rocket_Proj2_C"
   } ]
-}, {
-  "type" : "BMC-185 Transport",
-  "rawType" : "SD_BP_BMC_UMOG_Transport_C",
-  "icon" : "map_truck_transport",
-  "count" : 2,
-  "delay" : 6,
-  "respawnTime" : 3,
-  "singleUse" : false,
-  "vehType" : "TRAN",
-  "spawnerSize" : "APC",
-  "passengerSeats" : 12,
-  "driverSeats" : 1,
-  "vehTags" : [ "Class_Light" ],
-  "isAmphibious" : false,
-  "ticketValue" : 5,
-  "ATGM" : false,
-  "weapons" : [ ]
-}, {
-  "type" : "BMC-185 Logsitics",
-  "rawType" : "SD_BP_BMC_UMOG_Logi_C",
-  "icon" : "map_truck_logistics",
-  "count" : 3,
-  "delay" : 0,
-  "respawnTime" : 3,
-  "singleUse" : false,
-  "vehType" : "LOGI",
-  "spawnerSize" : "APC",
-  "passengerSeats" : 8,
-  "driverSeats" : 1,
-  "vehTags" : [ "Class_Heavy" ],
-  "isAmphibious" : false,
-  "ticketValue" : 5,
-  "ATGM" : false,
-  "weapons" : [ ]
 }, {
   "type" : "BMC Kirpi",
   "rawType" : "BP_BMC_Kirpi_C",
@@ -2804,40 +2877,6 @@
     "rawWeaponName" : "BP_T72S_Kord_Cupola_Weapon_C",
     "rawProjectileName" : "BP_Projectile_50cal_C"
   } ]
-}, {
-  "type" : "M939 Logistics Truck",
-  "rawType" : "SD_BP_US_Util_Woodland_Logi_C",
-  "icon" : "map_truck_logistics",
-  "count" : 4,
-  "delay" : 0,
-  "respawnTime" : 3,
-  "singleUse" : false,
-  "vehType" : "LOGI",
-  "spawnerSize" : "APC",
-  "passengerSeats" : 9,
-  "driverSeats" : 1,
-  "vehTags" : [ "Class_Heavy" ],
-  "isAmphibious" : false,
-  "ticketValue" : 5,
-  "ATGM" : false,
-  "weapons" : [ ]
-}, {
-  "type" : "M939 Transport",
-  "rawType" : "SD_BP_US_Util_Woodland_C",
-  "icon" : "map_truck_transport",
-  "count" : 1,
-  "delay" : 6,
-  "respawnTime" : 3,
-  "singleUse" : false,
-  "vehType" : "TRAN",
-  "spawnerSize" : "APC",
-  "passengerSeats" : 15,
-  "driverSeats" : 1,
-  "vehTags" : [ "Class_Light" ],
-  "isAmphibious" : false,
-  "ticketValue" : 5,
-  "ATGM" : false,
-  "weapons" : [ ]
 }, {
   "type" : "M-ATV M2 HB",
   "rawType" : "SD_BP_MATV_Woodland_C",
@@ -3099,40 +3138,6 @@
     "rawWeaponName" : "BP_SPG9_Frag_C",
     "rawProjectileName" : "BP_SPG9_og9v_Frag_Proj2_C"
   } ]
-}, {
-  "type" : "KamAZ 5350 Transport",
-  "rawType" : "SD_BP_Kamaz_5350_C",
-  "icon" : "map_truck_transport",
-  "count" : 1,
-  "delay" : 6,
-  "respawnTime" : 3,
-  "singleUse" : false,
-  "vehType" : "TRAN",
-  "spawnerSize" : "APC",
-  "passengerSeats" : 17,
-  "driverSeats" : 1,
-  "vehTags" : [ "Class_Light" ],
-  "isAmphibious" : false,
-  "ticketValue" : 5,
-  "ATGM" : false,
-  "weapons" : [ ]
-}, {
-  "type" : "KamAZ 5350 Logistics Truck",
-  "rawType" : "SD_BP_Kamaz_5350_Logi_C",
-  "icon" : "map_truck_logistics",
-  "count" : 3,
-  "delay" : 0,
-  "respawnTime" : 3,
-  "singleUse" : false,
-  "vehType" : "LOGI",
-  "spawnerSize" : "APC",
-  "passengerSeats" : 11,
-  "driverSeats" : 1,
-  "vehTags" : [ "Class_Heavy" ],
-  "isAmphibious" : false,
-  "ticketValue" : 5,
-  "ATGM" : false,
-  "weapons" : [ ]
 }, {
   "type" : "Tigr-M Kord",
   "rawType" : "SD_BP_Tigr_C",
@@ -3584,27 +3589,6 @@
     "weaponName" : "M2A1 Browning",
     "rawWeaponName" : "BP_50Cal_M1151_USMC_Woodland_C",
     "rawProjectileName" : "BP_Projectile_50cal_C"
-  } ]
-}, {
-  "type" : "Logistics Pickup Truck",
-  "rawType" : "SD_BP_Technical4Seater_Logi_Ukraine_C",
-  "icon" : "map_jeep_logistics",
-  "count" : 1,
-  "delay" : 0,
-  "respawnTime" : 3,
-  "singleUse" : false,
-  "vehType" : "LOGI",
-  "spawnerSize" : "Car",
-  "passengerSeats" : 4,
-  "driverSeats" : 1,
-  "vehTags" : [ "Class_Medium" ],
-  "isAmphibious" : false,
-  "ticketValue" : 5,
-  "ATGM" : false,
-  "weapons" : [ {
-    "weaponName" : "Dshk",
-    "rawWeaponName" : "BP_DShK_Technical_Shield_C",
-    "rawProjectileName" : "BP_Projectile_Green50_C"
   } ]
 }, {
   "type" : "M2A2",

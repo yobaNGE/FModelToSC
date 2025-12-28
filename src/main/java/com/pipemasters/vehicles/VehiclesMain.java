@@ -56,7 +56,7 @@ public final class VehiclesMain {
         Path outputDir = projectRoot.resolve("output");
         Files.createDirectories(outputDir);
 
-        Path outputPath = outputDir.resolve("vehiclesSPM.json");
+        Path outputPath = outputDir.resolve("vehiclesSD.json");
         Files.deleteIfExists(outputPath);
         mapper.writeValue(outputPath.toFile(), vehicles);
 
