@@ -1,0 +1,550 @@
+[ {
+  "type" : "KamAZ 5350 Transport",
+  "rawType" : "BP_Kamaz_5350_Desert_C",
+  "icon" : "map_truck_transport",
+  "count" : 4,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "TRAN",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 17,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "KamAZ 5350 Logistics",
+  "rawType" : "BP_Kamaz_5350_Logi_Desert_C",
+  "icon" : "map_truck_logistics",
+  "count" : 3,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "LOGI",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 11,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "Tigr-M Kord",
+  "rawType" : "BP_Tigr_Desert_C",
+  "icon" : "map_jeep",
+  "count" : 3,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "MRAP",
+  "spawnerSize" : "Car",
+  "passengerSeats" : 7,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Medium" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "Kord",
+    "rawWeaponName" : "BP_Kord_Tigr_C",
+    "rawProjectileName" : "BP_Projectile_Green50_C"
+  }, {
+    "weaponName" : "40mm Smoke Launchers",
+    "rawWeaponName" : "BP_Smoke_Launcher_Tigr_Driver_C",
+    "rawProjectileName" : "BP_VehicleSmoke_Proj_C"
+  } ]
+}, {
+  "type" : "BTR-MDM",
+  "rawType" : "BP_BTRMDM_PKT_RWS_Desert_C",
+  "icon" : "map_trackedapc",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "APC",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 14,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Medium", "Watercraft" ],
+  "isAmphibious" : true,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "PKT 7.62 RWS Machine Gun",
+    "rawWeaponName" : "BP_PK_RWS_Gun_C",
+    "rawProjectileName" : "BP_Projectile_7_62mm_C"
+  }, {
+    "weaponName" : "PKT Machine Gun",
+    "rawWeaponName" : "BP_BTRMDM_Bow_PKT_C",
+    "rawProjectileName" : "BP_Projectile_7_62mm_C"
+  } ]
+}, {
+  "type" : "BMD-4M",
+  "rawType" : "BP_BMD4M_Desert_C",
+  "icon" : "map_trackedifv",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "IFV",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 7,
+  "driverSeats" : 1,
+  "vehTags" : [ "ATGM", "Class_Medium", "Watercraft" ],
+  "isAmphibious" : true,
+  "ticketValue" : 10,
+  "ATGM" : true,
+  "weapons" : [ {
+    "weaponName" : "3UBR8 30mm Armor Piercing Discarding Sabot",
+    "rawWeaponName" : "BP_BMD4M_2A72_AP_C",
+    "rawProjectileName" : "BP_Projectile_30mm_AP_C"
+  }, {
+    "weaponName" : "3UOR6 30mm Fragmentation Tracer",
+    "rawWeaponName" : "BP_BMD4M_2A72_HE_C",
+    "rawProjectileName" : "BP_Projectile_30mm_HE_C"
+  }, {
+    "weaponName" : "PKT Coaxial Machine Gun",
+    "rawWeaponName" : "BP_BMD4M_2A70_coax_C",
+    "rawProjectileName" : "BP_Projectile_7_62mm_C"
+  }, {
+    "weaponName" : "3UOF19 100mm High-Explosive Fragmentation",
+    "rawWeaponName" : "BP_BMD4M_2A70_HEFrag_C",
+    "rawProjectileName" : "BP_Projectile_100mm_Frag_C"
+  }, {
+    "weaponName" : "9M117M1 Bastion Guided Missile",
+    "rawWeaponName" : "BP_BMD4M_APS03-100ATGM_C",
+    "rawProjectileName" : "BP_Refleks_Proj2_C"
+  }, {
+    "weaponName" : "40mm Smoke Launchers",
+    "rawWeaponName" : "BP_BMD4M_Smoke_Launcher_C",
+    "rawProjectileName" : "BP_VehicleSmoke_Proj_C"
+  }, {
+    "weaponName" : "Smoke Generator",
+    "rawWeaponName" : "SmokeGenerator_Tracked_C",
+    "rawProjectileName" : "BP_ProjectileBlank_C"
+  } ]
+}, {
+  "type" : "BRDM-2",
+  "rawType" : "BP_BRDM-2_RUS_Desert_C",
+  "icon" : "map_jeep_turret",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "LTV",
+  "spawnerSize" : "Car",
+  "passengerSeats" : 4,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy", "Watercraft" ],
+  "isAmphibious" : true,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "KPVT BZT Armor-Piercing Incendiary",
+    "rawWeaponName" : "BP_BRDM2_RUS_Desert_KPVT_C",
+    "rawProjectileName" : "BP_Projectile_14_5mm_C"
+  }, {
+    "weaponName" : "PKT Coaxial Machine Gun",
+    "rawWeaponName" : "BP_BRDM2_RUS_Desert_PKT_C",
+    "rawProjectileName" : "BP_Projectile_7_62mm_C"
+  }, {
+    "weaponName" : "40mm Smoke Launchers",
+    "rawWeaponName" : "BP_BRDM2_RUS_Desert_Smoke_Launcher_C",
+    "rawProjectileName" : "BP_VehicleSmoke_Proj_C"
+  } ]
+}, {
+  "type" : "Ural-375D BM-21 Grad",
+  "rawType" : "BP_BM21Grad_IMF_C",
+  "icon" : "map_truck_artillery",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "SPA",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 2,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Medium" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "9M22U 122mm Rocket",
+    "rawWeaponName" : "BP_BM21Grad_Weapon_IMF_C",
+    "rawProjectileName" : "BP_BM21_Rocket_Proj2_C"
+  } ]
+}, {
+  "type" : "Ural-375D ZU-23-2",
+  "rawType" : "BP_Ural_375_ZU23_MIL_C",
+  "icon" : "map_truck_antiair",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "SPAA",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 3,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Light" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "ZU-23 OFZT Fragmentation Tracer",
+    "rawWeaponName" : "BP_Emplaced_ZU23-2_Antiaircannon_Weapon_C",
+    "rawProjectileName" : "BP_Projectile_23mm_HE_C"
+  } ]
+}, {
+  "type" : "MT-LB FAB500 Begemot",
+  "rawType" : "BP_MTLB_FAB500_SATP_C",
+  "icon" : "map_trackedjeep",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "SPA",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 17,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 10,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "450mm FAB-500 Cannon",
+    "rawWeaponName" : "BP_SATFAB500_Weapon_Cannon_C",
+    "rawProjectileName" : "BP2_SATProjectile_FAB500_Timed_C"
+  } ]
+}, {
+  "type" : "VDV Little Knyaz CAS",
+  "rawType" : "BP_Loach_VDV_CAS_Small_C",
+  "icon" : "map_attackhelo",
+  "count" : 9,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "AH",
+  "spawnerSize" : "Helicopter",
+  "passengerSeats" : 1,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Medium" ],
+  "isAmphibious" : false,
+  "ticketValue" : 10,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "GAU-17/A Minigun",
+    "rawWeaponName" : "BP_M134_Loach_Dual_C",
+    "rawProjectileName" : "BP_Projectile_Red_762mm_Minigun_C"
+  }, {
+    "weaponName" : "M151 HEDP",
+    "rawWeaponName" : "BP_Hydra_Loach_Small_Single_Right_C",
+    "rawProjectileName" : "BP_Hydra70_Proj2_C"
+  }, {
+    "weaponName" : "M156 Smoke",
+    "rawWeaponName" : "BP_Hydra_Loach_Small_Smoke_Single_Left_C",
+    "rawProjectileName" : "BP_Hydra70_Smoke_Proj2_C"
+  } ]
+}, {
+  "type" : "T-90A",
+  "rawType" : "BP_T90A_Desert_TBSAT_C",
+  "icon" : "map_tank",
+  "count" : 3,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "MBT",
+  "spawnerSize" : "MBT",
+  "passengerSeats" : 2,
+  "driverSeats" : 1,
+  "vehTags" : [ "ATGM", "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 15,
+  "ATGM" : true,
+  "weapons" : [ {
+    "weaponName" : "3BM60 125mm Armor-Piercing Sabot",
+    "rawWeaponName" : "BP_2A46M_AP_C",
+    "rawProjectileName" : "BP_Projectile_120mm_AP_C"
+  }, {
+    "weaponName" : "3BK29M 125mm High Explosive Anti-Tank",
+    "rawWeaponName" : "BP_2A46M_HEAT_C",
+    "rawProjectileName" : "BP_Projectile_125mm_HEAT_C"
+  }, {
+    "weaponName" : "PKT Coaxial Machine Gun",
+    "rawWeaponName" : "BP_2A46M_coax_C",
+    "rawProjectileName" : "BP_Projectile_7_62mm_C"
+  }, {
+    "weaponName" : "40mm Smoke Launchers",
+    "rawWeaponName" : "BP_Smoke_Launcher_T90A_C",
+    "rawProjectileName" : "BP_VehicleSmoke_Proj_C"
+  }, {
+    "weaponName" : "9M119M Refleks Guided Missile",
+    "rawWeaponName" : "BP_9M119MRefleks_ATGM_T90A_C",
+    "rawProjectileName" : "BP_Refleks_Proj2_C"
+  }, {
+    "weaponName" : "3OF82 125mm Fragmentation",
+    "rawWeaponName" : "BP_2A46M_Frag_C",
+    "rawProjectileName" : "BP_Projectile_125mm_Frag_C"
+  }, {
+    "weaponName" : "NSVT",
+    "rawWeaponName" : "BP_T90A_Kord_Cupola_Weapon_Desert_C",
+    "rawProjectileName" : "BP_Projectile_50cal_C"
+  } ]
+}, {
+  "type" : "M939 Transport",
+  "rawType" : "BP_WPMC_Util_Black_C",
+  "icon" : "map_truck_transport",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "TRAN",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 15,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "CPV Transport",
+  "rawType" : "BP_CPV_Transport_C",
+  "icon" : "map_jeep_transport",
+  "count" : 4,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "MRAP",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 11,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Light" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "M939 Logistics",
+  "rawType" : "BP_WPMC_Util_Black_Logi_C",
+  "icon" : "map_truck_logistics",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "LOGI",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 9,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ ]
+}, {
+  "type" : "Technical Logistics",
+  "rawType" : "BP_Technical4Seater_Logi_Black_C",
+  "icon" : "map_jeep_logistics",
+  "count" : 3,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "LOGI",
+  "spawnerSize" : "Car",
+  "passengerSeats" : 4,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Light" ],
+  "isAmphibious" : false,
+  "ticketValue" : 1,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "Dshk",
+    "rawWeaponName" : "BP_DShK_Technical_Shield_C",
+    "rawProjectileName" : "BP_Projectile_Green50_C"
+  } ]
+}, {
+  "type" : "CPV M134 Minigun",
+  "rawType" : "BP_CPV_M134_C",
+  "icon" : "map_jeep",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "MRAP",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 9,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Light" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "M134 Minigun",
+    "rawWeaponName" : "BP_M134_Weapon_CPV_C",
+    "rawProjectileName" : "BP_Projectile_Red_762mm_C"
+  } ]
+}, {
+  "type" : "M1151 M2",
+  "rawType" : "BP_M1151_WPMC_C",
+  "icon" : "map_jeep",
+  "count" : 3,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "LTV",
+  "spawnerSize" : "Car",
+  "passengerSeats" : 4,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Light" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "M2A1 Browning",
+    "rawWeaponName" : "BP_50Cal_M1151_Black_C",
+    "rawProjectileName" : "BP_Projectile_50cal_C"
+  } ]
+}, {
+  "type" : "M1117",
+  "rawType" : "SD_BP_M1117_C",
+  "icon" : "map_jeep_turret",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "MRAP",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 5,
+  "driverSeats" : 1,
+  "vehTags" : [ "Low Caliber", "Class_Light" ],
+  "isAmphibious" : false,
+  "ticketValue" : 5,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "M2A1 Browning",
+    "rawWeaponName" : "BP_M1117_M2_C",
+    "rawProjectileName" : "BP_Projectile_50cal_C"
+  }, {
+    "weaponName" : "MK19",
+    "rawWeaponName" : "BP_M1117_MK19_C",
+    "rawProjectileName" : "BP_40MM_MK19_Proj_C"
+  }, {
+    "weaponName" : "40mm Smoke Launchers",
+    "rawWeaponName" : "Smoke_Launcher_M1117_C",
+    "rawProjectileName" : "BP_VehicleSmoke_Proj_C"
+  } ]
+}, {
+  "type" : "Loach CAS",
+  "rawType" : "BP_Loach_CAS_SAT_C",
+  "icon" : "map_attackhelo",
+  "count" : 9,
+  "delay" : 0,
+  "respawnTime" : 1,
+  "singleUse" : false,
+  "vehType" : "AH",
+  "spawnerSize" : "Helicopter",
+  "passengerSeats" : 1,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Medium" ],
+  "isAmphibious" : false,
+  "ticketValue" : 10,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "GAU-17/A Minigun",
+    "rawWeaponName" : "BP_M134_Loach_Dual_C",
+    "rawProjectileName" : "BP_Projectile_Red_762mm_Minigun_C"
+  }, {
+    "weaponName" : "M151 HEDP",
+    "rawWeaponName" : "BP_Hydra_Loach_Small_Single_Right_C",
+    "rawProjectileName" : "BP_Hydra70_Proj2_C"
+  }, {
+    "weaponName" : "M156 Smoke",
+    "rawWeaponName" : "BP_Hydra_Loach_Small_Smoke_Single_Left_C",
+    "rawProjectileName" : "BP_Hydra70_Smoke_Proj2_C"
+  } ]
+}, {
+  "type" : "M2A3",
+  "rawType" : "BP_BFV_C",
+  "icon" : "map_trackedifv",
+  "count" : 1,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "IFV",
+  "spawnerSize" : "APC",
+  "passengerSeats" : 9,
+  "driverSeats" : 1,
+  "vehTags" : [ "ATGM", "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 10,
+  "ATGM" : true,
+  "weapons" : [ {
+    "weaponName" : "M919 25mm Armor-Piercing Sabot",
+    "rawWeaponName" : "BFV_M252_AP_C",
+    "rawProjectileName" : "BP_Projectile_30mm_AP_C"
+  }, {
+    "weaponName" : "MK210 25mm High Explosive Incendiary",
+    "rawWeaponName" : "BFV_M252_HE_C",
+    "rawProjectileName" : "BP_Projectile_30mm_HE_C"
+  }, {
+    "weaponName" : "BGM-71 TOW High Explosive Anti-Tank",
+    "rawWeaponName" : "BP_BFV_vehicleTOW_C",
+    "rawProjectileName" : "BP_TOW_Proj_C"
+  }, {
+    "weaponName" : "Smoke Generator",
+    "rawWeaponName" : "SmokeGenerator_Tracked_C",
+    "rawProjectileName" : "BP_ProjectileBlank_C"
+  }, {
+    "weaponName" : "M240C Coaxial Machine Gun",
+    "rawWeaponName" : "BP_BFV_762_C",
+    "rawProjectileName" : "BP_Projectile_RedCOAX_762mm_C"
+  }, {
+    "weaponName" : "40mm Smoke Launchers",
+    "rawWeaponName" : "Smoke_Launcher_BFV_C",
+    "rawProjectileName" : "BP_VehicleSmoke_Proj_C"
+  } ]
+}, {
+  "type" : "M1A2",
+  "rawType" : "BP_M1A2_TBSAT_C",
+  "icon" : "map_tank",
+  "count" : 3,
+  "delay" : 0,
+  "respawnTime" : 3,
+  "singleUse" : false,
+  "vehType" : "MBT",
+  "spawnerSize" : "MBT",
+  "passengerSeats" : 3,
+  "driverSeats" : 1,
+  "vehTags" : [ "Class_Heavy" ],
+  "isAmphibious" : false,
+  "ticketValue" : 15,
+  "ATGM" : false,
+  "weapons" : [ {
+    "weaponName" : "M829A4 120mm Armor-Piercing Sabot",
+    "rawWeaponName" : "BP_M256A1_AP_C",
+    "rawProjectileName" : "BP_Projectile_120mm_AP_C"
+  }, {
+    "weaponName" : "M830A1 120mm High Explosive Anti-Tank",
+    "rawWeaponName" : "BP_M256A1_HEAT_C",
+    "rawProjectileName" : "BP_Projectile_120mm_HEAT_C"
+  }, {
+    "weaponName" : "M240 Coaxial Machine Gun",
+    "rawWeaponName" : "BP_M256A1_coax_C",
+    "rawProjectileName" : "BP_Projectile_RedCOAX_762mm_C"
+  }, {
+    "weaponName" : "40mm Smoke Launchers",
+    "rawWeaponName" : "BP_Smoke_Launcher_M1A2_C",
+    "rawProjectileName" : "BP_VehicleSmoke_Proj_C"
+  }, {
+    "weaponName" : "M2A1 Browning CROWS",
+    "rawWeaponName" : "BP_CROWS_M2_C",
+    "rawProjectileName" : "BP_Projectile_50cal_C"
+  }, {
+    "weaponName" : "M240B",
+    "rawWeaponName" : "BP_M240_Loaders_Weapon_C",
+    "rawProjectileName" : "BP_Projectile_7_62mm_C"
+  } ]
+} ]

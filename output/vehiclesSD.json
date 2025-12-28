@@ -4497,7 +4497,7 @@
   "weapons" : [ {
     "weaponName" : "ZU-23 OFZT Fragmentation Tracer",
     "rawWeaponName" : "BP_ZU-23_Mi8_Terminator_C",
-    "rawProjectileName" : "BP_Projectile_23mm_HE_C"
+    "rawProjectileName" : "BP_Projectile_23mm_HE_C",BP_Loach
   }, {
     "weaponName" : "S-5 Rockets",
     "rawWeaponName" : "BP_S5Rockets_Terminator_C",

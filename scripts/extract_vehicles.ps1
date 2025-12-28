@@ -1,13 +1,13 @@
 # Vehicle Extractor Script
 # Extracts vehicles from vehicles.json based on vehType and vehTags filters
-# Usage: .\extract_vehicles.ps1 -InputFile "output\vehicles.json" -OutputFile "vehicles.txt" [-VehTypes "MBT,IFV"] [-VehTags "Class_Heavy,ATGM"]
+# Usage: .\extract_vehicles.ps1 -InputFile "output\vehiclesSD.json" -OutputFile "vehicles_filtered.json" [-VehTypes "MBT,IFV"] [-VehTags "Class_Heavy,ATGM"]
 
 param(
     [Parameter(Mandatory=$true)]
     [string]$InputFile,
 
     [Parameter(Mandatory=$false)]
-    [string]$OutputFile = "vehicles_output.txt",
+    [string]$OutputFile = "vehicles_filtered.json",
 
     [Parameter(Mandatory=$false)]
     [string]$VehTypes = "",  # Comma-separated list (e.g., "MBT,IFV,APC")
@@ -98,8 +98,8 @@ try {
     exit 1
 }
 
-# HashSet to track unique vehicles (by type:rawType)
-$script:uniqueVehicles = @{}
+# HashSet to track unique vehicles (by type:rawType key, but store full vehicle objects)
+$script:uniqueVehicleKeys = @{}
 $script:vehicleList = @()
 
 # Function to check if vehicle matches filters
@@ -143,9 +143,9 @@ function Process-Vehicles {
                 $key = "$($vehicle.type):$($vehicle.rawType)"
 
                 # Add only if not duplicate
-                if (-not $script:uniqueVehicles.ContainsKey($key)) {
-                    $script:uniqueVehicles[$key] = $true
-                    $script:vehicleList += $key
+                if (-not $script:uniqueVehicleKeys.ContainsKey($key)) {
+                    $script:uniqueVehicleKeys[$key] = $true
+                    $script:vehicleList += $vehicle
                     $count++
                     Write-Host "  [+] $key" -ForegroundColor Gray
                 }
@@ -189,13 +189,14 @@ if ($data -is [System.Array]) {
     exit 1
 }
 
-# Sort vehicles alphabetically
-$script:vehicleList = $script:vehicleList | Sort-Object
+# Sort vehicles alphabetically by type
+$script:vehicleList = $script:vehicleList | Sort-Object -Property type
 
-# Write to output file
+# Write to output file as JSON
 Write-Host "`nWriting results to: $OutputFile" -ForegroundColor Green
 try {
-    $script:vehicleList | Out-File -FilePath $OutputFile -Encoding UTF8
+    $jsonOutput = $script:vehicleList | ConvertTo-Json -Depth 10
+    $jsonOutput | Out-File -FilePath $OutputFile -Encoding UTF8
     Write-Host "  Successfully wrote $($script:vehicleList.Count) vehicles" -ForegroundColor Green
 } catch {
     Write-Host "  Error writing file: $_" -ForegroundColor Red
